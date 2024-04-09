@@ -1,25 +1,22 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: PhD student, <a href="https://me.jhu.edu">Mechanical Engineering, Johns Hopkins University, Baltimore, MD.</a>
 
 profile:
   align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  image: my_pic.jpg
+  image_circular: true # crops the image to make it circular
+  more_info:
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+As of 2024, I am a 4th year PhD student in Mechanical Engineering (mechanics and materials track) in [Nguyen Lab](https://nguyenlab.wse.jhu.edu) at Johns Hopkins University, Baltimore, MD. Before Hopkins, I got my MS from Washington State University, Pullman, and BS from Bangladesh University of Engineering and Technology, Dhaka, all in Mechanical Engineering.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My research interests lie at the intersection of solid mechanics, computational methods, and materials modeling. Currently, I am working on developing multiphysics framework, constitutive models, and numerical implementations for stimuli-responsive hydrogels for soft sensing and robotics applications as well as water harvesting. Because of the uncanny fundamental similarities between soft active materials and biological tissues, I am also interested in the biomechanics of tissues. Previously, I worked on the thermomechanical failure of 2.5D/3D microelectronics packaging and continuum dislocation plasticity modeling.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Besides engineering, I have always found anthropology, mythology, and sociology very fascinating In leisure, I love watching standup comedies and sitcoms, listening to music, going on road trips, reading comics, and reading and [writing blogs](/blog/).

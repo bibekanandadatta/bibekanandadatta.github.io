@@ -1,12 +1,11 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - bibekananda-datta
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - bibekananda-datta/Abaqus-UEL-Elasticity
+  - bibekananda-datta/Abaqus-UEL-Hyperelasticity
+  - bibekananda-datta/JHU-Dissertation-Template
+  - bibekananda-datta/JH-MechE-Dissertation-Proposal-Template
+  - bibekananda-datta/LaTeX-Templates
+  - bibekananda-datta/Online-Learning
+
