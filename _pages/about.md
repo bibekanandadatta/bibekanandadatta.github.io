@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: PhD student, <a href="https://me.jhu.edu">Mechanical Engineering, Johns Hopkins University, Baltimore, MD.</a>
+subtitle: PhD student, <a href="https://me.jhu.edu"> Mechanical Engineering, Johns Hopkins University, Baltimore, MD.</a>
 
 profile:
   align: right
