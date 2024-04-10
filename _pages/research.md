@@ -5,9 +5,11 @@ permalink: /research/
 # description: A growing collection of your cool projects.
 nav: true
 nav_order: 2
-display_categories: [work, fun]
+display_categories: [Projects]
 horizontal: false
 ---
+
+My current research focuses primarily on the multiphysics modeling of stimuli-responsive hydrogels. I use continuum scale model sand coupled finite element methods to understand the chemo-mechanical response of hydrogels subjected to temperature, pH, and ionic solution. Most of my research involves developing multi-physics frameworks, constitutive models, and implementing them in finite element to perform simulations. Besides developing a fundamental understanding of a wide class of hydrogel materials, I also focus on exploiting such stimuli-responsive behaviors to develop devices that can be used in soft sensing and actuation.
 
 <!-- pages/projects.md -->
 <div class="projects">

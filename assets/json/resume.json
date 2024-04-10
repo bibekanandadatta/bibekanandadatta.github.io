@@ -228,37 +228,39 @@
 
   "publications": [
     {
-      "name": "Zur Elektrody/namik bewegter Körper",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-06-30",
-      "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
-      "summary": "It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source."
+      "name": "A Reactive Electrochemomechanical Theory for Growth and Remodeling of Polyelectrolyte Hydrogels and Application to Dynamic Polymerization of DNA Hydrogels",
+      "publisher": "Journal of the Mechanics and Physics of Solids",
+      "releaseDate": "2024-05",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0022509624000346"
+      // summary: {}
     },
     {
-      "name": "Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-03-18",
-      "url": "https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt",
-      "summary": "In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921."
-    },
-    {
-      "name": "Die Grundlage der allgemeinen Relativitätstheorie",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1916-03-20",
-      "url": "https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie",
-      "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
+      "name": "Untethered Unidirectionally Crawling Gels Driven by Asymmetry in Contact Forces",
+      "publisher": "Science robotics",
+      "releaseDate": "2022-12",
+      "url": "https://www.science.org/doi/10.1126/scirobotics.add2903"
+      // summary: {}
     }
   ],
 
   "volunteer": [
     {
-      "organization": "People's Climate March",
-      "position": "Lead Organizer",
-      "url": "https://example.com",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "organization": "MechE, Johns Hopkins University",
+      "position": "Organizer, Mechanics and Materials Seminar",
+      // "url": "https://example.com",
+      "startDate": "2023-08-30",
+      "endDate": "2024-04-29",
+      "summary": "Organized student-run seminar classes, managed communication, presentation schedule, speaker invitations, and food distribution."
+      // "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+    },
+    {
+      "organization": "Bandhan, Bangladesh Univ. Engg. and Tech.",
+      "position": "Blood Donor",
+      // "url": "https://example.com",
+      "startDate": "2012-05",
+      "endDate": "2016-12"
+      // "summary": "Organized student-run seminar classes, managed communication, presentation schedule, speaker invitations, and food distribution."
+      // "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
     }
   ],
 
@@ -277,12 +279,12 @@
 
   "projects": [
     {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
-      "url": "https://example.com"
+      "name": "Modeling Stimuli-responsive Behaviors of Hydrogels",
+      "summary": "Developing multiphysics framework, constitutive models, and numerical implementation to study stimuli-responsive behaviors of hydrogels for soft robotics and water harvesting applications",
+      "highlights": ["Continuum Mechanics", "Finite Element"],
+      "startDate": "2020-08",
+      "endDate": "Present"
+      // "url": "https://example.com"
     }
   ]
 }
