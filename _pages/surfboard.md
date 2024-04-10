@@ -7,14 +7,12 @@ nav: true
 nav_order: 8
 ---
 
-
-
 <style>
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
       margin-top: 0 px;
     }
 
@@ -22,8 +20,8 @@ nav_order: 8
       background-color: #fff;
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-      padding: 20 px;
-      width: 400px;
+      padding: 0px;
+      width: 375px;
       height: 550px;
       display: flex;
       flex-direction: column;
@@ -32,14 +30,14 @@ nav_order: 8
     }
 
     .card h2 {
-      margin-top: 20px;
-      margin-bottom: 20px;
+      margin-top: 10px;
+      margin-bottom: 10px;
       text-align: center;
     }
 
     .card ul {
       list-style-type: disc;
-      padding-left: 40px;
+      padding-left: 50px;
       margin-top: 10px;
       text-align: left; /* Left-align list items */
     }
@@ -59,6 +57,7 @@ nav_order: 8
         padding: 1px
     }
 </style>
+
 
 <div class="container">
     <div class="card">
@@ -99,7 +98,7 @@ nav_order: 8
               </ul>
             </li>
             <li><a href="https://mechanics.tamu.edu/courses/educational-tools-and-materials/"> Prof. J.N. Reddy's lectures and codes </a></li>
-            <li><a href="https://pkel015.connect.amazon.auckland.ac.nz/SolidMechanicsBooks/index.html"> Prof. P. Kelly's lecture notes on Solid Mechanics </a></li>
+            <li><a href="https://pkel015.connect.amazon.auckland.ac.nz/SolidMechanicsBooks/index.html"> Prof. P. Kelly's notes on Solid Mechanics </a></li>
             <li> Prof. A. Bower's: 
               <ul>
                 <li><a href="http://solidmechanics.org/index.html"> Book on Solid Mechanics </a> </li>

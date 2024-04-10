@@ -65,3 +65,6 @@ My current research focuses primarily on the multiphysics modeling of stimuli-re
   {% endif %}
 {% endif %}
 </div>
+
+
+Projects will be updated soon!

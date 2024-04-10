@@ -15,7 +15,8 @@ toc:
 
 The project originally started in 2003 and was known as `FEniCS`. In 2020, the developers released a new version of the library which they renamed as `FEniCSx`. The latest stable version of legacy `FEniCS` was released on April 2019 and its barely updated. But many tutorials and legacy codes are perhaps written in legacy `FEniCS`. So you may want to install a version of it. I will demonstrate installing both versions on multiple different platforms here.
 
-Both `FEniCSx` and `FEniCS` are available on Linux, macOS, and Windows. You can download and install it in different ways. Check out the options here for `FEniCSx`: https://github.com/FEniCS/dolfinx and legacy `FEniCS`: https://fenicsproject.org/download/archive/. For both versions, my preferred approach is to install them via Anaconda.
+Both `FEniCSx` and `FEniCS` are available on Linux, macOS, and Windows. You can download and install it in different ways. Check out the [options here for `FEniCSx`](https://github.com/FEniCS/dolfinx) and [legacy `FEniCS`](https://fenicsproject.org/download/archive/). For both versions, my preferred approach is to install them via Anaconda.
+
 
 ## Installation on Windows
 
@@ -27,19 +28,20 @@ This step in only applicable if you are using Windows. You will have to set up W
 ### PowerShell 7
 
 Microsoft Windows already comes with Windows PowerShell 5.1, but the modern edition of PowerShell 7 is more powerful and available on
-different operating systems.
-
-To learn more about this, check this: <https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows>.
+different operating systems. To learn more, [check this](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows).
 
 1.  Install the App Installer from Microsoft App Store. This will enable the `winget` tool on the default PowerShell 5.1 and new PowerShell 7.X.Y to be installed.
 
 2.  Open the default Windows PowerShell 5.1 as **administrator** from the Windows Start menu, then do the following:
+
     ```
     winget search Microsoft.PowerShell
     ```
+
     This command will return the available PowerShell versions to install. I do not recommend installing the `.preview` version.
 
 3. Now install the stable release of PowerShell using the following command:
+
     ```
     winget install --id Microsoft.Powershell --source winget
     ```
@@ -55,11 +57,13 @@ Visual Studio Code is a cross-platform code editor from Microsoft. You can insta
 1.  Download VS Code from here: <https://code.visualstudio.com/download> for your operating system. Follow graphical instructions for installation.
 
 2.  If you want to open an empty file in your current working directory using VS Code, then type:
+
     ```
     code .
     ```
 
 3.  To open a file using VS Code from the terminal, go to the directory from terminal and type:
+
     ```
     code filename.ext
     ```
@@ -70,21 +74,25 @@ Visual Studio Code is a cross-platform code editor from Microsoft. You can insta
 ### Windows Subsystem for Linux (WSL)
 
 
-lt installation. Open PowerShell 7.X.Y (your current installation version) as **administrator** using the Terminal app from the Windows Start menu and then type the following command:
+1. The current stable version for Windows Subsystem for Linux is WSL2 and this is the default installation. Open PowerShell 7.X.Y (your current installation version) as **administrator** using the Terminal app from the Windows Start menu and then type the following command:
+
     ```
     wsl --list --online
     ```
     This command will show you currently available Linux distributions on Windows.
 
 2.  Install the latest LTS version of Ubuntu which is Ubuntu 22.04.02 LTS:
+
     ``` 
     wsl --install -d Ubuntu
     ```
+
     It will ask you to create an user account and set a password. The installation process is fast and straightforward.
 
 3.  Once Ubuntu in WSL is installed, you can use it similar to a regular Ubuntu distribution. To run Ubuntu, open it from the Terminal application option. If this is your first time using Linux, you can familiarize yourself with some commands and operations from here <https://ubuntu.com/tutorials/command-line-for-beginners>.
 
 4.  Now update the Ubuntu distribution and install two packages for WSL virtual display settings.
+
     ```
     sudo apt update && upgrade
     sudo apt install xvfb libgl1-mesa-glx
@@ -92,6 +100,7 @@ lt installation. Open PowerShell 7.X.Y (your current installation version) as **
     The first command will ask your password. Proceed as needed.
 
 5.  To open Windows like file explorer from Ubuntu, type:
+
     ```
     explorer.exe .
     ```
@@ -124,7 +133,7 @@ Most of the Python based libraries and packages often depend on other libraries 
     ```
     wget https://repo.anaconda.com/archive/Anaconda3-2023.03-Linux-x86_64.sh
     ```
-    `Anaconda3-2023.03-Linux-x86_64` is the latest version of Anaconda for Linux available at the time this is being written. Check for the versions here: <https://repo.anaconda.com/archive/>. Replace it with the current stable version for download and installation.
+    `Anaconda3-2023.03-Linux-x86_64` is the latest version of Anaconda for Linux available at the time this is being written. Check for the versions here: https://repo.anaconda.com/archive/. Replace it with the current stable version for download and installation.
 
 5.  Once it is copied in the home directory, you can run the following command on Ubuntu terminal for installation:
     
@@ -143,9 +152,10 @@ Most of the Python based libraries and packages often depend on other libraries 
 
 
 
-## `FEniCSx` on Linux and macOS
+## FEniCSx on Linux and macOS
 
 1.  Once Anaconda is properly installed, create an environment for `FEniCSx`. In addition to the `dolfinx` library, I  will install `mpich`, `pyvista`, `cycler`, and `matplotlib`. `mpich` allows parallel processing of different operations within`FEniCSx` and the other three packages are used for quick visualization. Standard installation of Anaconda already comes with these three packages but I will still need to install them inside the `FEniCSx` environment.
+
     ```
     (base)    $ conda create -n fenicsx
     (base)    $ conda activate fenicsx
@@ -154,6 +164,7 @@ Most of the Python based libraries and packages often depend on other libraries 
     `pyvista` supports plotting higher order unstructured mesh in Jupyter notebook environment. `matplotlib` lacks support for higher order unstructured mesh. So, it is recommended to use `pyvista` for quick visualization. But you can still use `matplotlib` for regular plotting.
 
 2.  To uninstall `FEniCSx` packages from Anaconda, you will have to uninstall everything within the environment. Before you proceed to uninstall check if `FEniCSx` environment is active in the terminal. If it is active, then deactivate it first and proceed to uninstall the packages.
+
     ```
     (fenicsx) $ conda deactivate
     (base)    $ conda remove -n fenicsx --all
@@ -162,11 +173,12 @@ Most of the Python based libraries and packages often depend on other libraries 
     
     It will ask your permission; proceed as needed. `FEniCSx` should be completely uninstalled now.
 
-## Legacy `FEniCS` on Linux and macOS (optional)
+## Legacy FEniCS on Linux and macOS (optional)
 
 A lots of the tutorials, examples, and published codes are still written in legacy `FEniCS`. So, you may want to install the legacy version in case you want to run codes written in legacy `FEniCS`.
 
 1.  Installation process is similar to `FEniCSx`. Since higher order mesh wasn't a feature for legacy `FEniCS`, I am skipping the installation of `pyvista` here. Necessary visualization can be done using `matplotlib`.
+
     ```
     (base)   $ conda create -n fenics
     (base)   $ conda activate fenics
@@ -174,6 +186,7 @@ A lots of the tutorials, examples, and published codes are still written in lega
     ```
 
 2.  Uninstallation procedure for legacy `FEniCS` is also similar to the `FEniCSx` package.
+
     ```
     (fenics) $ conda deactivate
     (base)   $ conda remove -n fenics --all
@@ -184,6 +197,7 @@ A lots of the tutorials, examples, and published codes are still written in lega
 ## An alternative way to install on Ubuntu (not recommended)
 
 1.  On Ubuntu, you can also install `FEniCSx` using `apt` package manager. Albeit the installation process being simple and lightweight, `FEniCSx` version available via `apt` is often not the latest version. So, I do not recommend installing this way.
+
     ```
     sudo add-apt-repository ppa:fenics-packages/fenics
     sudo apt update
@@ -191,6 +205,7 @@ A lots of the tutorials, examples, and published codes are still written in lega
     ```
 
 2.  To uninstall `FEniCSx` using `apt` on Ubuntu, follow the procedures below:
+
     ```
     sudo apt remove fenicsx
     sudo apt remove --auto-remove fenicsx
@@ -203,22 +218,25 @@ A lots of the tutorials, examples, and published codes are still written in lega
 ### Test your `FEniCSx` installation
 
 1.  Now we will run a simple `FEniCSx` example code to test the installation. If you open Ubuntu or macOS terminal now, you will see the `(base)` environment is active. So, you have to activate the `(fenicsx)` environment before running the code.
+
     ```
     (base) $ conda activate fenicsx
     ```
     Now you should see:
+
     ```
     (fenicsx) $ 
     ```
     In case you close your terminal and reopen it, you will see the `(base)` environment is active by default. You will have to activate `(fenicsx)` environment using the above command.
 
 2.  Create a directory called `fenicsx-code` in our WSL home directory and navigate to it:
+
     ```
     (fenicsx) $ mkdir fenicsx-code
     (fenicsx) $ cd fenicsx-code
     ```
 
-3. Copy the following python code and save it `poisson.py` using VS Code in the above directory. This code solves a simple 2D Poisson problem. Technical details of this code is described here: <https://jsdokken.com/dolfinx-tutorial/chapter1/fundamentals>.
+3. Copy the following python code and save it `poisson.py` using VS Code in the above directory. This code solves a simple 2D Poisson problem. Technical details of this code is described here: https://jsdokken.com/dolfinx-tutorial/chapter1/fundamentals.
 
     ``` python
     import os
@@ -313,6 +331,7 @@ A lots of the tutorials, examples, and published codes are still written in lega
     ```
 
 4.  Now run the python code from the Ubuntu terminal:
+
     ```
     (fenicsx) $ python3 poisson.py
     ```
