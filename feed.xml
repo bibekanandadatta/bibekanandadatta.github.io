@@ -1,893 +1,159 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://bibekananda-datta.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://bibekananda-datta.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2024-04-09T20:25:35+00:00</updated><id>https://bibekananda-datta.github.io/feed.xml</id><title type="html">blank</title><subtitle># A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">a post with code diff</title><link href="https://bibekananda-datta.github.io/blog/2024/code-diff/" rel="alternate" type="text/html" title="a post with code diff"/><published>2024-01-27T19:22:00+00:00</published><updated>2024-01-27T19:22:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2024/code-diff</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2024/code-diff/"><![CDATA[<p>You can display diff code by using the regular markdown syntax:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">diff
-</span><span class="gh">diff --git a/sample.js b/sample.js
-index 0000001..0ddf2ba
-</span><span class="gd">--- a/sample.js
-</span><span class="gi">+++ b/sample.js
-</span><span class="p">@@ -1 +1 @@</span>
-<span class="gd">-console.log("Hello World!")
-</span><span class="gi">+console.log("Hello from Diff2Html!")</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh">diff --git a/sample.js b/sample.js
-index 0000001..0ddf2ba
-</span><span class="gd">--- a/sample.js
-</span><span class="gi">+++ b/sample.js
-</span><span class="p">@@ -1 +1 @@</span>
-<span class="gd">-console.log("Hello World!")
-</span><span class="gi">+console.log("Hello from Diff2Html!")
-</span></code></pre></div></div> <p>But this is difficult to read, specially if you have a large diff. You can use <a href="https://diff2html.xyz/">diff2html</a> to display a more readable version of the diff. For this, just use <code class="language-plaintext highlighter-rouge">diff2html</code> instead of <code class="language-plaintext highlighter-rouge">diff</code> for the code block language:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">diff2html
-</span><span class="sb">diff --git a/sample.js b/sample.js
-index 0000001..0ddf2ba
---- a/sample.js
-+++ b/sample.js
-@@ -1 +1 @@
--console.log("Hello World!")
-+console.log("Hello from Diff2Html!")</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>If we use a longer example, for example <a href="https://github.com/rtfpessoa/diff2html/commit/c2c253d3e3f8b8b267f551e659f72b44ca2ac927">this commit from diff2html</a>, it will generate the following output:</p> <pre><code class="language-diff2html">From 2aaae31cc2a37bfff83430c2c914b140bee59b6a Mon Sep 17 00:00:00 2001
-From: Rodrigo Fernandes &lt;rtfrodrigo@gmail.com&gt;
-Date: Sun, 9 Oct 2016 16:41:54 +0100
-Subject: [PATCH 1/2] Initial template override support
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://bibekananda-datta.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://bibekananda-datta.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2024-04-10T04:21:11+00:00</updated><id>https://bibekananda-datta.github.io/feed.xml</id><title type="html">blank</title><subtitle># A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">Getting started with FEniCSx</title><link href="https://bibekananda-datta.github.io/blog/2023/getting-started-with-fenicsx/" rel="alternate" type="text/html" title="Getting started with FEniCSx"/><published>2023-04-20T15:59:00+00:00</published><updated>2023-04-20T15:59:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2023/getting-started-with-fenicsx</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2023/getting-started-with-fenicsx/"><![CDATA[<p><code class="language-plaintext highlighter-rouge">FEniCSx</code> is an open source multi-platform computing environment to solve partial differential equations using finite element method. <code class="language-plaintext highlighter-rouge">FEniCSx</code> supports parallel computing with Python and C++ interface. <code class="language-plaintext highlighter-rouge">FEniCSx</code> is comprised of the libraries UFL, Basix, FFCx and DOLFINx which are the build blocks of it.</p> <p>The project originally started in 2003 and was known as <code class="language-plaintext highlighter-rouge">FEniCS</code>. In 2020, the developers released a new version of the library which they renamed as <code class="language-plaintext highlighter-rouge">FEniCSx</code>. The latest stable version of legacy <code class="language-plaintext highlighter-rouge">FEniCS</code> was released on April 2019 and its barely updated. But many tutorials and legacy codes are perhaps written in legacy <code class="language-plaintext highlighter-rouge">FEniCS</code>. So you may want to install a version of it. I will demonstrate installing both versions on multiple different platforms here.</p> <p>Both <code class="language-plaintext highlighter-rouge">FEniCSx</code> and <code class="language-plaintext highlighter-rouge">FEniCS</code> are available on Linux, macOS, and Windows. You can download and install it in different ways. Check out the options here for <code class="language-plaintext highlighter-rouge">FEniCSx</code>: https://github.com/FEniCS/dolfinx and legacy <code class="language-plaintext highlighter-rouge">FEniCS</code>: https://fenicsproject.org/download/archive/. For both versions, my preferred approach is to install them via Anaconda.</p> <h2 id="installation-on-windows">Installation on Windows</h2> <p>This step in only applicable if you are using Windows. You will have to set up Windows Subsystem for Linux (WSL) to use Anaconda based installation of <code class="language-plaintext highlighter-rouge">FEniCSx</code> and legacy <code class="language-plaintext highlighter-rouge">FEniCS</code>. WSL is a virtual Linux environment within Windows which allows you to use Linux command line tools and GUI applications. If you are on macOS or Linux, you can skip this step. If you are on Windows and already have installed WSL, it still might be interesting to download the recommended applications/ tools, such as VS Code.</p> <h2 id="get-your-tools-ready-first">Get your tools ready first</h2> <h3 id="powershell-7">PowerShell 7</h3> <p>Microsoft Windows already comes with Windows PowerShell 5.1, but the modern edition of PowerShell 7 is more powerful and available on different operating systems.</p> <p>To learn more about this, check this: <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows">https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows</a>.</p> <ol> <li> <p>Install the App Installer from Microsoft App Store. This will enable the <code class="language-plaintext highlighter-rouge">winget</code> tool on the default PowerShell 5.1 and new PowerShell 7.X.Y to be installed.</p> </li> <li>Open the default Windows PowerShell 5.1 as <strong>administrator</strong> from the Windows Start menu, then do the following: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>winget search Microsoft.PowerShell
+</code></pre></div> </div> <p>This command will return the available PowerShell versions to install. I do not recommend installing the <code class="language-plaintext highlighter-rouge">.preview</code> version.</p> </li> <li>Now install the stable release of PowerShell using the following command: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> winget install --id Microsoft.Powershell --source winget
+</code></pre></div> </div> </li> </ol> <h3 id="windows-terminal">Windows Terminal</h3> <p>Windows Terminal is a command line tool, available on <a href="https://apps.microsoft.com/store/apps">Microsoft Store</a>. Install it from there. You can manage multiple command line environments such as Windows PowerShell 5.1, PowerShell 7.X.Y, CMD, WSL, etc. using a single application.</p> <h3 id="visual-studio-code">Visual Studio Code</h3> <p>Visual Studio Code is a cross-platform code editor from Microsoft. You can install different extensions within VS Code to enable features for code development such as remote SSH, debugging, compiling, etc.</p> <ol> <li> <p>Download VS Code from here: <a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a> for your operating system. Follow graphical instructions for installation.</p> </li> <li>If you want to open an empty file in your current working directory using VS Code, then type: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>code .
+</code></pre></div> </div> </li> <li>To open a file using VS Code from the terminal, go to the directory from terminal and type: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>code filename.ext
+</code></pre></div> </div> </li> <li>Once installed, add the extension packs for Python, Remote Development, and Jupyter, from Microsoft. These packages will be necessary for smooth operation.</li> </ol> <h3 id="windows-subsystem-for-linux-wsl">Windows Subsystem for Linux (WSL)</h3> <p>lt installation. Open PowerShell 7.X.Y (your current installation version) as <strong>administrator</strong> using the Terminal app from the Windows Start menu and then type the following command: <code class="language-plaintext highlighter-rouge"> wsl --list --online </code> This command will show you currently available Linux distributions on Windows.</p> <ol> <li>Install the latest LTS version of Ubuntu which is Ubuntu 22.04.02 LTS: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --install -d Ubuntu
+</code></pre></div> </div> <p>It will ask you to create an user account and set a password. The installation process is fast and straightforward.</p> </li> <li> <p>Once Ubuntu in WSL is installed, you can use it similar to a regular Ubuntu distribution. To run Ubuntu, open it from the Terminal application option. If this is your first time using Linux, you can familiarize yourself with some commands and operations from here <a href="https://ubuntu.com/tutorials/command-line-for-beginners">https://ubuntu.com/tutorials/command-line-for-beginners</a>.</p> </li> <li>Now update the Ubuntu distribution and install two packages for WSL virtual display settings. <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update &amp;&amp; upgrade
+sudo apt install xvfb libgl1-mesa-glx
+</code></pre></div> </div> <p>The first command will ask your password. Proceed as needed.</p> </li> <li>To open Windows like file explorer from Ubuntu, type: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>explorer.exe .
+</code></pre></div> </div> <p>You can open the WSL home directory and browse, copy, and move files like Windows.</p> </li> <li> <p>Once you have installed Ubuntu in WSL and VS Code, you can follow these tutorials to get yourself more familiarized with the VS Code environments and capabilities in WSL <a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode">https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode</a> and <a href="https://code.visualstudio.com/docs/remote/wsl-tutorial">https://code.visualstudio.com/docs/remote/wsl-tutorial</a>.</p> </li> <li>To use packages and libraries install in WSL, start VS Code from Ubuntu terminal.</li> </ol> <h2 id="anaconda-on-linux-wsl-and-macos">Anaconda on Linux (WSL) and macOS</h2> <p>If this is the first time you are using Python, then seat back, it is going to get confusing like this xkcd comic. Even if you are experienced in Python, you might find this interesting.</p> <p>Most of the Python based libraries and packages often depend on other libraries and packages (called dependencies). Installing the right version of those packages and maintaining them is often a complex task even for experienced developers. So, I will use a popular Python distribution, Anaconda, to manage all the Python based libraries and relevant dependencies. Anaconda uses <code class="language-plaintext highlighter-rouge">conda</code> package manager and works well with <code class="language-plaintext highlighter-rouge">pip</code> (Python’s default package manager). Installation of Anaconda comes with popular Python packages such as NumPy, SciPy, Matplotlib, and <em>&lt;insert hundred other packages here&gt;</em>. It also come with Jupyter Notebook and Spyder IDE. Anaconda also has a minimalist version, called Miniconda, which is light weight because it only includes the <code class="language-plaintext highlighter-rouge">conda</code> manager and a few packages. I strongly recommend installing Anaconda instead of Miniconda.</p> <ol> <li> <p>This step is only for macOS. Install <code class="language-plaintext highlighter-rouge">xcode</code> command line tools to obtain basic development libraries and features. On macOS terminal, type:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select --install
+</code></pre></div> </div> </li> <li> <p>Download Anaconda from here based on your operating system and architecture: <a href="https://www.anaconda.com/products/distribution">https://www.anaconda.com/products/distribution</a>.</p> </li> <li> <p>On macOS, you can download the graphical installer and install it like every other software by following the on-screen instructions. Alternatively, you can download the installation script and using command line to install Anaconda like Linux. Details of the installation procedure is <a href="https://docs.anaconda.com/anaconda/install/mac-os/">available here</a>.</p> </li> <li> <p>For WSL, download the installation script. Open Ubuntu terminal and use the following command to download the script to WSL home directory:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://repo.anaconda.com/archive/Anaconda3-2023.03-Linux-x86_64.sh
+</code></pre></div> </div> <p><code class="language-plaintext highlighter-rouge">Anaconda3-2023.03-Linux-x86_64</code> is the latest version of Anaconda for Linux available at the time this is being written. Check for the versions here: <a href="https://repo.anaconda.com/archive/">https://repo.anaconda.com/archive/</a>. Replace it with the current stable version for download and installation.</p> </li> <li> <p>Once it is copied in the home directory, you can run the following command on Ubuntu terminal for installation:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash Anaconda3-2023.03-Linux-x86_64
+</code></pre></div> </div> <p>It will ask you to read the license agreement and your permission for installation. Proceed as needed.</p> </li> <li> <p>Close the Ubuntu terminal and open it back, you will see the base environment for Anaconda is now available. This is how your terminal is going to look like:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) $ 
+</code></pre></div> </div> </li> <li> <p>Check out these operations and <a href="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf">commands for using Conda</a>.</p> </li> </ol> <h2 id="fenicsxon-linux-and-macos"><code class="language-plaintext highlighter-rouge">FEniCSx</code> on Linux and macOS</h2> <ol> <li>Once Anaconda is properly installed, create an environment for <code class="language-plaintext highlighter-rouge">FEniCSx</code>. In addition to the <code class="language-plaintext highlighter-rouge">dolfinx</code> library, I will install <code class="language-plaintext highlighter-rouge">mpich</code>, <code class="language-plaintext highlighter-rouge">pyvista</code>, <code class="language-plaintext highlighter-rouge">cycler</code>, and <code class="language-plaintext highlighter-rouge">matplotlib</code>. <code class="language-plaintext highlighter-rouge">mpich</code> allows parallel processing of different operations within<code class="language-plaintext highlighter-rouge">FEniCSx</code> and the other three packages are used for quick visualization. Standard installation of Anaconda already comes with these three packages but I will still need to install them inside the <code class="language-plaintext highlighter-rouge">FEniCSx</code> environment. <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base)    $ conda create -n fenicsx
+(base)    $ conda activate fenicsx
+(fenicsx) $ conda install -c conda-forge fenics-dolfinx mpich pyvista matplotlib cycler
+</code></pre></div> </div> <p><code class="language-plaintext highlighter-rouge">pyvista</code> supports plotting higher order unstructured mesh in Jupyter notebook environment. <code class="language-plaintext highlighter-rouge">matplotlib</code> lacks support for higher order unstructured mesh. So, it is recommended to use <code class="language-plaintext highlighter-rouge">pyvista</code> for quick visualization. But you can still use <code class="language-plaintext highlighter-rouge">matplotlib</code> for regular plotting.</p> </li> <li>To uninstall <code class="language-plaintext highlighter-rouge">FEniCSx</code> packages from Anaconda, you will have to uninstall everything within the environment. Before you proceed to uninstall check if <code class="language-plaintext highlighter-rouge">FEniCSx</code> environment is active in the terminal. If it is active, then deactivate it first and proceed to uninstall the packages. <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(fenicsx) $ conda deactivate
+(base)    $ conda remove -n fenicsx --all
+(base)    $ conda clean --all
+</code></pre></div> </div> <p>It will ask your permission; proceed as needed. <code class="language-plaintext highlighter-rouge">FEniCSx</code> should be completely uninstalled now.</p> </li> </ol> <h2 id="legacy-fenicson-linux-and-macos-optional">Legacy <code class="language-plaintext highlighter-rouge">FEniCS</code> on Linux and macOS (optional)</h2> <p>A lots of the tutorials, examples, and published codes are still written in legacy <code class="language-plaintext highlighter-rouge">FEniCS</code>. So, you may want to install the legacy version in case you want to run codes written in legacy <code class="language-plaintext highlighter-rouge">FEniCS</code>.</p> <ol> <li>Installation process is similar to <code class="language-plaintext highlighter-rouge">FEniCSx</code>. Since higher order mesh wasn’t a feature for legacy <code class="language-plaintext highlighter-rouge">FEniCS</code>, I am skipping the installation of <code class="language-plaintext highlighter-rouge">pyvista</code> here. Necessary visualization can be done using <code class="language-plaintext highlighter-rouge">matplotlib</code>. <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base)   $ conda create -n fenics
+(base)   $ conda activate fenics
+(fenics) $ conda install -c conda-forge fenics matplotlib cycler
+</code></pre></div> </div> </li> <li>Uninstallation procedure for legacy <code class="language-plaintext highlighter-rouge">FEniCS</code> is also similar to the <code class="language-plaintext highlighter-rouge">FEniCSx</code> package. <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(fenics) $ conda deactivate
+(base)   $ conda remove -n fenics --all
+(base)   $ conda clean --all
+</code></pre></div> </div> </li> </ol> <h2 id="an-alternative-way-to-install-on-ubuntu-not-recommended">An alternative way to install on Ubuntu (not recommended)</h2> <ol> <li>On Ubuntu, you can also install <code class="language-plaintext highlighter-rouge">FEniCSx</code> using <code class="language-plaintext highlighter-rouge">apt</code> package manager. Albeit the installation process being simple and lightweight, <code class="language-plaintext highlighter-rouge">FEniCSx</code> version available via <code class="language-plaintext highlighter-rouge">apt</code> is often not the latest version. So, I do not recommend installing this way. <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo add-apt-repository ppa:fenics-packages/fenics
+sudo apt update
+sudo apt install fenicsx
+</code></pre></div> </div> </li> <li>To uninstall <code class="language-plaintext highlighter-rouge">FEniCSx</code> using <code class="language-plaintext highlighter-rouge">apt</code> on Ubuntu, follow the procedures below: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt remove fenicsx
+sudo apt remove --auto-remove fenicsx
+sudo apt purge fenicsx
+sudo apt purge --auto-remove fenicsx
+</code></pre></div> </div> </li> <li>Legacy <code class="language-plaintext highlighter-rouge">FEniCS</code> can be installed using this approach as well. Please make sure to use <code class="language-plaintext highlighter-rouge">fenics</code> instead of <code class="language-plaintext highlighter-rouge">fenicsx</code> in the command line for installing and uninstalling legacy <code class="language-plaintext highlighter-rouge">FEniCS</code>.</li> </ol> <h3 id="test-your-fenicsxinstallation">Test your <code class="language-plaintext highlighter-rouge">FEniCSx</code> installation</h3> <ol> <li>Now we will run a simple <code class="language-plaintext highlighter-rouge">FEniCSx</code> example code to test the installation. If you open Ubuntu or macOS terminal now, you will see the <code class="language-plaintext highlighter-rouge">(base)</code> environment is active. So, you have to activate the <code class="language-plaintext highlighter-rouge">(fenicsx)</code> environment before running the code. <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) $ conda activate fenicsx
+</code></pre></div> </div> <p>Now you should see:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(fenicsx) $ 
+</code></pre></div> </div> <p>In case you close your terminal and reopen it, you will see the <code class="language-plaintext highlighter-rouge">(base)</code> environment is active by default. You will have to activate <code class="language-plaintext highlighter-rouge">(fenicsx)</code> environment using the above command.</p> </li> <li>Create a directory called <code class="language-plaintext highlighter-rouge">fenicsx-code</code> in our WSL home directory and navigate to it: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(fenicsx) $ mkdir fenicsx-code
+(fenicsx) $ cd fenicsx-code
+</code></pre></div> </div> </li> <li> <p>Copy the following python code and save it <code class="language-plaintext highlighter-rouge">poisson.py</code> using VS Code in the above directory. This code solves a simple 2D Poisson problem. Technical details of this code is described here: <a href="https://jsdokken.com/dolfinx-tutorial/chapter1/fundamentals">https://jsdokken.com/dolfinx-tutorial/chapter1/fundamentals</a>.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kn">import</span> <span class="n">os</span>
+ <span class="kn">import</span> <span class="n">numpy</span>
+ <span class="kn">import</span> <span class="n">ufl</span>
+ <span class="kn">import</span> <span class="n">dolfinx</span>
+ <span class="kn">from</span> <span class="n">dolfinx</span> <span class="kn">import</span> <span class="n">mesh</span><span class="p">,</span> <span class="n">fem</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">plot</span> 
+ <span class="kn">from</span> <span class="n">mpi4py</span> <span class="kn">import</span> <span class="n">MPI</span>
+ <span class="kn">from</span> <span class="n">petsc4py</span> <span class="kn">import</span> <span class="n">PETSc</span>
+ <span class="kn">import</span> <span class="n">pyvista</span> <span class="k">as</span> <span class="n">pv</span>
 
----
- scripts/hulk.js                    |  4 ++--
- src/diff2html.js                   |  3 +--
- src/file-list-printer.js           | 11 ++++++++---
- src/hoganjs-utils.js               | 29 +++++++++++++++++------------
- src/html-printer.js                |  6 ++++++
- src/line-by-line-printer.js        |  6 +++++-
- src/side-by-side-printer.js        |  6 +++++-
- test/file-list-printer-tests.js    |  2 +-
- test/hogan-cache-tests.js          | 18 +++++++++++++++---
- test/line-by-line-tests.js         |  3 +--
- test/side-by-side-printer-tests.js |  3 +--
- 11 files changed, 62 insertions(+), 29 deletions(-)
+ <span class="c1"># clears the terminal and prints dolfinx version
+</span> <span class="n">os</span><span class="p">.</span><span class="nf">system</span><span class="p">(</span><span class="sh">'</span><span class="s">clear</span><span class="sh">'</span><span class="p">)</span>
+ <span class="c1"># prints dolfinx version
+</span> <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">DOLFINx version: </span><span class="si">{</span><span class="n">dolfinx</span><span class="p">.</span><span class="n">__version__</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
 
-diff --git a/scripts/hulk.js b/scripts/hulk.js
-index 5a793c18..a4b1a4d5 100755
---- a/scripts/hulk.js
-+++ b/scripts/hulk.js
-@@ -173,11 +173,11 @@ function namespace(name) {
- // write a template foreach file that matches template extension
- templates = extractFiles(options.argv.remain)
-   .map(function(file) {
--    var openedFile = fs.readFileSync(file, 'utf-8');
-+    var openedFile = fs.readFileSync(file, 'utf-8').trim();
-     var name;
-     if (!openedFile) return;
-     name = namespace(path.basename(file).replace(/\..*$/, ''));
--    openedFile = removeByteOrderMark(openedFile.trim());
-+    openedFile = removeByteOrderMark(openedFile);
-     openedFile = wrap(file, name, openedFile);
-     if (!options.outputdir) return openedFile;
-     fs.writeFileSync(path.join(options.outputdir, name + '.js')
-diff --git a/src/diff2html.js b/src/diff2html.js
-index 21b0119e..64e138f5 100644
---- a/src/diff2html.js
-+++ b/src/diff2html.js
-@@ -7,7 +7,6 @@
+ <span class="c1"># no of elements in each direction
+</span> <span class="n">NElem</span>   <span class="o">=</span> <span class="mi">8</span>
 
- (function() {
-   var diffParser = require('./diff-parser.js').DiffParser;
--  var fileLister = require('./file-list-printer.js').FileListPrinter;
-   var htmlPrinter = require('./html-printer.js').HtmlPrinter;
+ <span class="c1"># create a unit square with 8x8 elements with quad elements and use first order shape function
+</span> <span class="n">domain</span>  <span class="o">=</span> <span class="n">mesh</span><span class="p">.</span><span class="nf">create_unit_square</span><span class="p">(</span><span class="n">MPI</span><span class="p">.</span><span class="n">COMM_WORLD</span><span class="p">,</span><span class="n">NElem</span><span class="p">,</span><span class="n">NElem</span><span class="p">,</span><span class="n">mesh</span><span class="p">.</span><span class="n">CellType</span><span class="p">.</span><span class="n">quadrilateral</span><span class="p">)</span>
+ <span class="n">V</span>       <span class="o">=</span> <span class="n">fem</span><span class="p">.</span><span class="nc">FunctionSpace</span><span class="p">(</span><span class="n">domain</span><span class="p">,(</span><span class="sh">"</span><span class="s">CG</span><span class="sh">"</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 
-   function Diff2Html() {
-@@ -43,7 +42,7 @@
+ <span class="c1">## define trial and test functions
+</span> <span class="n">u</span>       <span class="o">=</span> <span class="n">ufl</span><span class="p">.</span><span class="nc">TrialFunction</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+ <span class="n">v</span>       <span class="o">=</span> <span class="n">ufl</span><span class="p">.</span><span class="nc">TestFunction</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
 
-     var fileList = '';
-     if (configOrEmpty.showFiles === true) {
--      fileList = fileLister.generateFileList(diffJson, configOrEmpty);
-+      fileList = htmlPrinter.generateFileListSummary(diffJson, configOrEmpty);
-     }
+ <span class="c1"># source term of the poisson equation
+</span> <span class="n">f</span>       <span class="o">=</span> <span class="n">fem</span><span class="p">.</span><span class="nc">Constant</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">PETSc</span><span class="p">.</span><span class="nc">ScalarType</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">))</span>
 
-     var diffOutput = '';
-diff --git a/src/file-list-printer.js b/src/file-list-printer.js
-index e408d9b2..1e0a2c61 100644
---- a/src/file-list-printer.js
-+++ b/src/file-list-printer.js
-@@ -8,11 +8,16 @@
- (function() {
-   var printerUtils = require('./printer-utils.js').PrinterUtils;
+ <span class="c1">## applying boundary conditions
+</span> <span class="n">uD</span>      <span class="o">=</span> <span class="n">fem</span><span class="p">.</span><span class="nc">Function</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+ <span class="n">uD</span><span class="p">.</span><span class="nf">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+ <span class="n">tdim</span>    <span class="o">=</span> <span class="n">domain</span><span class="p">.</span><span class="n">topology</span><span class="p">.</span><span class="n">dim</span>
+ <span class="n">fdim</span>    <span class="o">=</span> <span class="n">tdim</span> <span class="o">-</span> <span class="mi">1</span>
+ <span class="n">domain</span><span class="p">.</span><span class="n">topology</span><span class="p">.</span><span class="nf">create_connectivity</span><span class="p">(</span><span class="n">fdim</span><span class="p">,</span> <span class="n">tdim</span><span class="p">)</span>
+ <span class="n">boundary_facets</span> <span class="o">=</span> <span class="n">mesh</span><span class="p">.</span><span class="nf">exterior_facet_indices</span><span class="p">(</span><span class="n">domain</span><span class="p">.</span><span class="n">topology</span><span class="p">)</span>
+ <span class="n">boundary_dofs</span>   <span class="o">=</span> <span class="n">fem</span><span class="p">.</span><span class="nf">locate_dofs_topological</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">fdim</span><span class="p">,</span> <span class="n">boundary_facets</span><span class="p">)</span>
+ <span class="n">bc</span>      <span class="o">=</span> <span class="n">fem</span><span class="p">.</span><span class="nf">dirichletbc</span><span class="p">(</span><span class="n">uD</span><span class="p">,</span> <span class="n">boundary_dofs</span><span class="p">)</span>
 
--  var hoganUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+  var hoganUtils;
-+
-   var baseTemplatesPath = 'file-summary';
-   var iconsBaseTemplatesPath = 'icon';
+ <span class="c1"># bilinear form
+</span> <span class="n">a</span>       <span class="o">=</span> <span class="n">ufl</span><span class="p">.</span><span class="nf">dot</span><span class="p">(</span><span class="n">ufl</span><span class="p">.</span><span class="nf">grad</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="n">ufl</span><span class="p">.</span><span class="nf">grad</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="o">*</span> <span class="n">ufl</span><span class="p">.</span><span class="n">dx</span>
+ <span class="n">L</span>       <span class="o">=</span> <span class="n">f</span> <span class="o">*</span> <span class="n">v</span> <span class="o">*</span> <span class="n">ufl</span><span class="p">.</span><span class="n">dx</span>
 
--  function FileListPrinter() {
-+  function FileListPrinter(config) {
-+    this.config = config;
-+
-+    var HoganJsUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+    hoganUtils = new HoganJsUtils(config);
-   }
+ <span class="c1"># set PETSc solver options
+</span> <span class="n">sol_opts</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">ksp_type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">preonly</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">pc_type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">lu</span><span class="sh">"</span><span class="p">}</span>
+ <span class="c1"># formulate the problem
+</span> <span class="n">problem</span> <span class="o">=</span> <span class="n">fem</span><span class="p">.</span><span class="n">petsc</span><span class="p">.</span><span class="nc">LinearProblem</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">bcs</span><span class="o">=</span><span class="p">[</span><span class="n">bc</span><span class="p">],</span> <span class="n">petsc_options</span><span class="o">=</span><span class="n">sol_opts</span><span class="p">)</span>
+ <span class="c1"># solve the problem
+</span> <span class="n">uh</span> <span class="o">=</span> <span class="n">problem</span><span class="p">.</span><span class="nf">solve</span><span class="p">()</span>
 
-   FileListPrinter.prototype.generateFileList = function(diffFiles) {
-@@ -38,5 +43,5 @@
-     });
-   };
+ <span class="c1">## error calculation
+</span> <span class="n">V2</span>          <span class="o">=</span> <span class="n">fem</span><span class="p">.</span><span class="nc">FunctionSpace</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="p">(</span><span class="sh">"</span><span class="s">CG</span><span class="sh">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+ <span class="n">uex</span>         <span class="o">=</span> <span class="n">fem</span><span class="p">.</span><span class="nc">Function</span><span class="p">(</span><span class="n">V2</span><span class="p">)</span>
+ <span class="n">uex</span><span class="p">.</span><span class="nf">interpolate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
--  module.exports.FileListPrinter = new FileListPrinter();
-+  module.exports.FileListPrinter = FileListPrinter;
- })();
-diff --git a/src/hoganjs-utils.js b/src/hoganjs-utils.js
-index 9949e5fa..0dda08d7 100644
---- a/src/hoganjs-utils.js
-+++ b/src/hoganjs-utils.js
-@@ -8,18 +8,19 @@
- (function() {
-   var fs = require('fs');
-   var path = require('path');
--
-   var hogan = require('hogan.js');
+ <span class="n">L2_error</span>    <span class="o">=</span> <span class="n">fem</span><span class="p">.</span><span class="nf">form</span><span class="p">(</span><span class="n">ufl</span><span class="p">.</span><span class="nf">inner</span><span class="p">(</span><span class="n">uh</span> <span class="o">-</span> <span class="n">uex</span><span class="p">,</span> <span class="n">uh</span> <span class="o">-</span> <span class="n">uex</span><span class="p">)</span> <span class="o">*</span> <span class="n">ufl</span><span class="p">.</span><span class="n">dx</span><span class="p">)</span>
+ <span class="n">error_local</span> <span class="o">=</span> <span class="n">fem</span><span class="p">.</span><span class="nf">assemble_scalar</span><span class="p">(</span><span class="n">L2_error</span><span class="p">)</span>
+ <span class="n">error_L2</span>    <span class="o">=</span> <span class="n">numpy</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">domain</span><span class="p">.</span><span class="n">comm</span><span class="p">.</span><span class="nf">allreduce</span><span class="p">(</span><span class="n">error_local</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="n">MPI</span><span class="p">.</span><span class="n">SUM</span><span class="p">))</span>
 
-   var hoganTemplates = require('./templates/diff2html-templates.js');
+ <span class="n">error_max</span>   <span class="o">=</span> <span class="n">numpy</span><span class="p">.</span><span class="nf">max</span><span class="p">(</span><span class="n">numpy</span><span class="p">.</span><span class="nf">abs</span><span class="p">(</span><span class="n">uD</span><span class="p">.</span><span class="n">x</span><span class="p">.</span><span class="n">array</span><span class="o">-</span><span class="n">uh</span><span class="p">.</span><span class="n">x</span><span class="p">.</span><span class="n">array</span><span class="p">))</span>
 
--  var templatesPath = path.resolve(__dirname, 'templates');
-+  var extraTemplates;
+ <span class="c1"># print the error
+</span> <span class="k">if</span> <span class="n">domain</span><span class="p">.</span><span class="n">comm</span><span class="p">.</span><span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+     <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Error_L2 : </span><span class="si">{</span><span class="n">error_L2</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+     <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Error_max : </span><span class="si">{</span><span class="n">error_max</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
 
--  function HoganJsUtils() {
-+  function HoganJsUtils(configuration) {
-+    this.config = configuration || {};
-+    extraTemplates = this.config.templates || {};
-   }
+ <span class="c1"># writing output files in xdmf format
+</span> <span class="k">with</span> <span class="n">io</span><span class="p">.</span><span class="nc">XDMFFile</span><span class="p">(</span><span class="n">domain</span><span class="p">.</span><span class="n">comm</span><span class="p">,</span> <span class="sh">"</span><span class="s">output.xdmf</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">w</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">xdmf</span><span class="p">:</span>
+     <span class="n">xdmf</span><span class="p">.</span><span class="nf">write_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+     <span class="n">xdmf</span><span class="p">.</span><span class="nf">write_function</span><span class="p">(</span><span class="n">uh</span><span class="p">)</span>
 
--  HoganJsUtils.prototype.render = function(namespace, view, params, configuration) {
--    var template = this.template(namespace, view, configuration);
-+  HoganJsUtils.prototype.render = function(namespace, view, params) {
-+    var template = this.template(namespace, view);
-     if (template) {
-       return template.render(params);
-     }
-@@ -27,17 +28,16 @@
-     return null;
-   };
+ <span class="c1"># 2D contour plots of the mesh and result using pyvista
+</span> <span class="c1">#pv.start_xvfb()    # Uncomment the line on WSL
+</span> <span class="n">pv</span><span class="p">.</span><span class="n">off_screen</span> <span class="o">=</span> <span class="bp">True</span>
+ <span class="n">topology</span><span class="p">,</span> <span class="n">cell_types</span><span class="p">,</span> <span class="n">geometry</span> <span class="o">=</span> <span class="n">plot</span><span class="p">.</span><span class="nf">create_vtk_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">tdim</span><span class="p">)</span>
+ <span class="n">grid</span> <span class="o">=</span> <span class="n">pv</span><span class="p">.</span><span class="nc">UnstructuredGrid</span><span class="p">(</span><span class="n">topology</span><span class="p">,</span> <span class="n">cell_types</span><span class="p">,</span> <span class="n">geometry</span><span class="p">)</span>
 
--  HoganJsUtils.prototype.template = function(namespace, view, configuration) {
--    var config = configuration || {};
-+  HoganJsUtils.prototype.template = function(namespace, view) {
-     var templateKey = this._templateKey(namespace, view);
+ <span class="n">plotter</span> <span class="o">=</span> <span class="n">pv</span><span class="p">.</span><span class="nc">Plotter</span><span class="p">()</span>
+ <span class="n">plotter</span><span class="p">.</span><span class="nf">add_mesh</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="n">show_edges</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+ <span class="n">plotter</span><span class="p">.</span><span class="nf">view_xy</span><span class="p">()</span>
+ <span class="n">plotter</span><span class="p">.</span><span class="nf">save_graphic</span><span class="p">(</span><span class="sh">'</span><span class="s">mesh.pdf</span><span class="sh">'</span><span class="p">)</span>
 
--    return this._getTemplate(templateKey, config);
-+    return this._getTemplate(templateKey);
-   };
+ <span class="n">u_topology</span><span class="p">,</span> <span class="n">u_cell_types</span><span class="p">,</span> <span class="n">u_geometry</span> <span class="o">=</span> <span class="n">plot</span><span class="p">.</span><span class="nf">create_vtk_mesh</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+ <span class="n">u_grid</span> <span class="o">=</span> <span class="n">pv</span><span class="p">.</span><span class="nc">UnstructuredGrid</span><span class="p">(</span><span class="n">u_topology</span><span class="p">,</span> <span class="n">u_cell_types</span><span class="p">,</span> <span class="n">u_geometry</span><span class="p">)</span>
+ <span class="n">u_grid</span><span class="p">.</span><span class="n">point_data</span><span class="p">[</span><span class="sh">"</span><span class="s">u</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="n">uh</span><span class="p">.</span><span class="n">x</span><span class="p">.</span><span class="n">array</span><span class="p">.</span><span class="n">real</span>
+ <span class="n">u_grid</span><span class="p">.</span><span class="nf">set_active_scalars</span><span class="p">(</span><span class="sh">"</span><span class="s">u</span><span class="sh">"</span><span class="p">)</span>
+ <span class="n">u_plotter</span> <span class="o">=</span> <span class="n">pv</span><span class="p">.</span><span class="nc">Plotter</span><span class="p">()</span>
+ <span class="n">u_plotter</span><span class="p">.</span><span class="nf">add_mesh</span><span class="p">(</span><span class="n">u_grid</span><span class="p">,</span><span class="n">show_edges</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+ <span class="n">u_plotter</span><span class="p">.</span><span class="nf">view_xy</span><span class="p">()</span>
+ <span class="n">u_plotter</span><span class="p">.</span><span class="nf">save_graphic</span><span class="p">(</span><span class="sh">'</span><span class="s">contour.pdf</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div> </div> </li> <li>Now run the python code from the Ubuntu terminal: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(fenicsx) $ python3 poisson.py
+</code></pre></div> </div> </li> <li>This should save <code class="language-plaintext highlighter-rouge">.h5</code> and <code class="language-plaintext highlighter-rouge">.xdmf</code> files with the results and save the mesh and contour plot of the primary variable <code class="language-plaintext highlighter-rouge">.pdf</code> files in the working directory.</li> </ol>]]></content><author><name></name></author><category term="tutorial"/><category term="FEniCSx"/><category term="finite-element"/><category term="Python"/><category term="programming"/><category term="Anaconda"/><category term="WSL"/><summary type="html"><![CDATA[A tutorial on how to set up FEniCSx]]></summary></entry><entry><title type="html">LaTeX in MS PowerPoint and VS Code on macOS</title><link href="https://bibekananda-datta.github.io/blog/2023/latex-powerpoint-vscode-mac/" rel="alternate" type="text/html" title="LaTeX in MS PowerPoint and VS Code on macOS"/><published>2023-04-20T15:59:00+00:00</published><updated>2023-04-20T15:59:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2023/latex-powerpoint-vscode-mac</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2023/latex-powerpoint-vscode-mac/"><![CDATA[<p>My presentations often include a fair share of math equations and videos/ animation. Although making a presentation in Beamer is always an option however as of now, embedding animation or video in a Beamer-generated PDF isn’t very intuitive or natively supported. So, I have always opted for PowerPoint because of the ease of use. While equation editor in MS Word and PowerPoint has improved drastically over the last few years, it’s still nowhere near what LaTeX can produce. Additionally, I already have equations written in LaTeX and I use Overleaf these days for LaTeX.</p> <h2 id="latexit-and-powerpoint">LaTeXiT and PowerPoint</h2> <p>After I got the 2022 M2 Macbook Air, I was looking for a way to integrate LaTeX into MS PowerPoint. Previously, I had the full LaTeX distribution installed via MacTeX and I used the IguanaTex plugin to generate the LaTeX equation within the PowerPoint. But this time around, I was reluctant to install the full MacTeX distribution as it would occupy 8 GB+ space on my SSD. MacTeX is essentially TexLive distribution specific to macOS. On Windows, the popular Tex distribution is MiKTeX. Anyway, also to use IguanaTex on Apple Silicon processors, MS PowerPoint needs to be run with the “Open with Rosetta” option. Rosetta is a software that emulates Intel x86 architecture for Apple’s ARM silicon processor, but that comes with a performance penalty. I decided not to opt in for that either.</p> <p>Considering the situations at hand, my new workflow for having LaTeX equations in the PowerPoint slides requires the installation of BasicTeX, Ghostscript, and LaTeXiT. BasicTeX is a lightweight TeX distribution (only a few hundred megabytes) of MacTeX, Ghostscript is a rendering package of PostScript and PDF, and LaTeXiT is a very lightweight equation editor. Download basictex and ghostscript <a href="https://www.tug.org/mactex/morepackages.html">from here</a>. Install in this order; first BasicTeX and then Ghostscript. Both of these come as .pkg files, so the installation procedure is straightforward and no customization is necessary. Now <a href="https://www.chachatelier.fr/latexit">download and install LaTeXIt from here</a>. The installation process is trivial. Open LaTeXiT and then from the Menu bar on the top of the screen, go to Settings. Make sure your export format is “PDF Vector Output”. You can also export the equations in .png, .jpg, .tiff, .eps, and .svg format, but I found PDF to be the most compatible format which you can easily edit later by dragging and dropping to LaTeXiT.</p> <p>You can now start typing equations and if you click on the LaTeXiT icon, it will produce the beautifully crafted LaTeX formula in the preview box on the top. You can drag it to the Desktop Window and it will be saved as a PDF file. You can also directly drag it to a PowerPoint slide. It will embed there as an image. If you’d like to edit the equation later, you can drag that image to the preview window of LaTeXiT, it will generate the .tex code for you which you can edit and repeat the process of drag and embed. There are two things I should mention about this workflow:</p> <ul> <li>BasicTeX does not have all the packages you may need and manual installation of the packages might be needed. We will see how to do that.</li> <li>I would have loved it even more if LaTeXiT had a PowerPoint plug-in like IguanaTeX. I wish the developer steps forward at some point.</li> </ul> <h3 id="latexit-settings-optional">LaTeXiT Settings (optional)</h3> <p>In the typesettings tab, you can create your preamble. This is what my current preamble looks like:</p> <div class="language-latex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">\documentclass</span><span class="na">[12pt]</span><span class="p">{</span>article<span class="p">}</span>
 
--  HoganJsUtils.prototype._getTemplate = function(templateKey, config) {
-+  HoganJsUtils.prototype._getTemplate = function(templateKey) {
-     var template;
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="p">{</span>inputenc<span class="p">}</span>
 
--    if (!config.noCache) {
-+    if (!this.config.noCache) {
-       template = this._readFromCache(templateKey);
-     }
+<span class="k">\usepackage</span><span class="p">{</span>amsfonts,amssymb,amsmath,amsthm,dsfont,mathtools,mathbbol,upgreek<span class="p">}</span>
+<span class="k">\usepackage</span><span class="na">[usenames]</span><span class="p">{</span>color<span class="p">}</span>
+<span class="k">\usepackage</span><span class="p">{</span>enumitem<span class="p">}</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="p">{</span>fontenc<span class="p">}</span>
 
-@@ -53,6 +53,7 @@
-
-     try {
-       if (fs.readFileSync) {
-+        var templatesPath = path.resolve(__dirname, 'templates');
-         var templatePath = path.join(templatesPath, templateKey);
-         var templateContent = fs.readFileSync(templatePath + '.mustache', 'utf8');
-         template = hogan.compile(templateContent);
-@@ -66,12 +67,16 @@
-   };
-
-   HoganJsUtils.prototype._readFromCache = function(templateKey) {
--    return hoganTemplates[templateKey];
-+    return extraTemplates[templateKey] || hoganTemplates[templateKey];
-   };
-
-   HoganJsUtils.prototype._templateKey = function(namespace, view) {
-     return namespace + '-' + view;
-   };
-
--  module.exports.HoganJsUtils = new HoganJsUtils();
-+  HoganJsUtils.prototype.compile = function(templateStr) {
-+    return hogan.compile(templateStr);
-+  };
-+
-+  module.exports.HoganJsUtils = HoganJsUtils;
- })();
-diff --git a/src/html-printer.js b/src/html-printer.js
-index 585d5b66..13f83047 100644
---- a/src/html-printer.js
-+++ b/src/html-printer.js
-@@ -8,6 +8,7 @@
- (function() {
-   var LineByLinePrinter = require('./line-by-line-printer.js').LineByLinePrinter;
-   var SideBySidePrinter = require('./side-by-side-printer.js').SideBySidePrinter;
-+  var FileListPrinter = require('./file-list-printer.js').FileListPrinter;
-
-   function HtmlPrinter() {
-   }
-@@ -22,5 +23,10 @@
-     return sideBySidePrinter.generateSideBySideJsonHtml(diffFiles);
-   };
-
-+  HtmlPrinter.prototype.generateFileListSummary = function(diffJson, config) {
-+    var fileListPrinter = new FileListPrinter(config);
-+    return fileListPrinter.generateFileList(diffJson);
-+  };
-+
-   module.exports.HtmlPrinter = new HtmlPrinter();
- })();
-diff --git a/src/line-by-line-printer.js b/src/line-by-line-printer.js
-index b07eb53c..d230bedd 100644
---- a/src/line-by-line-printer.js
-+++ b/src/line-by-line-printer.js
-@@ -11,7 +11,8 @@
-   var utils = require('./utils.js').Utils;
-   var Rematch = require('./rematch.js').Rematch;
-
--  var hoganUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+  var hoganUtils;
-+
-   var genericTemplatesPath = 'generic';
-   var baseTemplatesPath = 'line-by-line';
-   var iconsBaseTemplatesPath = 'icon';
-@@ -19,6 +20,9 @@
-
-   function LineByLinePrinter(config) {
-     this.config = config;
-+
-+    var HoganJsUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+    hoganUtils = new HoganJsUtils(config);
-   }
-
-   LineByLinePrinter.prototype.makeFileDiffHtml = function(file, diffs) {
-diff --git a/src/side-by-side-printer.js b/src/side-by-side-printer.js
-index bbf1dc8d..5e3033b3 100644
---- a/src/side-by-side-printer.js
-+++ b/src/side-by-side-printer.js
-@@ -11,7 +11,8 @@
-   var utils = require('./utils.js').Utils;
-   var Rematch = require('./rematch.js').Rematch;
-
--  var hoganUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+  var hoganUtils;
-+
-   var genericTemplatesPath = 'generic';
-   var baseTemplatesPath = 'side-by-side';
-   var iconsBaseTemplatesPath = 'icon';
-@@ -26,6 +27,9 @@
-
-   function SideBySidePrinter(config) {
-     this.config = config;
-+
-+    var HoganJsUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+    hoganUtils = new HoganJsUtils(config);
-   }
-
-   SideBySidePrinter.prototype.makeDiffHtml = function(file, diffs) {
-diff --git a/test/file-list-printer-tests.js b/test/file-list-printer-tests.js
-index a502a46f..60ea3208 100644
---- a/test/file-list-printer-tests.js
-+++ b/test/file-list-printer-tests.js
-@@ -1,6 +1,6 @@
- var assert = require('assert');
-
--var fileListPrinter = require('../src/file-list-printer.js').FileListPrinter;
-+var fileListPrinter = new (require('../src/file-list-printer.js').FileListPrinter)();
-
- describe('FileListPrinter', function() {
-   describe('generateFileList', function() {
-diff --git a/test/hogan-cache-tests.js b/test/hogan-cache-tests.js
-index 190bf6f8..3bb754ac 100644
---- a/test/hogan-cache-tests.js
-+++ b/test/hogan-cache-tests.js
-@@ -1,6 +1,6 @@
- var assert = require('assert');
-
--var HoganJsUtils = require('../src/hoganjs-utils.js').HoganJsUtils;
-+var HoganJsUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)();
- var diffParser = require('../src/diff-parser.js').DiffParser;
-
- describe('HoganJsUtils', function() {
-@@ -21,16 +21,28 @@ describe('HoganJsUtils', function() {
-       });
-       assert.equal(emptyDiffHtml, result);
-     });
-+
-     it('should render view without cache', function() {
-       var result = HoganJsUtils.render('generic', 'empty-diff', {
-         contentClass: 'd2h-code-line',
-         diffParser: diffParser
-       }, {noCache: true});
--      assert.equal(emptyDiffHtml + '\n', result);
-+      assert.equal(emptyDiffHtml, result);
-     });
-+
-     it('should return null if template is missing', function() {
--      var result = HoganJsUtils.render('generic', 'missing-template', {}, {noCache: true});
-+      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)({noCache: true});
-+      var result = hoganUtils.render('generic', 'missing-template', {});
-       assert.equal(null, result);
-     });
-+
-+    it('should allow templates to be overridden', function() {
-+      var emptyDiffTemplate = HoganJsUtils.compile('&lt;p&gt;&lt;/p&gt;');
-+
-+      var config = {templates: {'generic-empty-diff': emptyDiffTemplate}};
-+      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)(config);
-+      var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
-+      assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
-+    });
-   });
- });
-diff --git a/test/line-by-line-tests.js b/test/line-by-line-tests.js
-index 1cd92073..8869b3df 100644
---- a/test/line-by-line-tests.js
-+++ b/test/line-by-line-tests.js
-@@ -14,7 +14,7 @@ describe('LineByLinePrinter', function() {
-         '            File without changes\n' +
-         '        &lt;/div&gt;\n' +
-         '    &lt;/td&gt;\n' +
--        '&lt;/tr&gt;\n';
-+        '&lt;/tr&gt;';
-
-       assert.equal(expected, fileHtml);
-     });
-@@ -422,7 +422,6 @@ describe('LineByLinePrinter', function() {
-         '        &lt;/div&gt;\n' +
-         '    &lt;/td&gt;\n' +
-         '&lt;/tr&gt;\n' +
--        '\n' +
-         '                &lt;/tbody&gt;\n' +
-         '            &lt;/table&gt;\n' +
-         '        &lt;/div&gt;\n' +
-diff --git a/test/side-by-side-printer-tests.js b/test/side-by-side-printer-tests.js
-index 76625f8e..771daaa5 100644
---- a/test/side-by-side-printer-tests.js
-+++ b/test/side-by-side-printer-tests.js
-@@ -14,7 +14,7 @@ describe('SideBySidePrinter', function() {
-         '            File without changes\n' +
-         '        &lt;/div&gt;\n' +
-         '    &lt;/td&gt;\n' +
--        '&lt;/tr&gt;\n';
-+        '&lt;/tr&gt;';
-
-       assert.equal(expectedRight, fileHtml.right);
-       assert.equal(expectedLeft, fileHtml.left);
-@@ -324,7 +324,6 @@ describe('SideBySidePrinter', function() {
-         '        &lt;/div&gt;\n' +
-         '    &lt;/td&gt;\n' +
-         '&lt;/tr&gt;\n' +
--        '\n' +
-         '                    &lt;/tbody&gt;\n' +
-         '                &lt;/table&gt;\n' +
-         '            &lt;/div&gt;\n' +
-
-From f3cadb96677d0eb82fc2752dc3ffbf35ca9b5bdb Mon Sep 17 00:00:00 2001
-From: Rodrigo Fernandes &lt;rtfrodrigo@gmail.com&gt;
-Date: Sat, 15 Oct 2016 13:21:22 +0100
-Subject: [PATCH 2/2] Allow uncompiled templates
-
----
- README.md                 |  3 +++
- src/hoganjs-utils.js      |  7 +++++++
- test/hogan-cache-tests.js | 24 +++++++++++++++++++++++-
- 3 files changed, 33 insertions(+), 1 deletion(-)
-
-diff --git a/README.md b/README.md
-index 132c8a28..46909f25 100644
---- a/README.md
-+++ b/README.md
-@@ -98,6 +98,9 @@ The HTML output accepts a Javascript object with configuration. Possible options
-   - `synchronisedScroll`: scroll both panes in side-by-side mode: `true` or `false`, default is `false`
-   - `matchWordsThreshold`: similarity threshold for word matching, default is 0.25
-   - `matchingMaxComparisons`: perform at most this much comparisons for line matching a block of changes, default is `2500`
-+  - `templates`: object with previously compiled templates to replace parts of the html
-+  - `rawTemplates`: object with raw not compiled templates to replace parts of the html
-+  &gt; For more information regarding the possible templates look into [src/templates](https://github.com/rtfpessoa/diff2html/tree/master/src/templates)
-
- ## Diff2HtmlUI Helper
-
-diff --git a/src/hoganjs-utils.js b/src/hoganjs-utils.js
-index 0dda08d7..b2e9c275 100644
---- a/src/hoganjs-utils.js
-+++ b/src/hoganjs-utils.js
-@@ -17,6 +17,13 @@
-   function HoganJsUtils(configuration) {
-     this.config = configuration || {};
-     extraTemplates = this.config.templates || {};
-+
-+    var rawTemplates = this.config.rawTemplates || {};
-+    for (var templateName in rawTemplates) {
-+      if (rawTemplates.hasOwnProperty(templateName)) {
-+        if (!extraTemplates[templateName]) extraTemplates[templateName] = this.compile(rawTemplates[templateName]);
-+      }
-+    }
-   }
-
-   HoganJsUtils.prototype.render = function(namespace, view, params) {
-diff --git a/test/hogan-cache-tests.js b/test/hogan-cache-tests.js
-index 3bb754ac..a34839c0 100644
---- a/test/hogan-cache-tests.js
-+++ b/test/hogan-cache-tests.js
-@@ -36,7 +36,7 @@ describe('HoganJsUtils', function() {
-       assert.equal(null, result);
-     });
-
--    it('should allow templates to be overridden', function() {
-+    it('should allow templates to be overridden with compiled templates', function() {
-       var emptyDiffTemplate = HoganJsUtils.compile('&lt;p&gt;&lt;/p&gt;');
-
-       var config = {templates: {'generic-empty-diff': emptyDiffTemplate}};
-@@ -44,5 +44,27 @@ describe('HoganJsUtils', function() {
-       var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
-       assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
-     });
-+
-+    it('should allow templates to be overridden with uncompiled templates', function() {
-+      var emptyDiffTemplate = '&lt;p&gt;&lt;/p&gt;';
-+
-+      var config = {rawTemplates: {'generic-empty-diff': emptyDiffTemplate}};
-+      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)(config);
-+      var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
-+      assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
-+    });
-+
-+    it('should allow templates to be overridden giving priority to compiled templates', function() {
-+      var emptyDiffTemplate = HoganJsUtils.compile('&lt;p&gt;&lt;/p&gt;');
-+      var emptyDiffTemplateUncompiled = '&lt;p&gt;Not used!&lt;/p&gt;';
-+
-+      var config = {
-+        templates: {'generic-empty-diff': emptyDiffTemplate},
-+        rawTemplates: {'generic-empty-diff': emptyDiffTemplateUncompiled}
-+      };
-+      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)(config);
-+      var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
-+      assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
-+    });
-   });
- });
-</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is how you can display code diffs]]></summary></entry><entry><title type="html">a post with advanced image components</title><link href="https://bibekananda-datta.github.io/blog/2024/advanced-images/" rel="alternate" type="text/html" title="a post with advanced image components"/><published>2024-01-27T11:46:00+00:00</published><updated>2024-01-27T11:46:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2024/advanced-images</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2024/advanced-images/"><![CDATA[<p>This is an example post with advanced image components.</p> <h2 id="image-slider">Image Slider</h2> <p>This is a simple image slider. It uses the <a href="https://swiperjs.com/">Swiper</a> library. Check the <a href="https://swiperjs.com/demos">examples page</a> for more information of what you can achieve with it.</p> <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true"> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/9-480.webp 480w,/assets/img/9-800.webp 800w,/assets/img/9-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/9.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/7-480.webp 480w,/assets/img/7-800.webp 800w,/assets/img/7-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/7.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/8-480.webp 480w,/assets/img/8-800.webp 800w,/assets/img/8-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/8.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/10-480.webp 480w,/assets/img/10-800.webp 800w,/assets/img/10-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/10.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/12-480.webp 480w,/assets/img/12-800.webp 800w,/assets/img/12-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/12.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> </swiper-container> <h2 id="image-comparison-slider">Image Comparison Slider</h2> <p>This is a simple image comparison slider. It uses the <a href="https://img-comparison-slider.sneas.io/">img-comparison-slider</a> library. Check the <a href="https://img-comparison-slider.sneas.io/examples.html">examples page</a> for more information of what you can achieve with it.</p> <img-comparison-slider> <figure slot="first"> <picture> <source class="responsive-img-srcset" srcset="/assets/img/prof_pic-480.webp 480w,/assets/img/prof_pic-800.webp 800w,/assets/img/prof_pic-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/prof_pic.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> <figure slot="second"> <picture> <source class="responsive-img-srcset" srcset="/assets/img/prof_pic_color-480.webp 480w,/assets/img/prof_pic_color-800.webp 800w,/assets/img/prof_pic_color-1400.webp 1400w," sizes="95vw" type="image/webp"/> <img src="/assets/img/prof_pic_color.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </img-comparison-slider>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="images"/><summary type="html"><![CDATA[this is what advanced image components could look like]]></summary></entry><entry><title type="html">a post with vega lite</title><link href="https://bibekananda-datta.github.io/blog/2024/vega-lite/" rel="alternate" type="text/html" title="a post with vega lite"/><published>2024-01-27T00:20:00+00:00</published><updated>2024-01-27T00:20:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2024/vega-lite</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2024/vega-lite/"><![CDATA[<p>This is an example post with some <a href="https://vega.github.io/vega-lite/">vega lite</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">vega_lite
-</span><span class="sb">{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A dot plot showing each movie in the database, and the difference from the average movie rating. The display is sorted by year to visualize everything in sequential order. The graph is for all Movies before 2019.",
-  "data": {
-    "url": "https://raw.githubusercontent.com/vega/vega/main/docs/data/movies.json"
-  },
-  "transform": [
-    {"filter": "datum['IMDB Rating'] != null"},
-    {"filter": {"timeUnit": "year", "field": "Release Date", "range": [null, 2019]}},
-    {
-      "joinaggregate": [{
-        "op": "mean",
-        "field": "IMDB Rating",
-        "as": "AverageRating"
-      }]
-    },
-    {
-      "calculate": "datum['IMDB Rating'] - datum.AverageRating",
-      "as": "RatingDelta"
-    }
-  ],
-  "mark": "point",
-  "encoding": {
-    "x": {
-      "field": "Release Date",
-      "type": "temporal"
-    },
-    "y": {
-      "field": "RatingDelta",
-      "type": "quantitative",
-      "title": "Rating Delta"
-    },
-    "color": {
-      "field": "RatingDelta",
-      "type": "quantitative",
-      "scale": {"domainMid": 0},
-      "title": "Rating Delta"
-    }
-  }
-}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-vega_lite">{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A dot plot showing each movie in the database, and the difference from the average movie rating. The display is sorted by year to visualize everything in sequential order. The graph is for all Movies before 2019.",
-  "data": {
-    "url": "https://raw.githubusercontent.com/vega/vega/main/docs/data/movies.json"
-  },
-  "transform": [
-    {"filter": "datum['IMDB Rating'] != null"},
-    {"filter": {"timeUnit": "year", "field": "Release Date", "range": [null, 2019]}},
-    {
-      "joinaggregate": [{
-        "op": "mean",
-        "field": "IMDB Rating",
-        "as": "AverageRating"
-      }]
-    },
-    {
-      "calculate": "datum['IMDB Rating'] - datum.AverageRating",
-      "as": "RatingDelta"
-    }
-  ],
-  "mark": "point",
-  "encoding": {
-    "x": {
-      "field": "Release Date",
-      "type": "temporal"
-    },
-    "y": {
-      "field": "RatingDelta",
-      "type": "quantitative",
-      "title": "Rating Delta"
-    },
-    "color": {
-      "field": "RatingDelta",
-      "type": "quantitative",
-      "scale": {"domainMid": 0},
-      "title": "Rating Delta"
-    }
-  }
-}
-</code></pre> <p>This plot supports both light and dark themes.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><summary type="html"><![CDATA[this is what included vega lite code could look like]]></summary></entry><entry><title type="html">a post with geojson</title><link href="https://bibekananda-datta.github.io/blog/2024/geojson-map/" rel="alternate" type="text/html" title="a post with geojson"/><published>2024-01-26T17:57:00+00:00</published><updated>2024-01-26T17:57:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2024/geojson-map</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2024/geojson-map/"><![CDATA[<p>This is an example post with some <a href="https://geojson.org/">geojson</a> code. The support is provided thanks to <a href="https://leafletjs.com/">Leaflet</a>. To create your own visualization, go to <a href="https://geojson.io/">geojson.io</a>.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">geojson
-</span><span class="sb">{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "coordinates": [
-          [
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ]
-          ]
-        ],
-        "type": "Polygon"
-      }
-    }
-  ]
-}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-geojson">{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "coordinates": [
-          [
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ]
-          ]
-        ],
-        "type": "Polygon"
-      }
-    }
-  ]
-}
-</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><category term="maps"/><summary type="html"><![CDATA[this is what included geojson code could look like]]></summary></entry><entry><title type="html">a post with echarts</title><link href="https://bibekananda-datta.github.io/blog/2024/echarts/" rel="alternate" type="text/html" title="a post with echarts"/><published>2024-01-26T16:03:00+00:00</published><updated>2024-01-26T16:03:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2024/echarts</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2024/echarts/"><![CDATA[<p>This is an example post with some <a href="https://echarts.apache.org/">echarts</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">echarts
-</span><span class="sb">{
-  "title": {
-    "text": "ECharts Getting Started Example"
-  },
-  "responsive": true,
-  "tooltip": {},
-  "legend": {
-    "top": "30px",
-    "data": ["sales"]
-  },
-  "xAxis": {
-    "data": ["Shirts", "Cardigans", "Chiffons", "Pants", "Heels", "Socks"]
-  },
-  "yAxis": {},
-  "series": [
-    {
-      "name": "sales",
-      "type": "bar",
-      "data": [5, 20, 36, 10, 10, 20]
-    }
-  ]
-}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-echarts">{
-  "title": {
-    "text": "ECharts Getting Started Example"
-  },
-  "responsive": true,
-  "tooltip": {},
-  "legend": {
-    "top": "30px",
-    "data": ["sales"]
-  },
-  "xAxis": {
-    "data": ["Shirts", "Cardigans", "Chiffons", "Pants", "Heels", "Socks"]
-  },
-  "yAxis": {},
-  "series": [
-    {
-      "name": "sales",
-      "type": "bar",
-      "data": [5, 20, 36, 10, 10, 20]
-    }
-  ]
-}
-</code></pre> <p>Note that this library offer support for both light and dark themes. You can switch between them using the theme switcher in the top right corner of the page.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><summary type="html"><![CDATA[this is what included echarts code could look like]]></summary></entry><entry><title type="html">a post with chart.js</title><link href="https://bibekananda-datta.github.io/blog/2024/chartjs/" rel="alternate" type="text/html" title="a post with chart.js"/><published>2024-01-26T01:04:00+00:00</published><updated>2024-01-26T01:04:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2024/chartjs</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2024/chartjs/"><![CDATA[<p>This is an example post with some <a href="https://www.chartjs.org/">chart.js</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">chartjs
-</span><span class="sb">{
-  "type": "line",
-  "data": {
-    "labels": [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July"
-    ],
-    "datasets": [
-      {
-        "label": "# of bugs",
-        "fill": false,
-        "lineTension": 0.1,
-        "backgroundColor": "rgba(75,192,192,0.4)",
-        "borderColor": "rgba(75,192,192,1)",
-        "borderCapStyle": "butt",
-        "borderDash": [],
-        "borderDashOffset": 0,
-        "borderJoinStyle": "miter",
-        "pointBorderColor": "rgba(75,192,192,1)",
-        "pointBackgroundColor": "#fff",
-        "pointBorderWidth": 1,
-        "pointHoverRadius": 5,
-        "pointHoverBackgroundColor": "rgba(75,192,192,1)",
-        "pointHoverBorderColor": "rgba(220,220,220,1)",
-        "pointHoverBorderWidth": 2,
-        "pointRadius": 1,
-        "pointHitRadius": 10,
-        "data": [
-          65,
-          59,
-          80,
-          81,
-          56,
-          55,
-          40
-        ],
-        "spanGaps": false
-      }
-    ]
-  },
-  "options": {}
-}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>This is how it looks like:</p> <pre><code class="language-chartjs">{
-  "type": "line",
-  "data": {
-    "labels": [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July"
-    ],
-    "datasets": [
-      {
-        "label": "# of bugs",
-        "fill": false,
-        "lineTension": 0.1,
-        "backgroundColor": "rgba(75,192,192,0.4)",
-        "borderColor": "rgba(75,192,192,1)",
-        "borderCapStyle": "butt",
-        "borderDash": [],
-        "borderDashOffset": 0,
-        "borderJoinStyle": "miter",
-        "pointBorderColor": "rgba(75,192,192,1)",
-        "pointBackgroundColor": "#fff",
-        "pointBorderWidth": 1,
-        "pointHoverRadius": 5,
-        "pointHoverBackgroundColor": "rgba(75,192,192,1)",
-        "pointHoverBorderColor": "rgba(220,220,220,1)",
-        "pointHoverBorderWidth": 2,
-        "pointRadius": 1,
-        "pointHitRadius": 10,
-        "data": [
-          65,
-          59,
-          80,
-          81,
-          56,
-          55,
-          40
-        ],
-        "spanGaps": false
-      }
-    ]
-  },
-  "options": {}
-}
-</code></pre> <p>Also another example chart.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">chartjs
-</span><span class="sb">{
-  "type": "doughnut",
-  "data": {
-    "labels": [
-      "Red",
-      "Blue",
-      "Yellow"
-    ],
-    "datasets": [
-      {
-        "data": [
-          300,
-          50,
-          100
-        ],
-        "backgroundColor": [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56"
-        ],
-        "hoverBackgroundColor": [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56"
-        ]
-      }
-    ]
-  },
-  "options": {}
-}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-chartjs">{
-  "type": "doughnut",
-  "data": {
-    "labels": [
-      "Red",
-      "Blue",
-      "Yellow"
-    ],
-    "datasets": [
-      {
-        "data": [
-          300,
-          50,
-          100
-        ],
-        "backgroundColor": [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56"
-        ],
-        "hoverBackgroundColor": [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56"
-        ]
-      }
-    ]
-  },
-  "options": {}
-}
-</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><summary type="html"><![CDATA[this is what included chart.js code could look like]]></summary></entry><entry><title type="html">a post with TikZJax</title><link href="https://bibekananda-datta.github.io/blog/2023/tikzjax/" rel="alternate" type="text/html" title="a post with TikZJax"/><published>2023-12-12T22:25:00+00:00</published><updated>2023-12-12T22:25:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2023/tikzjax</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2023/tikzjax/"><![CDATA[<p>This is an example post with TikZ code. TikZJax converts script tags (containing TikZ code) into SVGs.</p> <script type="text/tikz">
-\begin{tikzpicture}
-    \draw[red,fill=black!60!red] (0,0) circle [radius=1.5];
-    \draw[green,fill=black!60!green] (0,0) circle [x radius=1.5cm, y radius=10mm];
-    \draw[blue,fill=black!60!blue] (0,0) circle [x radius=1cm, y radius=5mm, rotate=30];
-\end{tikzpicture}
-</script>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="diagrams"/><summary type="html"><![CDATA[this is what included TikZ code could look like]]></summary></entry><entry><title type="html">a post with bibliography</title><link href="https://bibekananda-datta.github.io/blog/2023/post-bibliography/" rel="alternate" type="text/html" title="a post with bibliography"/><published>2023-07-12T13:56:00+00:00</published><updated>2023-07-12T13:56:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2023/post-bibliography</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2023/post-bibliography/"><![CDATA[<p>This post shows how to add bibliography to simple blog posts. We support every citation style that <a href="https://github.com/inukshuk/jekyll-scholar">jekyll-scholar</a> does. That means simple citation like (missing reference), multiple citations like (missing reference), long references like (missing reference) or also quotes:</p> <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br/>sed do eiusmod tempor.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p><cite>(missing reference)</cite></blockquote> <p>If you would like something more academic, check the <a href="/blog/2021/distill/">distill style post</a>.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="bib"/><summary type="html"><![CDATA[an example of a blog post with bibliography]]></summary></entry><entry><title type="html">a post with jupyter notebook</title><link href="https://bibekananda-datta.github.io/blog/2023/jupyter-notebook/" rel="alternate" type="text/html" title="a post with jupyter notebook"/><published>2023-07-04T12:57:00+00:00</published><updated>2023-07-04T12:57:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2023/jupyter-notebook</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2023/jupyter-notebook/"><![CDATA[<p>To include a jupyter notebook in a post, you can use the following code:</p> <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{::nomarkdown}
-<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">jupyter_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'assets/jupyter/blog.ipynb'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">relative_url</span><span class="w"> </span><span class="cp">%}</span>
-<span class="cp">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="nv">notebook_exists</span><span class="w"> </span><span class="cp">%}{%</span><span class="w"> </span><span class="nt">file_exists</span><span class="w"> </span>assets/jupyter/blog.ipynb<span class="w"> </span><span class="cp">%}{%</span><span class="w"> </span><span class="nt">endcapture</span><span class="w"> </span><span class="cp">%}</span>
-<span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nv">notebook_exists</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'true'</span><span class="w"> </span><span class="cp">%}</span>
-  <span class="cp">{%</span><span class="w"> </span><span class="nt">jupyter_notebook</span><span class="w"> </span><span class="nv">jupyter_path</span><span class="w"> </span><span class="cp">%}</span>
-<span class="cp">{%</span><span class="w"> </span><span class="nt">else</span><span class="w"> </span><span class="cp">%}</span>
-  &lt;p&gt;Sorry, the notebook you are looking for does not exist.&lt;/p&gt;
-<span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
-{:/nomarkdown}
-</code></pre></div></div> <p>Let’s break it down: this is possible thanks to <a href="https://github.com/red-data-tools/jekyll-jupyter-notebook">Jekyll Jupyter Notebook plugin</a> that allows you to embed jupyter notebooks in your posts. It basically calls <a href="https://nbconvert.readthedocs.io/en/latest/usage.html#convert-html"><code class="language-plaintext highlighter-rouge">jupyter nbconvert --to html</code></a> to convert the notebook to an html page and then includes it in the post. Since <a href="https://jekyllrb.com/docs/configuration/markdown/">Kramdown</a> is the default Markdown renderer for Jekyll, we need to surround the call to the plugin with the <a href="https://kramdown.gettalong.org/syntax.html#extensions">::nomarkdown</a> tag so that it stops processing this part with Kramdown and outputs the content as-is.</p> <p>The plugin takes as input the path to the notebook, but it assumes the file exists. If you want to check if the file exists before calling the plugin, you can use the <code class="language-plaintext highlighter-rouge">file_exists</code> filter. This avoids getting a 404 error from the plugin and ending up displaying the main page inside of it instead. If the file does not exist, you can output a message to the user. The code displayed above outputs the following:</p> <div class="jupyter-notebook" style="position: relative; width: 100%; margin: 0 auto;"> <div class="jupyter-notebook-iframe-container"> <iframe src="/assets/jupyter/blog.ipynb.html" style="position: absolute; top: 0; left: 0; border-style: none;" width="100%" height="100%" onload="this.parentElement.style.paddingBottom = (this.contentWindow.document.documentElement.scrollHeight + 10) + 'px'"></iframe> </div> </div> <p>Note that the jupyter notebook supports both light and dark themes.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="jupyter"/><summary type="html"><![CDATA[an example of a blog post with jupyter notebook]]></summary></entry><entry><title type="html">a post with custom blockquotes</title><link href="https://bibekananda-datta.github.io/blog/2023/custom-blockquotes/" rel="alternate" type="text/html" title="a post with custom blockquotes"/><published>2023-05-12T19:53:00+00:00</published><updated>2023-05-12T19:53:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2023/custom-blockquotes</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2023/custom-blockquotes/"><![CDATA[<p>This post shows how to add custom styles for blockquotes. Based on <a href="https://github.com/sighingnow/jekyll-gitbook">jekyll-gitbook</a> implementation.</p> <p>We decided to support the same custom blockquotes as in <a href="https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-06-30-tips_warnings_dangers.html">jekyll-gitbook</a>, which are also found in a lot of other sites’ styles. The styles definitions can be found on the <a href="https://github.com/alshedivat/al-folio/blob/master/_sass/_base.scss">_base.scss</a> file, more specifically:</p> <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Tips, warnings, and dangers */</span>
-<span class="nc">.post</span> <span class="nc">.post-content</span> <span class="nt">blockquote</span> <span class="p">{</span>
-  <span class="k">&amp;</span><span class="nc">.block-tip</span> <span class="p">{</span>
-    <span class="nl">border-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">global-tip-block</span><span class="p">);</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">global-tip-block-bg</span><span class="p">);</span>
-
-    <span class="nt">p</span> <span class="p">{</span>
-      <span class="nl">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">global-tip-block-text</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="nt">h1</span><span class="o">,</span>
-    <span class="nt">h2</span><span class="o">,</span>
-    <span class="nt">h3</span><span class="o">,</span>
-    <span class="nt">h4</span><span class="o">,</span>
-    <span class="nt">h5</span><span class="o">,</span>
-    <span class="nt">h6</span> <span class="p">{</span>
-      <span class="nl">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">global-tip-block-title</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-
-  <span class="k">&amp;</span><span class="nc">.block-warning</span> <span class="p">{</span>
-    <span class="nl">border-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">global-warning-block</span><span class="p">);</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">global-warning-block-bg</span><span class="p">);</span>
-
-    <span class="nt">p</span> <span class="p">{</span>
-      <span class="nl">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">global-warning-block-text</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="nt">h1</span><span class="o">,</span>
-    <span class="nt">h2</span><span class="o">,</span>
-    <span class="nt">h3</span><span class="o">,</span>
-    <span class="nt">h4</span><span class="o">,</span>
-    <span class="nt">h5</span><span class="o">,</span>
-    <span class="nt">h6</span> <span class="p">{</span>
-      <span class="nl">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">global-warning-block-title</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-
-  <span class="k">&amp;</span><span class="nc">.block-danger</span> <span class="p">{</span>
-    <span class="nl">border-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">global-danger-block</span><span class="p">);</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">global-danger-block-bg</span><span class="p">);</span>
-
-    <span class="nt">p</span> <span class="p">{</span>
-      <span class="nl">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">global-danger-block-text</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="nt">h1</span><span class="o">,</span>
-    <span class="nt">h2</span><span class="o">,</span>
-    <span class="nt">h3</span><span class="o">,</span>
-    <span class="nt">h4</span><span class="o">,</span>
-    <span class="nt">h5</span><span class="o">,</span>
-    <span class="nt">h6</span> <span class="p">{</span>
-      <span class="nl">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">global-danger-block-title</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div> <p>A regular blockquote can be used as following:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; This is a regular blockquote</span>
-<span class="gt">&gt; and it can be used as usual</span>
-</code></pre></div></div> <blockquote> <p>This is a regular blockquote and it can be used as usual</p> </blockquote> <p>These custom styles can be used by adding the specific class to the blockquote, as follows:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; ##### TIP</span>
-<span class="gt">&gt;</span>
-<span class="gt">&gt; A tip can be used when you want to give advice</span>
-<span class="gt">&gt; related to a certain content.</span>
-{: .block-tip }
-</code></pre></div></div> <blockquote class="block-tip"> <h5 id="tip">TIP</h5> <p>A tip can be used when you want to give advice related to a certain content.</p> </blockquote> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; ##### WARNING</span>
-<span class="gt">&gt;</span>
-<span class="gt">&gt; This is a warning, and thus should</span>
-<span class="gt">&gt; be used when you want to warn the user</span>
-{: .block-warning }
-</code></pre></div></div> <blockquote class="block-warning"> <h5 id="warning">WARNING</h5> <p>This is a warning, and thus should be used when you want to warn the user</p> </blockquote> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; ##### DANGER</span>
-<span class="gt">&gt;</span>
-<span class="gt">&gt; This is a danger zone, and thus should</span>
-<span class="gt">&gt; be used carefully</span>
-{: .block-danger }
-</code></pre></div></div> <blockquote class="block-danger"> <h5 id="danger">DANGER</h5> <p>This is a danger zone, and thus should be used carefully</p> </blockquote> ]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="blockquotes"/><summary type="html"><![CDATA[an example of a blog post with custom blockquotes]]></summary></entry></feed>
+<span class="k">\newcommand</span><span class="p">{</span><span class="k">\dC</span><span class="p">}{$^{</span><span class="nv">\circ</span><span class="p">}$</span>C<span class="p">}</span>
+<span class="k">\DeclareMathOperator</span><span class="p">{</span><span class="k">\R</span><span class="p">}{</span><span class="k">\mathrm</span><span class="p">{</span>R<span class="p">}}</span>
+<span class="k">\DeclareMathOperator</span><span class="p">{</span><span class="k">\T</span><span class="p">}</span>
+<span class="k">\newcommand</span><span class="p">{</span><span class="k">\vect</span><span class="p">}</span>[1]<span class="p">{</span><span class="k">\mathbf</span><span class="p">{</span>#1<span class="p">}}</span>
+<span class="k">\newcommand</span><span class="p">{</span><span class="k">\mat</span><span class="p">}</span>[1]<span class="p">{</span><span class="k">\mathrm</span><span class="p">{</span>#1<span class="p">}}</span>
+<span class="k">\DeclareMathOperator</span><span class="p">{</span><span class="k">\tr</span><span class="p">}{</span>tr<span class="p">}</span>
+<span class="k">\DeclareMathOperator</span><span class="p">{</span><span class="k">\sym</span><span class="p">}{</span>sym<span class="p">}</span>
+<span class="k">\DeclareMathOperator</span><span class="p">{</span><span class="k">\skw</span><span class="p">}{</span>skw<span class="p">}</span>
+<span class="k">\DeclareMathOperator</span><span class="p">{</span><span class="k">\divg</span><span class="p">}{</span>div<span class="p">}</span>
+<span class="k">\DeclareMathOperator</span><span class="p">{</span><span class="k">\grad</span><span class="p">}{</span>grad<span class="p">}</span>
+<span class="k">\DeclareMathOperator</span><span class="p">{</span><span class="k">\curl</span><span class="p">}{</span>curl<span class="p">}</span>
+<span class="k">\DeclareMathOperator</span><span class="p">{</span><span class="k">\sgn</span><span class="p">}{</span>sign<span class="p">}</span>
+</code></pre></div></div> <p>LaTeX packages, dsfont and mathtools, are not part of the basictex distribution. So, I had to install them manually. If you’d like to see what LaTeX packages are installed in your distribution, type:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tlmgr list --only-installed
+</code></pre></div></div> <p><code class="language-plaintext highlighter-rouge">tlmgr</code> is the TexLive distribution manager. You can search for TexLive (tlmgr) documentation to learn more commands. To install the additional packages I have here, open the terminal and type the following:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo tlmgr install doublestroke mathtools
+</code></pre></div></div> <p>The LaTeX package, <code class="language-plaintext highlighter-rouge">dsfont</code>, is distributed as doublestroke on the repository. You can follow the same procedure to install any LaTeX package that is hosted on the CTAN repository. We will see a few more examples later.</p> <h2 id="integrating-latex-with-vs-code">Integrating LaTeX with VS Code</h2> <p>Since I already installed BasicTeX, I decided to give local LaTeX compilation a shot but without using any additional software like TexShop, TexWorks, TexMaker, etc. Since I am a regular user of Overleaf, this is not a priority to me but I thought it would be nice to have the option, just in case. Visual Studio Code is my favorite text editor for a while, so I decided to check out the options to integrate LaTeX compilation to VS Code. If you haven’t used VS Code before, you should try it out: https://code.visualstudio.com. VS Code is probably the most popular code/text editor now. Anyway, on my VS code, I installed the extension: LaTeX Workshop to manage LaTeX linking and compilation. Before configuring LaTeX Workshop for compilation, we need to install a few LaTeX packages: <code class="language-plaintext highlighter-rouge">chktex</code>, <code class="language-plaintext highlighter-rouge">synctex</code>, <code class="language-plaintext highlighter-rouge">latexmk</code>, <code class="language-plaintext highlighter-rouge">texcount</code>, <code class="language-plaintext highlighter-rouge">latexindent</code>. The installation process is the same as before; open the terminal app and type:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo tlmgr install chktex synctex latexmk texcount latexindent
+</code></pre></div></div> <p>Now we need to get the PATH for these packages to be included in the LaTeX Workshop settings inside VS Code. To get the path for each package, on the terminal, type:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>which chktex
+</code></pre></div></div> <p>This will return the path for chktex installation. You can repeat the same command for other packages as well. Now, let’s open the VS code, and from the top Menu bar, go to Code &gt; Settings &gt; Extension &gt; LaTeX Workshop. From the top search bar menu, search “latex-workshop path”. This will result in some options that require the path variable. I had to enter the path for chktex, synctex, texcount, and latexindent. By default, VS Code uses latexmk for compilation, so does not require entering the path in there. I guess, it finds automatically from the system if installed. You can also customize other options from the LaTeX workshop extension, such as cleaning additional files after compilation and choice of PDF viewer, etc. Once all the setup is done, you can now start writing in LaTeX and compile it.</p> <h2 id="final-words">Final Words</h2> <p>While this method is capable of compiling LaTeX files to PDF via pdflatex, the lack of packages in the BasicTeX installation makes it harder to compile a more realistic LaTeX file. You may have to install LaTeX packages manually. MikTeX on Windows has an on-the-fly package installation feature which is awesome, but I have not found a way to do it with MacTeX or TexLive. As of now, the apparent remedy is to install the complete MacTeX distribution. MikTeX is also now available on macOS; so installing MikTeX instead of BasicTeX might be helpful in that case.</p>]]></content><author><name></name></author><category term="tutorial"/><category term="LaTeX"/><category term="PowerPoint"/><category term="LaTeXiT"/><category term="VS-Code"/><category term="macOS"/><summary type="html"><![CDATA[A tutorial to use LaTeX with VS Code and PowerPoint]]></summary></entry><entry><title type="html">Linking Intel oneAPI and Visual Studio with Abaqus</title><link href="https://bibekananda-datta.github.io/blog/2021/link-intel-and-vs-abaqus-2020/" rel="alternate" type="text/html" title="Linking Intel oneAPI and Visual Studio with Abaqus"/><published>2021-02-13T15:59:00+00:00</published><updated>2021-02-13T15:59:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2021/link-intel-and-vs-abaqus-2020</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2021/link-intel-and-vs-abaqus-2020/"><![CDATA[<p>ABAQUS is one of the most popular commercial finite element programs in both academia and industry. In addition to the built-in physics and material models, ABAQUS allows its users to program new features through the user subroutine feature, typically written in Fortran or C++. The recommended compiler for ABAQUS user subroutines is Intel Fortran which is a part of the Intel oneAPI package since 2021. Additionally, on Windows OS, it requires installing Microsoft Visual Studio for linking and compilation. It always has been quite confusing to the users how to configure ABAQUS to use this feature. In this blog post, I will describe the procedures for installing necessary package and configuring ABAQUS to avail the user subroutine feature.</p> <h2 id="software-installation">Software installation</h2> <h3 id="things-you-will-need">Things you will need</h3> <ol> <li>ABAQUS finite element solver</li> <li>Microsoft Visual Studio Community Edition</li> <li>Intel oneAPI Base Toolkit and Intel oneAPI HPC Toolkit</li> <li>Notepad or Notepad++ (or some text editor)</li> </ol> <p>For my first time, I used ABAQUS 2020, Microsoft Visual Studio 2019, Intel oneAPI 2021 followed by different versions of these packages in past few years. But I will use examples and images from the first installation I did back in February 2021. If you are doing it right now, you may have different versions of these packages, however the procedure is almost identical. A few things to note before you begin installation:</p> <ol> <li>Please ensure you have the compatible version of Visual Studio and Intel oneAPI.</li> <li>Install Visual Studio and Intel oneAPI in that order. ABAQUS can be installed at any point during the process (before or after).</li> <li>You will need to save the batch files related to these software using administrator access. So launch Notepad from Windows program menu as administrator or use Notepad++. I used Notepad++.</li> </ol> <h3 id="abaqus-installation">ABAQUS Installation</h3> <p>ABAQUS user-defined features are only available through its academic (research) or commercial license which you should obtain from your university or workplace. ABAQUS Installation process is trivial depending on how you obtain the executables. While you going through the installation process, make sure to install ABAQUS with CAA API components. ABAQUS should be installed in <code class="language-plaintext highlighter-rouge">C:\SIMULIA</code> directory.</p> <h3 id="microsoft-visual-studio">Microsoft Visual Studio</h3> <p>Intel oneAPI 2021 supports Visual Studio 2017 and Visual Studio 2019. Please search on Google to download Visual Studio Community Edition. I used the latest one, VS 2019, at that time. <strong>If you are downloading a newer version, please make sure it is compatible with Intel oneAPI.</strong></p> <p>Download the installer and click on it to start the installation process. On the installation page, please select <code class="language-plaintext highlighter-rouge">Desktop development with C++</code> and keep the rest of the default. It will take a few minutes to install.</p> <h3 id="intel-oneapi">Intel oneAPI</h3> <p>Intel oneAPI is split into two packages; Intel oneAPI Base Toolkit and Intel oneAPI HPC Toolkit. To be able to use Intel Fortran and C++ compilers, you will need both toolkits (specially for MKL libraries and parallel processing).</p> <ol> <li> <p>Once both of the packages are downloaded, first install the Intel oneAPI Base Toolkit (I chose default installation). It will recognize the existence of Visual Studio. Please click on the appropriate version and move forward with installation. It might take about 15-20 minutes to install the Base Toolkit. The next step is to install the HPC tool kit in the same procedure. This will take 5-10 minutes to get installed.</p> </li> <li> <p>If you have done default installation of Intel oneAPI, its components should be located in <code class="language-plaintext highlighter-rouge">C:\Program Files (x86)\Intel\oneAPI</code>. Navigate to this directory and then navigate further to ensure <code class="language-plaintext highlighter-rouge">ifort</code> executable is available in the following (or similar) directory. Copy the directory in a text file for later use.</p> </li> </ol> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\windows\bin\intel64
+</code></pre></div></div> <h2 id="linking-intel-fortran-with-abaqus">Linking Intel Fortran with Abaqus</h2> <p>While the installation of the software packages are cakewalk, it gets complicated at this stage. Follow one of the two methods below. I prefer <strong>Method 1</strong> because its easier and I was able to configure Intel oneMKL library as well in this approach.</p> <h3 id="method-1-editing-abaqus-batch-file">Method 1: Editing ABAQUS batch file</h3> <ol> <li>Navigate to <code class="language-plaintext highlighter-rouge">C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\env</code> (or similar directory) and ensure <code class="language-plaintext highlighter-rouge">vars.bat</code> file is available. If the directory name is different in your installation, search for <code class="language-plaintext highlighter-rouge">vars.bat</code> file through Windows Explorer and navigate to the directory. Copy the file directory to a text file.</li> </ol> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\env\vars.bat
+</code></pre></div></div> <ol> <li>Navigate to <code class="language-plaintext highlighter-rouge">C:\SIMULIA\Commands</code> directory and open the <code class="language-plaintext highlighter-rouge">abq2020.bat</code> (or the version you installed) file with any text editor. In the beginning of the file, add the following lines to the file and <strong>save it as administrator</strong>.</li> </ol> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SET PATH=%PATH%; C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\windows\bin\intel64; call "C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\env\vars.bat" intel64
+</code></pre></div></div> <p>As you can see, the <code class="language-plaintext highlighter-rouge">PATH</code> in the first line is the <code class="language-plaintext highlighter-rouge">PATH</code> for ifort compiler executables which was copied during installation. The second line is calling the batch file for ifort compiler which sets the environment variales when ABAQUS is invoked.</p> <h3 id="method-2-gui-approach">Method 2: GUI Approach</h3> <ol> <li>Navigate to C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\env (or similar directory) and ensure vars.bat file is available. If the directory name is different in your installation, search for <strong>vars.bat</strong> file through Windows Explorer and navigate to the directory. Copy the file directory to a text file.</li> </ol> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\env\vars.bat
+</code></pre></div></div> <ol> <li> <p>Copy the path locations with file names for both of them. From the Windows start menu, search <strong>Edit the system environment variables</strong>. Then click on <strong>Environment Variables &gt; Path</strong> (under system variables) and New. Paste those previously copied batch file paths and save them. You can see I already added those (2nd and 3rd from the bottom on the rightmost image).</p> </li> <li> <p>The next step is to link the Intel Fortran compiler with Abaqus shown step-by-step in the following image. Search Abaqus Command from the Windows Menu. Click on Open File Location. Then in Windows Explorer right click on Abaqus Command and click on Properties. In the shortcut tab, locate the target. Change from <code class="language-plaintext highlighter-rouge">C:\WINDOWS\system32\cmd.exe /k</code> to</p> </li> </ol> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\env\vars.bat" intel64 vs2019 &amp; C:\WINDOWS\system32\cmd.exe /k
+</code></pre></div></div> <p><strong>Congratulations! You’re done installing Visual Studio and Intel oneAPI and linking it with Abaqus.</strong></p> <h2 id="verify-linking-and-installation">Verify Linking and Installation</h2> <p>Open Abaqus Command (you can also do it from cmd or Powershell terminal) from the Windows menu and type <code class="language-plaintext highlighter-rouge">abaqus info=system</code>. It should show system information as follows, including the new compiler and linker information.</p> <p>To verify further, type <code class="language-plaintext highlighter-rouge">abaqus verify -user_std</code> and/ or <code class="language-plaintext highlighter-rouge">abaqus verify -user_exp</code> on the Abaqus Command window. If the installation and linking were successful, then you will see something like this:</p> <p><code class="language-plaintext highlighter-rouge">abaqus verify -user_std</code> is for verifying user subroutine feature for Abaqus/ Standard (UMAT, UEL, etc.) and <code class="language-plaintext highlighter-rouge">abaqus verify -user_exp</code> is for verifying user subroutine feature for Abaqus/ Explicit (VUMAT, VUEL, etc.). To verify all of the features of Abaqus you can type <code class="language-plaintext highlighter-rouge">abaqus verify -all</code>. Please note, this might take a while and some components might not pass depending on your license and installation.</p> <h4 id="bug-fix-for-abaqus-20192020">Bug fix for Abaqus 2019/2020</h4> <p>If you still have issues compiling user subroutines, one of the possible bug could be fixed by following approach. I experienced this issue when I first installed these packages; it may have been fixed by now. But at that time. SIMULIA suggested making new Intel oneAPI Toolkits compatible with Abaqus. Please navigate to <code class="language-plaintext highlighter-rouge">C:\Program Files\Dassault Systemes\SimulationServices\V6R2020x\win_b64\SMA\site</code> directory and locate <code class="language-plaintext highlighter-rouge">abaqus_v6.env</code> file. Open the file using a text editor, add the following line at the end of the file, and <strong>save the file as administrator</strong>.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile_fortran += ['/names:lowercase',]
+</code></pre></div></div> <h2 id="linking-intel-onemkl-library-with-abaqus">Linking Intel oneMKL Library with ABAQUS</h2> <p>This is an advanced and optional feature which is very rarely used. Intel oneMKL library includes efficient math subroutines (e.g., BLAS and LAPACK) which can be included in user subroutine to perform computation. However, from time to time, I found it useful to take advantages of existing libraries to write efficient subroutines.</p> <ol> <li> <p>Navigate to <strong>C:\Program Files (x86)\Intel\oneAPI\mkl\2021.1.1\env</strong>, ensure the <strong>vars.bat</strong> file is available for oneMKL package. This batch file is for Intel oneMKL library. Copy the file directory as usual.</p> </li> <li> <p>Navigate to <strong>C:\SIMULIA\Commands</strong> and open the abq2020.bat (or corresponding version) file. Add the following line below the two lines previously added for ifort compiler. Save the file as administrator using the same approach as above; either run Notepad as administrator from Windows program menu or use Notepad++.</p> </li> </ol> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>call "C:\Program Files (x86)\Intel\oneAPI\mkl\2021.1.1\env\vars.bat" intel64
+</code></pre></div></div> <ol> <li>In the previous step, providing Intel oneMKL batch file location in the ABAQUS batch file will source the environment variables when ABAQUS is called to run simulations. However, to compile code with Intel oneMKL library, you will need to do one more step. Locate to <code class="language-plaintext highlighter-rouge">C:\SIMULIA\EstProducts\2020\win_b64\SMA\site</code> directory and open <strong>win86_64.env</strong> file. Find the following line in the file and add the <code class="language-plaintext highlighter-rouge">/Qmkl:sequential</code> compiler option as shown below. Rest of the file should be same. Save the file as administrator.</li> </ol> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile_fortran=['ifort','/Qmkl:sequential', ... ...]
+</code></pre></div></div> <p>You may be able to run oneMKL library in parallel with ABAQUS user surboutines by adding <code class="language-plaintext highlighter-rouge">/Qmkl:parallel</code> compiler flag. However, I never tested this feature.</p>]]></content><author><name></name></author><category term="tutorial"/><category term="Abaqus"/><category term="Fortran"/><category term="programming"/><category term="finite-element"/><category term="Visual-Studio"/><category term="Intel-oneAPI"/><category term="user-subroutine"/><summary type="html"><![CDATA[A tutorial to link Fortran with Abaqus]]></summary></entry><entry><title type="html">Relearning Mathematics</title><link href="https://bibekananda-datta.github.io/blog/2021/relearning-mathematics/" rel="alternate" type="text/html" title="Relearning Mathematics"/><published>2021-01-04T15:59:00+00:00</published><updated>2021-01-04T15:59:00+00:00</updated><id>https://bibekananda-datta.github.io/blog/2021/relearning-mathematics</id><content type="html" xml:base="https://bibekananda-datta.github.io/blog/2021/relearning-mathematics/"><![CDATA[<h2 id="a-little-background">A little background</h2> <p>I started to grow interest in computational mechanics when I was a sophomore in my Mechanics of Solids and Numerical Analysis class. For the next two years in my undergrad, I worked on learning and developing computational methods for linear elasticity problems. I developed a displacement potential-based finite difference method for modeling the interfaces of elastic composites. It was more of a learning experience than developing something novel. During my masters, my research focused more on materials science and less on computational mechanics. Soon I realized I like computational mechanics and developing algorithms and decided if I ever do PhD, I will work in that field. Luckily, I recently started my PhD and my research focuses on computational mechanics. However, within a few days, I started to feel I have lack of knowledge in many essential topics, especially mathematics.</p> <p>During my undergrad, I took 4 mathematics classes in my freshman and sophomore years which covered from Calculus to Partial Differential Equations, and even Complex Analysis. The organization of the topics was not very standard as I have seen in the syllabus of different US schools and also the old school way of teaching didn’t help in understanding the content. To make it worse, I can’t recall applying those methods/ techniques in any engineering class to a great extent. So I forgot most of it by the time I started my PhD and have to look up textbooks now and then. I took one recommended math class comprising Linear Algebra, Ordinary, and Partial Differential Equations. The class was fast-paced and poorly organized once again so that didn’t really clear the confusion I already had. Other graduate mathematics classes offered by my school were more theory and analysis based while I needed applied classes. So, for once and all I decided that I would brush up all the topics in an organized manner by myself as there are a lot of great books and learning resources available online. I also decided to document all these resources so that I can always go back and look up references. If it helps other people, I would feel humbled.</p> <h2 id="what-did-i-need-to-learn">What did I need to learn?</h2> <p>The first step to solving any problem is to identify the problem properly. In this case, I was lucky that I wasn’t a stranger to the topics that I needed to learn. I was comfortable with Calculus-I and Calculus-II (single and multi-variable, respectively) but still needed to brush up on selected topics. So I picked up James Stewart’s Calculus book and read some sections on multivariable calculus and took notes on them. But the main challenge was to learn Linear Algebra and ordinary and Partial Differential Equations in a way that I don’t have to look up textbooks to solve standard problems. I also wanted to master Laplace Transform, Fourier Series, and Fourier Transform, in the context of differential equations. Complex Analysis could be another addition to the list, but I kept this aside for the time being. However, I started looking up resources that cover those aforementioned topics in great detail and from an engineering or physical science perspective.</p> <h3 id="resources">Resources</h3> <p>A general resource for learning these contents could be Advanced Engineering Mathematics by Erwin Kreyszig (any edition). Old editions are available on Amazon at a cheaper price and I would recommend having one in the book-shelf.</p> <hr/> <h2 id="linear-algebra">Linear Algebra</h2> <p>Most graduate-level Linear Algebra classes focus on the proof-based analysis of matrix theory. So an undergraduate-level Linear Algebra seems to be sufficient for the time being to understand the core concepts. So I picked up the following resources.</p> <h3 id="essence-of-linear-algebra-by-3blue1brown">Essence of Linear Algebra by 3Blue1Brown</h3> <p>A small video lecture series by one of my favorite math YouTubers. His presentation isn’t rigorous enough to help you understand the advanced mathematics involved in graduate coursework or research. However, his presentation will develop physical intuition of the subject before diving into advanced topics. I would suggest going over his video series before starting continuum mechanics or even differential equations.</p> <ul> <li><a href="https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">YouTube playlist</a>.</li> </ul> <h3 id="mit-1806-linear-algebra-by-prof-gilbert-strang">MIT 18.06 Linear Algebra by Prof. Gilbert Strang:</h3> <p>This is probably the most popular lecture series on this subject. Prof. Strang covered Linear Algebra from scratch to some advanced topics with proper examples and great insights. Homework for this class is assigned from Prof. Strang’s book, Introduction to Linear Algebra (4th edition). Solving the homework and exam questions would help understand the subject matter even better.</p> <ul> <li><a href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/">Course homepage</a>.</li> <li><a href="https://youtube.com/playlist?list=PLE7DDD91010BC51F8">YouTube playlist</a>.</li> </ul> <hr/> <h2 id="ordinary-differential-equations">Ordinary Differential Equations</h2> <h3 id="learn-differential-equations-by-prof-gilbert-strang-mit">Learn Differential Equations by Prof. Gilbert Strang (MIT)</h3> <p>This lecture series consists of short lectures from Prof. Strang and Dr. Cleve Moler, founder of MATLAB. Prof. Strang covers analytical solution methods for ODEs while Dr. Moler teaches MATLAB implementation (numerical techniques) to solve ODEs. This class doesn’t have any homework or exams; it’s rather a self-learning class.</p> <ul> <li><a href="https://ocw.mit.edu/resources/res-18-009-learn-differential-equations-up-close-with-gilbert-strang-and-cleve-moler-fall-2015/index.htm">Course homepage</a>.</li> <li><a href="https://youtube.com/playlist?list=PLUl4u3cNGP63oTpyxCMLKt_JmB0WtSZfG">YouTube playlist</a>.</li> </ul> <h3 id="engineering-mathematics-i-by-prof-steve-brunton-uw">Engineering Mathematics-I by Prof. Steve Brunton (UW)</h3> <p>Prof. Brunton’s teaching philosophy revolves around both learning the methods and being able to implement them in available programs. My personal learning and teaching philosophy is coherent with his which made his class lectures enjoyable. Going over the lectures in parallel with Prof. Strang and Dr. Moler’s class will make it beneficial to the greatest amount. Old homework and exams are also available on his website. </p> <ul> <li><a href="http://faculty.washington.edu/sbrunton/me564/">Course homepage</a>.</li> <li><a href="https://youtube.com/playlist?list=PLMrJAkhIeNNR2W2sPWsYxfrxcASrUt_9j">YouTube playlist</a>.</li> </ul> <h3 id="books">Books </h3> <p>The first book is a widely used textbook for Ordinary Differential Equation and has a modern presentation and explanations. The second one is a classic book on Ordinary Differential Equation and it’s cheap.</p> <ul> <li>Boyce, William, DiPrima, Richard. Elementary Differential Equations (10th edition). Wiley, 2012.</li> <li>Tenenbaum, Morris, Pollard, Harry. Ordinary Differential Equations. Dover Publications, 1985.</li> </ul> <hr/> <h2 id="partial-differential-equations">Partial Differential Equations</h2> <h3 id="fourier-analysis-by-prof-steven-brunton-uw">Fourier Analysis by Prof. Steven Brunton (UW)</h3> <p>This is my one of absolute favorite lecture series on Fourier Analysis. Starting with Fourier Analysis, Prof. Brunton dives into Fourier Transform and interesting engineering applications using both MATLAB and Python. This class has a similar pattern to Prof. Strang and Dr. Moler’s Learn Differential Equations; doesn’t have any homework and/ or exam. To appreciate the content of this class, a decent understanding of Linear Algebra and Ordinary Differential Equations is needed.</p> <ul> <li><a href="https://youtube.com/playlist?list=PLMrJAkhIeNNT_Xh3Oy0Y4LTj0Oxo8GqsC">YouTube playlist</a>.</li> </ul> <h3 id="engineering-mathematics-ii-by-prof-steve-brunton-uw">Engineering Mathematics-II by Prof. Steve Brunton (UW) </h3> <p>This is a continuation of Engineering Mathematics-I where Prof. Brunton covers PDE. As usual, his lectures are enjoyable and application-based. </p> <ul> <li><a href="http://faculty.washington.edu/sbrunton/me565/">Course homepage</a>.</li> <li><a href="https://youtube.com/playlist?list=PLMrJAkhIeNNR2W2sPWsYxfrxcASrUt_9j">YouTube playlist</a>.</li> </ul> <h3 id="books-1">Books </h3> <p>My first book on PDE was Nakhle Asmar’s. So I am a bit biased towards that book. However, Richard Haberman’s book is widely used for most PDE classes and has similar content to Asmar. I also enjoyed reading Stanley Farlow’s book.</p> <ul> <li>Farlow, Stanley. Partial Differential Equations for Scientists and Engineers. Dover Publications, 1993.</li> <li>Haberman, Richard. Applied Partial Differential Equations with Fourier Series and Boundary Value Problems (4th edition). Prentice Hall, 2003.</li> <li>Asmar, Nakhle. Partial Differential Equation with Fourier Series and Boundary Value Problems (2nd edition). Prentice Hall, 2005.</li> </ul>]]></content><author><name></name></author><category term="resources"/><category term="books"/><category term="courses"/><category term="lecture"/><category term="mathematics"/><summary type="html"><![CDATA[A collection of learning resources for mathematics]]></summary></entry></feed>
