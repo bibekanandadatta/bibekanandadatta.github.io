@@ -37,3 +37,5 @@ I held hands-on laboratory classes, graded lab reports and exams, and held offic
 ### Independent Tutor
 
 I independently tutored Advanced Math and Physics to several junior and senior year high school students during my undergraduate studies (2012-2016).
+
+

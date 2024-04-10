@@ -7,15 +7,15 @@ tags: Abaqus Fortran programming finite-element Visual-Studio Intel-oneAPI user-
 categories: tutorial
 giscus_comments: false
 related_posts: true
-toc: 
-  beginning: true
+# toc: 
+#   beginning: true
 ---
 
 ABAQUS is one of the most popular commercial finite element programs in both academia and industry. In addition to the built-in physics and material models, ABAQUS allows its users to program new features through the user subroutine feature, typically written in Fortran or C++. The recommended compiler for ABAQUS user subroutines is Intel Fortran which is a part of the Intel oneAPI package since 2021. Additionally, on Windows OS, it requires installing Microsoft Visual Studio for linking and compilation. It always has been quite confusing to the users how to configure ABAQUS to use this feature. In this blog post, I will describe the procedures for installing necessary package and configuring ABAQUS to avail the user subroutine feature. 
 
-## Software installation
+## Installation
 
-### Things you will need
+### Softwares you will need
 
 1. ABAQUS finite element solver
 2. Microsoft Visual Studio Community Edition
@@ -85,24 +85,14 @@ As you can see, the `PATH` in the first line is the `PATH` for ifort compiler ex
 
 2. Copy the path locations with file names for both of them. From the Windows start menu, search **Edit the system environment variables**. Then click on **Environment Variables > Path** (under system variables) and New. Paste those previously copied batch file paths and save them. You can see I already added those (2nd and 3rd from the bottom on the rightmost image).
 
+    [<img src="/assets/img/abq_sys_path.png" width="800"/>](/assets/img/abq_sys_path.png)
+
 3. The next step is to link the Intel Fortran compiler with Abaqus shown step-by-step in the following image. Search Abaqus Command from the Windows Menu. Click on Open File Location. Then in Windows Explorer right click on Abaqus Command and click on Properties. In the shortcut tab, locate the target. Change from `C:\WINDOWS\system32\cmd.exe /k` to the following
 
     ```
     "C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\env\vars.bat" intel64 vs2019 & C:\WINDOWS\system32\cmd.exe /k
     ```
-
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="/assets/img/abq_sys_path.png" class="img-fluid rounded z-depth-1" zoomable=true %}
-    </div>
-</div>
-
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="/assets/img/abq_link.png" class="img-fluid rounded z-depth-1" zoomable=true %}
-    </div>
-</div>
-
+    [<img src="/assets/img/abq_link.png" width="800"/>](/assets/img/abq_link.png)
 
 
 
@@ -110,19 +100,13 @@ As you can see, the `PATH` in the first line is the `PATH` for ifort compiler ex
 
 Open Abaqus Command (you can also do it from cmd or Powershell terminal) from the Windows menu and type `abaqus info=system`. It should show system information as follows, including the new compiler and linker information.
 
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="/assets/img/abq_sys.png" class="img-fluid rounded z-depth-1" zoomable=true %}
-    </div>
-</div>
+[<img src="/assets/img/abq_sys.png" width="850"/>](/assets/img/abq_sys.png)
+
 
 To verify further, type `abaqus verify -user_std` and/ or `abaqus verify -user_exp` on the Abaqus Command window. If the installation and linking were successful, then you will see something like this:
 
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="/assets/img/abq_user_std.png" class="img-fluid rounded z-depth-1" zoomable=true %}
-    </div>
-</div>
+[<img src="/assets/img/abq_user_std.png" width="850"/>](/assets/img/abq_user_std.png)
+
 
 
 `abaqus verify -user_std` is for verifying user subroutine feature for Abaqus/ Standard (UMAT, UEL, etc.) and `abaqus verify -user_exp` is for verifying user subroutine feature for Abaqus/ Explicit (VUMAT, VUEL, etc.). To verify all of the features of Abaqus you can type `abaqus verify -all`. Please note, this might take a while and some components might not pass depending on your license and installation.
