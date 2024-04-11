@@ -106,7 +106,7 @@ Visual Studio Code is a cross-platform code editor from Microsoft. You can insta
     ```
     You can open the WSL home directory and browse, copy, and move files like Windows.
 
-6.  Once you have installed Ubuntu in WSL and VS Code, you can follow these tutorials to get yourself more familiarized with the VS Code environments and capabilities in WSL [](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) and [](https://code.visualstudio.com/docs/remote/wsl-tutorial).
+6.  Once you have installed Ubuntu in WSL and VS Code, you can follow these tutorials to get yourself more familiarized with the VS Code environments and capabilities in WSL from these resources: <https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode> and <https://code.visualstudio.com/docs/remote/wsl-tutorial>.
 
 7.  To use packages and libraries install in WSL, start VS Code from Ubuntu terminal.
 
