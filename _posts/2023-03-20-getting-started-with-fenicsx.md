@@ -15,7 +15,7 @@ toc:
 
 The project originally started in 2003 and was known as `FEniCS`. In 2020, the developers released a new version of the library which they renamed as `FEniCSx`. The latest stable version of legacy `FEniCS` was released on April 2019 and its barely updated. But many tutorials and legacy codes are perhaps written in legacy `FEniCS`. So you may want to install a version of it. I will demonstrate installing both versions on multiple different platforms here.
 
-Both `FEniCSx` and `FEniCS` are available on Linux, macOS, and Windows. You can download and install it in different ways. Check out the [options here for `FEniCSx`](https://github.com/FEniCS/dolfinx) and [legacy `FEniCS`](https://fenicsproject.org/download/archive/). For both versions, my preferred approach is to install them via Anaconda.
+Both `FEniCSx` and `FEniCS` are available on Linux, macOS, and Windows. You can download and install it in different ways. Check out the [options here for FEniCSx](https://github.com/FEniCS/dolfinx) and [legacy FEniCS](https://fenicsproject.org/download/archive/). For both versions, my preferred approach is to install them via Anaconda.
 
 
 ## Installation on Windows
@@ -54,7 +54,7 @@ Windows Terminal is a command line tool, available on [Microsoft Store](https://
 
 Visual Studio Code is a cross-platform code editor from Microsoft. You can install different extensions within VS Code to enable features for code development such as remote SSH, debugging, compiling, etc.
 
-1.  Download VS Code from here: <https://code.visualstudio.com/download> for your operating system. Follow graphical instructions for installation.
+1.  Download VS Code [from here](https://code.visualstudio.com/download) for your operating system. Follow graphical instructions for installation.
 
 2.  If you want to open an empty file in your current working directory using VS Code, then type:
 
@@ -89,7 +89,7 @@ Visual Studio Code is a cross-platform code editor from Microsoft. You can insta
 
     It will ask you to create an user account and set a password. The installation process is fast and straightforward.
 
-3.  Once Ubuntu in WSL is installed, you can use it similar to a regular Ubuntu distribution. To run Ubuntu, open it from the Terminal application option. If this is your first time using Linux, you can familiarize yourself with some commands and operations from here <https://ubuntu.com/tutorials/command-line-for-beginners>.
+3.  Once Ubuntu in WSL is installed, you can use it similar to a regular Ubuntu distribution. To run Ubuntu, open it from the Terminal application option. If this is your first time using Linux, you can familiarize yourself with [some commands and operations from here](https://ubuntu.com/tutorials/command-line-for-beginners).
 
 4.  Now update the Ubuntu distribution and install two packages for WSL virtual display settings.
 
@@ -106,7 +106,7 @@ Visual Studio Code is a cross-platform code editor from Microsoft. You can insta
     ```
     You can open the WSL home directory and browse, copy, and move files like Windows.
 
-6.  Once you have installed Ubuntu in WSL and VS Code, you can follow these tutorials to get yourself more familiarized with the VS Code environments and capabilities in WSL <https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode> and <https://code.visualstudio.com/docs/remote/wsl-tutorial>.
+6.  Once you have installed Ubuntu in WSL and VS Code, you can follow these tutorials to get yourself more familiarized with the VS Code environments and capabilities in WSL [](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) and [](https://code.visualstudio.com/docs/remote/wsl-tutorial).
 
 7.  To use packages and libraries install in WSL, start VS Code from Ubuntu terminal.
 
@@ -124,7 +124,7 @@ Most of the Python based libraries and packages often depend on other libraries 
     xcode-select --install
     ```
 
-2.  Download Anaconda from here based on your operating system and architecture: <https://www.anaconda.com/products/distribution>.
+2.  Download Anaconda [from here](https://www.anaconda.com/products/distribution) based on your operating system and architecture..
 
 3.  On macOS, you can download the graphical installer and install it like every other software by following the on-screen instructions. Alternatively, you can download the installation script and using command line to install Anaconda like Linux. Details of the installation procedure is [available here](https://docs.anaconda.com/anaconda/install/mac-os/).
 
@@ -133,7 +133,7 @@ Most of the Python based libraries and packages often depend on other libraries 
     ```
     wget https://repo.anaconda.com/archive/Anaconda3-2023.03-Linux-x86_64.sh
     ```
-    `Anaconda3-2023.03-Linux-x86_64` is the latest version of Anaconda for Linux available at the time this is being written. Check for the versions here: https://repo.anaconda.com/archive/. Replace it with the current stable version for download and installation.
+    `Anaconda3-2023.03-Linux-x86_64` is the latest version of Anaconda for Linux available at the time this is being written. Check for the [versions here](https://repo.anaconda.com/archive/). Replace it with the current stable version for download and installation.
 
 5.  Once it is copied in the home directory, you can run the following command on Ubuntu terminal for installation:
     
@@ -236,7 +236,7 @@ A lots of the tutorials, examples, and published codes are still written in lega
     (fenicsx) $ cd fenicsx-code
     ```
 
-3. Copy the following python code and save it `poisson.py` using VS Code in the above directory. This code solves a simple 2D Poisson problem. Technical details of this code is described here: https://jsdokken.com/dolfinx-tutorial/chapter1/fundamentals.
+3. Copy the following python code and save it `poisson.py` using VS Code in the above directory. This code solves a simple 2D Poisson problem. Technical details of this code is [described here](https://jsdokken.com/dolfinx-tutorial/chapter1/fundamentals).
 
     ``` python
     import os

@@ -73,7 +73,7 @@ nav_order: 8
         <ul>
           <li><a href="https://theoatmeal.com/comics/tesla"> Nikola Tesla: The smartest geek </a></li>
             <li><a href="https://theoatmeal.com/pl/senior_year/science"> Imperial vs. Metric units </a></li>
-          <li><a href="https://theoatmeal.com/comics/email_monster"> Email monster on Oatmeal </a></li>
+          <li><a href="https://theoatmeal.com/comics/email_monster"> Email monster </a></li>
         </ul>
         </li>
         <li><a href="https://byrslf.co/how-to-get-a-busy-person-to-respond-to-your-email-52e5d4d69671"> 5 Email etiquettes </a></li>
@@ -82,6 +82,7 @@ nav_order: 8
         <li><a href="https://vlsicad.ucsd.edu/Research/Advice/index.html"> UCSD's grad school advice </a></li>
         <li><a href="https://terrytao.wordpress.com/career-advice/"> Terry Tao's advice </a></li>
         <li><a href="https://matt.might.net/articles/"> Matt's advice vault </a></li>
+        <li><a href="https://www.math.cmu.edu/~wn0g/"> Walter Noll's archieve </a></li>
         <li><a href="https://browser.geekbench.com/mac-benchmarks"> Performance benchmarks for macOS </a></li>
         <li><a href="https://www.facebook.com/notes/ashfaq-ahmed/মানুষের-গল্পঃ-ইউভাল-হারারি/10153371308478621?_rdc=2&_rdr"> A Brief History of Humankind (Bangla) </a></li>
     </ul>

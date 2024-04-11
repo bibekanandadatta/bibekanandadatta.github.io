@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Bibekananda Datta",
-    "label": "Mechanical Engineer",
+    "label": "PhD student in Mechanical Engineering",
     "image": "",
     "email": "",
     "phone": "",
@@ -168,7 +168,7 @@
       "startDate": "2019-08",
       "endDate": "2020-07",
       "summary": "Developed continuum dislocation plasticity model for additively manufactured metals and taught classes on numerical method-based engineering analysis."
-      // "highlights": ["Soft material", "Computational methods", "Applied mechanics"]
+      // "highlights": []
     },
     {
       "name": "Washington State University",
@@ -177,7 +177,7 @@
       "startDate": "2017-08",
       "endDate": "2019-08",
       "summary": "Performed research on failure mechanisms of Cu interconnects and growth of intermetallics in Cu-Sn micro solder joints in 3D electronic packagings."
-      // "highlights": ["Soft material", "Computational methods", "Applied mechanics"]
+      // "highlights": []
     }
   ],
 
@@ -236,7 +236,7 @@
     },
     {
       "name": "Untethered Unidirectionally Crawling Gels Driven by Asymmetry in Contact Forces",
-      "publisher": "Science robotics",
+      "publisher": "Science Robotics",
       "releaseDate": "2022-12",
       "url": "https://www.science.org/doi/10.1126/scirobotics.add2903"
       // summary: {}
@@ -281,7 +281,7 @@
     {
       "name": "Modeling Stimuli-responsive Behaviors of Hydrogels",
       "summary": "Developing multiphysics framework, constitutive models, and numerical implementation to study stimuli-responsive behaviors of hydrogels for soft robotics and water harvesting applications",
-      "highlights": ["Continuum Mechanics", "Finite Element"],
+      "highlights": ["Continuum mechanics", "Finite element"],
       "startDate": "2020-08",
       "endDate": "Present"
       // "url": "https://example.com"
