@@ -2,12 +2,12 @@
 layout: post
 title: Linking Intel oneAPI and Visual Studio with Abaqus
 date: 2021-02-13 11:59:00-0400
-description: A tutorial to link Fortran with Abaqus
+description: A tutorial to link Intel Fortran compiler and Microsoft Visual Studio with Abaqus
 tags: Abaqus Fortran programming finite-element Visual-Studio Intel-oneAPI user-subroutine
 categories: tutorial
 giscus_comments: false
 related_posts: true
-related_publications: true
+featured: true
 # toc: 
 #   beginning: true
 ---

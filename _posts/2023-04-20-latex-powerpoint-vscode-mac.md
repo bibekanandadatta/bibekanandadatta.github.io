@@ -2,7 +2,7 @@
 layout: post
 title: LaTeX in MS PowerPoint and VS Code on macOS
 date: 2023-04-20 11:59:00-0400
-description: A tutorial to use LaTeX with VS Code and PowerPoint
+description: A tutorial on how to use LaTeX with PowerPoint and VS Code on macOS for local compilation
 tags: LaTeX PowerPoint LaTeXiT VS-Code macOS
 categories: tutorial
 giscus_comments: false

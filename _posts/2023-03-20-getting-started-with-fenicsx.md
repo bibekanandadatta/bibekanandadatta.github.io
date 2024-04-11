@@ -2,7 +2,7 @@
 layout: post
 title: Getting started with FEniCSx
 date: 2023-04-20 11:59:00-0400
-description: A tutorial on how to set up FEniCSx
+description: A tutorial on how to set up FEniCSx and compile your first program
 tags: FEniCSx finite-element Python programming Anaconda WSL
 categories: tutorial
 giscus_comments: false

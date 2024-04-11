@@ -2,7 +2,7 @@
 layout: post
 title: Relearning mathematics
 date: 2021-01-04 11:59:00-0400
-description: A collection of learning resources for mathematics
+description: A collection of learning resources for applied mathematics that is useful in engineering
 tags: books courses lecture mathematics
 categories: resources
 giscus_comments: false
