@@ -7,57 +7,8 @@ nav: true
 nav_order: 8
 ---
 
-<style>
-    .test {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 0 px;
-    }
-
-    .card {
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-      padding: 0px;
-      width: 400px;
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: left;
-    }
-
-    .card h2 {
-      margin-top: 10px;
-      margin-bottom: 0px;
-      text-align: center;
-    }
-
-    .card ul {
-      list-style-type: disc;
-      padding-left: 50px;
-      margin-top: 10px;
-      text-align: left; /* Left-align list items */
-    }
-
-    .card ul li{
-        padding: 2px
-    }
-
-    .card ul ul {
-      list-style-type: disc;
-      padding-left: 20px;
-      margin-top: 0px;
-      text-align: left; /* Left-align list items */
-    }
-
-    .card ul ul li{
-      padding: 0px
-    }
-</style> 
-
-
-<div class="test">
+<!-- HTML style listing with LIST CLASS -->
+<div class="list">
   <div class="card">
     <h2> Random </h2>
     <ul>
@@ -65,7 +16,7 @@ nav_order: 8
         <li><a href="https://phdcomics.com/comics/most_popular.php"> Popular comics on PhD comics </a></li>
         <li> xkcd:
         <ul>
-          <li><a href="https://xkcd.com/1172/"> Workflow </a></li>
+          <li><a href="https://xkcd.com/1319/"> Automation </a></li>
           <li> <a href="https://xkcd.com/353/"> Python </a> and <a href="https://xkcd.com/1987/"> Python Environment </a> </li>
         </ul>
         </li>
