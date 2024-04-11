@@ -22,22 +22,25 @@ During my undergrad, I took 4 mathematics classes in my freshman and sophomore y
 
 The first step to solving any problem is to identify the problem properly. In this case, I was lucky that I wasn't a stranger to the topics that I needed to learn. I was comfortable with Calculus-I and Calculus-II (single and multi-variable, respectively) but still needed to brush up on selected topics. So I picked up James Stewart's Calculus book and read some sections on multivariable calculus and took notes on them. But the main challenge was to learn Linear Algebra and ordinary and Partial Differential Equations in a way that I don't have to look up textbooks to solve standard problems. I also wanted to master Laplace Transform, Fourier Series, and Fourier Transform, in the context of differential equations. Complex Analysis could be another addition to the list, but I kept this aside for the time being. However, I started looking up resources that cover those aforementioned topics in great detail and from an engineering or physical science perspective.
 
-### Resources
 
-A general resource for learning these contents could be Advanced Engineering Mathematics by Erwin Kreyszig (any edition). Old editions are available on Amazon at a cheaper price and I would recommend having one in the book-shelf.
+> A general resource for learning these subjects could be **Advanced Engineering Mathematics by Erwin Kreyszig**, and I highly recommend having it (any edition) in the book-shelf. There will be a few more topic-wise books recommendation later. For most classic books that you are going to use for self learning, you can buy older edition of books (new one sometimes costs fortune) on websites like <https://abebooks.com> or <https://thriftbooks.com>, or even on Amazon.
 
 ---
+
+
 
 ## Linear Algebra
 
 Most graduate-level Linear Algebra classes focus on the proof-based analysis of matrix theory. So an undergraduate-level Linear Algebra seems to be sufficient for the time being to understand the core concepts. So I picked up the following resources.
+
 
 ### Essence of Linear Algebra by 3Blue1Brown
 
 A small video lecture series by one of my favorite math YouTubers. His presentation isn't rigorous enough to help you understand the advanced mathematics involved in graduate coursework or research. However, his presentation will develop physical intuition of the subject before diving into advanced topics. I would suggest going over his video series before starting continuum mechanics or even differential equations.
   - [YouTube playlist](https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab).
 
-### MIT 18.06 Linear Algebra by Prof. Gilbert Strang:
+
+### MIT 18.06 Linear Algebra by Prof. Gilbert Strang
 This is probably the most popular lecture series on this subject. Prof. Strang covered Linear Algebra from scratch to some advanced topics with proper examples and great insights. Homework for this class is assigned from Prof. Strang's book, Introduction to Linear Algebra (4th edition). Solving the homework and exam questions would help understand the subject matter even better.
   - [Course homepage](https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/).
   - [YouTube playlist](https://youtube.com/playlist?list=PLE7DDD91010BC51F8).
@@ -46,17 +49,20 @@ This is probably the most popular lecture series on this subject. Prof. Strang c
 
 ## Ordinary Differential Equations
 
+
 ### Learn Differential Equations by Prof. Gilbert Strang (MIT)
 
 This lecture series consists of short lectures from Prof. Strang and Dr. Cleve Moler, founder of MATLAB. Prof. Strang covers analytical solution methods for ODEs while Dr. Moler teaches MATLAB implementation (numerical techniques) to solve ODEs. This class doesn't have any homework or exams; it's rather a self-learning class.
   - [Course homepage](https://ocw.mit.edu/resources/res-18-009-learn-differential-equations-up-close-with-gilbert-strang-and-cleve-moler-fall-2015/index.htm).
   - [YouTube playlist](https://youtube.com/playlist?list=PLUl4u3cNGP63oTpyxCMLKt_JmB0WtSZfG).
 
+
 ### Engineering Mathematics-I by Prof. Steve Brunton (UW)
 
 Prof. Brunton's teaching philosophy revolves around both learning the methods and being able to implement them in available programs. My personal learning and teaching philosophy is coherent with his which made his class lectures enjoyable. Going over the lectures in parallel with Prof. Strang and Dr. Moler's class will make it beneficial to the greatest amount. Old homework and exams are also available on his website. 
   - [Course homepage](http://faculty.washington.edu/sbrunton/me564/).
   - [YouTube playlist](https://youtube.com/playlist?list=PLMrJAkhIeNNR2W2sPWsYxfrxcASrUt_9j).
+
 
 ### Books 
 
@@ -66,7 +72,9 @@ The first book is a widely used textbook for Ordinary Differential Equation and 
 
 ---
 
+
 ## Partial Differential Equations
+
 
 ### Fourier Analysis by Prof. Steven Brunton (UW)
 
@@ -74,11 +82,13 @@ This is my one of absolute favorite lecture series on Fourier Analysis. Starting
 
   - [YouTube playlist](https://youtube.com/playlist?list=PLMrJAkhIeNNT_Xh3Oy0Y4LTj0Oxo8GqsC).
 
+
 ### Engineering Mathematics-II by Prof. Steve Brunton (UW) 
 
 This is a continuation of Engineering Mathematics-I where Prof. Brunton covers PDE. As usual, his lectures are enjoyable and application-based. 
   - [Course homepage](http://faculty.washington.edu/sbrunton/me565/).
   - [YouTube playlist](https://youtube.com/playlist?list=PLMrJAkhIeNNR2W2sPWsYxfrxcASrUt_9j).
+
 
 ### Books 
 

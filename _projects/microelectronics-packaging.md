@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Microelectronics packaging
-description: Studying electromigration and intermetallic growth in the interconnects of 2.5D/3D electronics packaging
+description: Studied electromigration and intermetallic growth in the interconnects of 2.5D/3D microelectronics packaging
 img: 
 importance: 3
 category: Past

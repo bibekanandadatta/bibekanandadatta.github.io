@@ -2,7 +2,7 @@
 layout: page
 title: Research
 permalink: /research/
-description: Projects that I worked on or working on now
+description: Projects that I am working on now or worked on before
 nav: true
 nav_order: 2
 display_categories: [Current, Past]

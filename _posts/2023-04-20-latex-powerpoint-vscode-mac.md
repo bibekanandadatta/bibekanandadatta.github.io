@@ -7,8 +7,8 @@ tags: LaTeX PowerPoint LaTeXiT VS-Code macOS
 categories: tutorial
 giscus_comments: false
 related_posts: true
-toc:
-  sidebar: left
+# toc:
+#   sidebar: left
 ---
 
 My presentations often include a fair share of math equations and videos/ animation. Although making a presentation in Beamer is always an option however as of now, embedding animation or video in a Beamer-generated PDF isn't very intuitive or natively supported. So, I have always opted for PowerPoint because of the ease of use. While equation editor in MS Word and PowerPoint has improved drastically over the last few years, it's still nowhere near what LaTeX can produce. Additionally, I already have equations written in LaTeX and I use Overleaf these days for LaTeX.

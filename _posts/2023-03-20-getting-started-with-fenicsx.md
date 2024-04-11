@@ -26,6 +26,9 @@ This step in only applicable if you are using Windows. You will have to set up W
 
 ## Get your tools ready first 
 
+*It's best to have your tools with you. If you don't, you're apt to find something you didn't expect and get discouraged.* -- Stephen King.
+
+
 ### PowerShell 7
 
 Microsoft Windows already comes with Windows PowerShell 5.1, but the modern edition of PowerShell 7 is more powerful and available on
@@ -114,7 +117,7 @@ Visual Studio Code is a cross-platform code editor from Microsoft. You can insta
 
 ## Anaconda on Linux (WSL) and macOS
 
-If this is the first time you are using Python, then seat back, it is going to get confusing like this xkcd comic. Even if you are experienced in Python, you might find this interesting.
+If this is the first time you are using Python, then seat back, it is going to get confusing like this [xkcd comic](https://xkcd.com/1987/). Even if you are experienced in Python, you might find this interesting.
 
 Most of the Python based libraries and packages often depend on other libraries and packages (called dependencies). Installing the right version of those packages and maintaining them is often a complex task even for experienced developers. So, I will use a popular Python distribution, Anaconda, to manage all the Python based libraries and relevant dependencies. Anaconda uses `conda` package manager and works well with `pip` (Python's default package manager). Installation of Anaconda comes with popular Python packages such as NumPy, SciPy, Matplotlib, and *\<insert hundred other packages here\>*. It also come with Jupyter Notebook and Spyder IDE. Anaconda also has a minimalist version, called Miniconda, which is light weight because it only includes the `conda` manager and a few packages. I strongly recommend installing Anaconda instead of Miniconda.
 
