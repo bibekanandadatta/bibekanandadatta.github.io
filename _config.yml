@@ -9,6 +9,7 @@ last_name: Datta
 email: 
 description: mechanician, travel, food, and tech enthusiast
 footer_text: > # the ">" symbol means to ignore newlines until "footer_text:"
+  All rights reserved.
 # Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. 
 # Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 keywords: # add your own keywords or leave empty

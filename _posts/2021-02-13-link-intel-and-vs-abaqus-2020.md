@@ -7,6 +7,7 @@ tags: Abaqus Fortran programming finite-element Visual-Studio Intel-oneAPI user-
 categories: tutorial
 giscus_comments: false
 related_posts: true
+related_publications: true
 # toc: 
 #   beginning: true
 ---

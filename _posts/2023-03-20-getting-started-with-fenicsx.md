@@ -7,6 +7,7 @@ tags: FEniCSx finite-element Python programming Anaconda WSL
 categories: tutorial
 giscus_comments: false
 related_posts: true
+featured: true
 toc:
   sidebar: left
 ---

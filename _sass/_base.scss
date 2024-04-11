@@ -616,6 +616,10 @@ footer.sticky-bottom {
   a {
     text-decoration: none;
 
+    h2 {
+      text-align: center;
+    }
+
     &:hover {
       .card-title {
         color: var(--global-theme-color);
@@ -641,7 +645,7 @@ footer.sticky-bottom {
 
   .grid-sizer,
   .grid-item {
-    width: 250px;
+    width: 430px;
     margin-bottom: 10px;
   }
 

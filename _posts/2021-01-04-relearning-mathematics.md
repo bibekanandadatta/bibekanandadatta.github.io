@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Relearning Mathematics
+title: Relearning mathematics
 date: 2021-01-04 11:59:00-0400
 description: A collection of learning resources for mathematics
 tags: books courses lecture mathematics
