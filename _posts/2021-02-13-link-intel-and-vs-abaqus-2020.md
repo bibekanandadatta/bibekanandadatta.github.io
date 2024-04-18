@@ -33,9 +33,9 @@ For my first time, I used ABAQUS 2020, Microsoft Visual Studio 2019, Intel oneAP
 3. You will need to save the batch files related to these software using administrator access. So launch Notepad from Windows program menu as administrator or use Notepad++. I used Notepad++ as it directly allows me **save as administrator**.
 
 
-### ABAQUS Installation
+### ABAQUS 
 
-ABAQUS user-defined features are only available through its academic (research) or commercial license which you should obtain from your university or workplace. ABAQUS Installation process is trivial depending on how you obtain the executables. While you going through the installation process, make sure to install ABAQUS with CAA API components. ABAQUS should be installed in `C:\SIMULIA` directory.
+ABAQUS user-defined features are only available through its academic (research) or commercial license which you should obtain from your university or workplace. ABAQUS Installation process is trivial depending on how you obtain the executables. While you going through the installation process, make sure to install ABAQUS with CAA API components. ABAQUS should be installed in `C:\SIMULIA` directory. The should install Abaqus/CAE and Abaqus/Viewer in the process.
 
 
 ### Microsoft Visual Studio
@@ -53,7 +53,7 @@ Intel oneAPI is split into two packages; Intel oneAPI Base Toolkit and Intel one
 
 1. Once both of the packages are downloaded, first install the Intel oneAPI Base Toolkit (I chose default installation). It will recognize the existence of Visual Studio. Please click on the appropriate version and move forward with installation. It might take about 15-20 minutes to install the Base Toolkit. The next step is to install the HPC tool kit in the same procedure. This will take 5-10 minutes to get installed.
 
-2. If you have done default installation of Intel oneAPI, its components should be located in `C:\Program Files (x86)\Intel\oneAPI`. Navigate to this directory and then navigate further to ensure `ifort` executable is available in the following (or similar) directory. Copy the directory in a text file for later use. Please note, Intel is now moving to LLVM-based `ifx` compiler from 2024 ditching their old `ifort` compiler.
+2. If you have done default installation of Intel oneAPI, its components should be located in `C:\Program Files (x86)\Intel\oneAPI`. Navigate to this directory and then navigate further to ensure `ifort` executable is available in the following (or similar) directory. Copy the directory in a text file for later use. Intel is now moving to LLVM-based `ifx` compiler from 2024 ditching their old `ifort` compiler.
 
     ``` 
     C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\windows\bin\intel64
@@ -148,7 +148,7 @@ This is an advanced and optional feature which is very rarely used. Intel oneMKL
 3. In the previous step, providing Intel oneMKL batch file location in the ABAQUS batch file will source the environment variables when ABAQUS is called to run simulations. However, to compile code with Intel oneMKL library, you will need to do one more step. Locate to `C:\SIMULIA\EstProducts\2020\win_b64\SMA\site` directory and open `win86_64.env` file. Find the following line in the file and add the `/Qmkl:sequential` compiler option as shown below. Rest of the file should be same. Save the file as **administrator**.
 
     ```
-    compile_fortran=['ifort','/Qmkl:sequential', ... ...]
+    compile_fortran=['ifort','/Qmkl:sequential', ... ... ]
     ```
 
     You may be able to run oneMKL library in parallel with ABAQUS user surboutines by adding `'/Qmkl:parallel'` compiler flag. However, I never tested this feature.

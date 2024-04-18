@@ -219,7 +219,7 @@ A lots of the tutorials, examples, and published codes are still written in lega
     
 3.  Legacy `FEniCS` can be installed using this approach as well. Please make sure to use `fenics` instead of `fenicsx` in the command line for installing and uninstalling legacy `FEniCS`.
 
-### Test your `FEniCSx` installation
+### Test your FEniCSx installation
 
 1.  Now we will run a simple `FEniCSx` example code to test the installation. If you open Ubuntu or macOS terminal now, you will see the `(base)` environment is active. So, you have to activate the `(fenicsx)` environment before running the code.
 

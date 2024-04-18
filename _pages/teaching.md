@@ -23,7 +23,7 @@ As a **Teaching Assistant**, I graded homework and exams, held office hours, and
 
 #### Instructor
 
-I lectured in theory and hands-on laboratory classes, graded homework, projects, and exams in ME 313 Engineering Analysis (20 undergraduate students) in Summer 2020.
+I lectured theory and hands-on laboratory classes, graded homework, projects, and exams in ME 313 Engineering Analysis (20 undergraduate students) in Summer 2020.
 
 #### Teaching Assistant
 

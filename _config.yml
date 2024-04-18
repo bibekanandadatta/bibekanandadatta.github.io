@@ -255,7 +255,8 @@ defaults:
       sitemap: false
 
 sass:
-  # style: compressed
+  style: compressed
+  # style: expanded
   sourcemap: never
 
 # -----------------------------------------------------------------------------
