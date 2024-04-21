@@ -12,16 +12,16 @@ toc:
   sidebar: left
 ---
 
-`FEniCSx` is an open source multi-platform computing environment to solve partial differential equations using finite element method. `FEniCSx` supports parallel computing with Python and C++ interface. `FEniCSx` is comprised of the libraries UFL, Basix, FFCx and DOLFINx which are the build blocks of it.
+`FEniCSx` is an open-source multi-platform computing environment to solve partial differential equations using the finite element method. `FEniCSx` supports parallel computing with Python and C++ interfaces. `FEniCSx` is comprised of the libraries UFL, Basix, FFCx, and DOLFINx which are the build blocks of it.
 
-The project originally started in 2003 and was known as `FEniCS`. In 2020, the developers released a new version of the library which they renamed as `FEniCSx`. The latest stable version of legacy `FEniCS` was released on April 2019 and its barely updated. But many tutorials and legacy codes are perhaps written in legacy `FEniCS`. So you may want to install a version of it. I will demonstrate installing both versions on multiple different platforms here.
+The project originally started in 2003 and was known as `FEniCS`. In 2020, the developers released a new version of the library which they renamed `FEniCSx`. The latest stable version of legacy `FEniCS` was released in April 2019 and it's barely updated. But many tutorials and legacy codes are perhaps written in legacy `FEniCS`. So you may want to install a version of it. I will demonstrate installing both versions on multiple different platforms here.
 
 Both `FEniCSx` and `FEniCS` are available on Linux, macOS, and Windows. You can download and install it in different ways. Check out the [options here for FEniCSx](https://github.com/FEniCS/dolfinx) and [legacy FEniCS](https://fenicsproject.org/download/archive/). For both versions, my preferred approach is to install them via Anaconda.
 
 
 ## Installation on Windows
 
-This step in only applicable if you are using Windows. You will have to set up Windows Subsystem for Linux (WSL) to use Anaconda based installation of `FEniCSx` and legacy `FEniCS`. WSL is a virtual Linux environment within Windows which allows you to use Linux command line tools and GUI applications. If you are on macOS or Linux, you can skip this step. If you are on Windows and already have installed WSL, it still might be interesting to download the recommended applications/ tools, such as VS Code.
+This step in only applicable if you are using Windows. You will have to set up Windows Subsystem for Linux (WSL) to use Anaconda-based installation of `FEniCSx` and legacy `FEniCS`. WSL is a virtual Linux environment within Windows that allows you to use Linux command line tools and GUI applications. If you are on macOS or Linux, you can skip this step. If you are on Windows and already have installed WSL, it still might be interesting to download the recommended applications/ tools, such as VS Code.
 
 
 ## Get your tools ready first 
@@ -34,7 +34,7 @@ This step in only applicable if you are using Windows. You will have to set up W
 Microsoft Windows already comes with Windows PowerShell 5.1, but the modern edition of PowerShell 7 is more powerful and available on
 different operating systems. To learn more, [check this](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows).
 
-1.  Install the App Installer from Microsoft App Store. This will enable the `winget` tool on the default PowerShell 5.1 and new PowerShell 7.X.Y to be installed.
+1.  Install the App Installer from the Microsoft App Store. This will enable the `winget` tool on the default PowerShell 5.1 and new PowerShell 7.X.Y to be installed.
 
 2.  Open the default Windows PowerShell 5.1 as **administrator** from the Windows Start menu, then do the following:
 
@@ -66,7 +66,7 @@ Visual Studio Code is a cross-platform code editor from Microsoft. You can insta
     code .
     ```
 
-3.  To open a file using VS Code from the terminal, go to the directory from terminal and type:
+3.  To open a file using VS Code from the terminal, go to the directory from the terminal and type:
 
     ```
     code filename.ext
@@ -91,9 +91,9 @@ Visual Studio Code is a cross-platform code editor from Microsoft. You can insta
     wsl --install -d Ubuntu
     ```
 
-    It will ask you to create an user account and set a password. The installation process is fast and straightforward.
+    It will ask you to create a user account and set a password. The installation process is fast and straightforward.
 
-3.  Once Ubuntu in WSL is installed, you can use it similar to a regular Ubuntu distribution. To run Ubuntu, open it from the Terminal application option. If this is your first time using Linux, you can familiarize yourself with [some commands and operations from here](https://ubuntu.com/tutorials/command-line-for-beginners).
+3.  Once Ubuntu in WSL is installed, you can use it similarly to a regular Ubuntu distribution. To run Ubuntu, open it from the Terminal application option. If this is your first time using Linux, you can familiarize yourself with [some commands and operations from here](https://ubuntu.com/tutorials/command-line-for-beginners).
 
 4.  Now update the Ubuntu distribution and install two packages for WSL virtual display settings.
 
@@ -101,9 +101,9 @@ Visual Studio Code is a cross-platform code editor from Microsoft. You can insta
     sudo apt update && upgrade
     sudo apt install xvfb libgl1-mesa-glx
     ```
-    The first command will ask your password. Proceed as needed.
+    The first command will ask for your password. Proceed as needed.
 
-5.  To open Windows like file explorer from Ubuntu, type:
+5.  To open Windows like `File Explorer` from Ubuntu, type:
 
     ```
     explorer.exe .
@@ -112,17 +112,17 @@ Visual Studio Code is a cross-platform code editor from Microsoft. You can insta
 
 6.  Once you have installed Ubuntu in WSL and VS Code, you can follow these tutorials to get yourself more familiarized with the VS Code environments and capabilities in WSL from these resources: <https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode> and <https://code.visualstudio.com/docs/remote/wsl-tutorial>.
 
-7.  To use packages and libraries install in WSL, start VS Code from Ubuntu terminal.
+7.  To use packages and libraries installed in WSL, start VS Code from the Ubuntu terminal.
 
 
 ## Anaconda on Linux (WSL) and macOS
 
-If this is the first time you are using Python, then seat back, it is going to get confusing like this [xkcd comic](https://xkcd.com/1987/). Even if you are experienced in Python, you might find this interesting.
+If this is the first time you are using Python, then sit back, it is going to get confusing like this [xkcd comic](https://xkcd.com/1987/). Even if you are experienced in Python, you might find this interesting.
 
-Most of the Python based libraries and packages often depend on other libraries and packages (called dependencies). Installing the right version of those packages and maintaining them is often a complex task even for experienced developers. So, I will use a popular Python distribution, Anaconda, to manage all the Python based libraries and relevant dependencies. Anaconda uses `conda` package manager and works well with `pip` (Python's default package manager). Installation of Anaconda comes with popular Python packages such as NumPy, SciPy, Matplotlib, and *\<insert hundred other packages here\>*. It also come with Jupyter Notebook and Spyder IDE. Anaconda also has a minimalist version, called Miniconda, which is light weight because it only includes the `conda` manager and a few packages. I strongly recommend installing Anaconda instead of Miniconda.
+Most of the Python-based libraries and packages often depend on other libraries and packages (called dependencies). Installing the right version of those packages and maintaining them is often a complex task even for experienced developers. So, I will use a popular Python distribution, Anaconda, to manage all the Python-based libraries and relevant dependencies. Anaconda uses the `conda` package manager and works well with `pip` (Python's default package manager). Installation of Anaconda comes with popular Python packages such as NumPy, SciPy, Matplotlib, and *\<insert hundred other packages here\>*. It also comes with Jupyter Notebook and Spyder IDE. Anaconda also has a minimalist version, called Miniconda, which is lightweight because it only includes the `conda` manager and a few packages. I strongly recommend installing Anaconda instead of Miniconda.
 
 
-1.  This step is only for macOS. Install `xcode` command line tools to obtain basic development libraries and features. On macOS terminal, type:
+1.  This step is only for macOS. Install `xcode` command line tools to obtain basic development libraries and features. On the macOS terminal, type:
     
     ```
     xcode-select --install
@@ -130,16 +130,16 @@ Most of the Python based libraries and packages often depend on other libraries 
 
 2.  Download Anaconda [from here](https://www.anaconda.com/products/distribution) based on your operating system and architecture..
 
-3.  On macOS, you can download the graphical installer and install it like every other software by following the on-screen instructions. Alternatively, you can download the installation script and using command line to install Anaconda like Linux. Details of the installation procedure is [available here](https://docs.anaconda.com/anaconda/install/mac-os/).
+3.  On macOS, you can download the graphical installer and install it like every other software by following the on-screen instructions. Alternatively, you can download the installation script and use the command line to install Anaconda like Linux. Details of the installation procedure are [available here](https://docs.anaconda.com/anaconda/install/mac-os/).
 
-4.  For WSL, download the installation script. Open Ubuntu terminal and use the following command to download the script to WSL home directory:
+4.  For WSL, download the installation script. Open the Ubuntu terminal and use the following command to download the script to the WSL home directory:
     
     ```
     wget https://repo.anaconda.com/archive/Anaconda3-2023.03-Linux-x86_64.sh
     ```
     `Anaconda3-2023.03-Linux-x86_64` is the latest version of Anaconda for Linux available at the time this is being written. Check for the [versions here](https://repo.anaconda.com/archive/). Replace it with the current stable version for download and installation.
 
-5.  Once it is copied in the home directory, you can run the following command on Ubuntu terminal for installation:
+5.  Once it is copied in the home directory, you can run the following command on the Ubuntu terminal for installation:
     
     ```
     bash Anaconda3-2023.03-Linux-x86_64
@@ -165,9 +165,9 @@ Most of the Python based libraries and packages often depend on other libraries 
     (base)    $ conda activate fenicsx
     (fenicsx) $ conda install -c conda-forge fenics-dolfinx mpich pyvista matplotlib cycler
     ```
-    `pyvista` supports plotting higher order unstructured mesh in Jupyter notebook environment. `matplotlib` lacks support for higher order unstructured mesh. So, it is recommended to use `pyvista` for quick visualization. But you can still use `matplotlib` for regular plotting.
+    `pyvista` supports plotting higher-order unstructured mesh in Jupyter Notebook environments. `matplotlib` lacks support for higher-order unstructured mesh. So, it is recommended to use `pyvista` for quick visualization. But you can still use `matplotlib` for regular plotting.
 
-2.  To uninstall `FEniCSx` packages from Anaconda, you will have to uninstall everything within the environment. Before you proceed to uninstall check if `FEniCSx` environment is active in the terminal. If it is active, then deactivate it first and proceed to uninstall the packages.
+2.  To uninstall `FEniCSx` packages from Anaconda, you will have to uninstall everything within the environment. Before you proceed to uninstall check if the `FEniCSx` environment is active in the terminal. If it is active, then deactivate it first and proceed to uninstall the packages.
 
     ```
     (fenicsx) $ conda deactivate
@@ -179,9 +179,9 @@ Most of the Python based libraries and packages often depend on other libraries 
 
 ## Legacy FEniCS on Linux and macOS (optional)
 
-A lots of the tutorials, examples, and published codes are still written in legacy `FEniCS`. So, you may want to install the legacy version in case you want to run codes written in legacy `FEniCS`.
+A lot of the tutorials, examples, and published codes are still written in legacy `FEniCS`. So, you may want to install the legacy version in case you want to run codes written in legacy `FEniCS`.
 
-1.  Installation process is similar to `FEniCSx`. Since higher order mesh wasn't a feature for legacy `FEniCS`, I am skipping the installation of `pyvista` here. Necessary visualization can be done using `matplotlib`.
+1.  The installation process is similar to `FEniCSx`. Since higher order mesh wasn't a feature for legacy `FEniCS`, I am skipping the installation of `pyvista` here. Necessary visualization can be done using `matplotlib`.
 
     ```
     (base)   $ conda create -n fenics
@@ -200,7 +200,7 @@ A lots of the tutorials, examples, and published codes are still written in lega
 
 ## An alternative way to install on Ubuntu (not recommended)
 
-1.  On Ubuntu, you can also install `FEniCSx` using `apt` package manager. Albeit the installation process being simple and lightweight, `FEniCSx` version available via `apt` is often not the latest version. So, I do not recommend installing this way.
+1.  On Ubuntu, you can also install `FEniCSx` using the `apt` package manager. Albeit the installation process is simple and lightweight, the `FEniCSx` version available via `apt` is often not the latest version. So, I do not recommend installing this way.
 
     ```
     sudo add-apt-repository ppa:fenics-packages/fenics
@@ -221,7 +221,7 @@ A lots of the tutorials, examples, and published codes are still written in lega
 
 ### Test your FEniCSx installation
 
-1.  Now we will run a simple `FEniCSx` example code to test the installation. If you open Ubuntu or macOS terminal now, you will see the `(base)` environment is active. So, you have to activate the `(fenicsx)` environment before running the code.
+1.  Now we will run a simple `FEniCSx` example code to test the installation. If you open the Ubuntu or macOS terminal now, you will see the `(base)` environment is active. So, you have to activate the `(fenicsx)` environment before running the code.
 
     ```
     (base) $ conda activate fenicsx
@@ -240,7 +240,7 @@ A lots of the tutorials, examples, and published codes are still written in lega
     (fenicsx) $ cd fenicsx-code
     ```
 
-3. Copy the following python code and save it `poisson.py` using VS Code in the above directory. This code solves a simple 2D Poisson problem. Technical details of this code is [described here](https://jsdokken.com/dolfinx-tutorial/chapter1/fundamentals).
+3. Copy the following Python code and save it as `poisson.py` using VS Code in the above directory. This code solves a simple 2D Poisson problem. Technical details of this code is [described here](https://jsdokken.com/dolfinx-tutorial/chapter1/fundamentals).
 
     ``` python
     import os
@@ -334,10 +334,10 @@ A lots of the tutorials, examples, and published codes are still written in lega
     u_plotter.save_graphic('contour.pdf')
     ```
 
-4.  Now run the python code from the Ubuntu terminal:
+4.  Now run the Python code from the Ubuntu terminal:
 
     ```
     (fenicsx) $ python3 poisson.py
     ```
 
-5.  This should save `.h5` and `.xdmf` files with the results and save the mesh and contour plot of the primary variable `.pdf` files in the working directory.
+5.  This should save the `.h5` and `.xdmf` files with the results and save the mesh and contour plot of the primary variable `.pdf` files in the working directory.
