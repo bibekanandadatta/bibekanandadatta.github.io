@@ -72,7 +72,7 @@ nav_order: 8
         <li> Numerical codes:
           <ul>
             <li> <a href="https://github.com/jacobwilliams?tab=repositories"> Jacob William's GitHub repositories </a> </li>
-            <li> <a href="https://people.sc.fsu.edu/~jburkardt/"> John Burkardt's web repositoriesm </a> </li>
+            <li> <a href="https://people.sc.fsu.edu/~jburkardt/"> John Burkardt's web repositories </a> </li>
           </ul>
         </li>
     </ul>
