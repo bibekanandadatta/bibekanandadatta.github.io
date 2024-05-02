@@ -21,7 +21,7 @@ The installation process is fairly simple in this case. But there are a few smal
 
 ### Software you will need
 
-1. ABAQUS finite element solver
+1. Abaqus finite element solver
 2. Microsoft Visual Studio Community Edition
 3. Intel oneAPI Base Toolkit and Intel oneAPI HPC Toolkit
 4. Notepad or Notepad++ (or some text editor)
@@ -33,7 +33,7 @@ For the first time, I used ABAQUS 2020, Microsoft Visual Studio 2019, and Intel 
 3. You will need to save the batch files related to these software using administrator access. So launch Notepad from the Windows program menu as administrator or use Notepad++. I used Notepad++ as it directly allows me **save as administrator**.
 
 
-### ABAQUS 
+### Abaqus
 
 Abaqus user-defined features are only available through its academic (research) or commercial license which you should obtain from your university or workplace. The Abaqus Installation process is trivial depending on how you obtain the executables. While you going through the installation process, make sure to install **Abaqus with CAA API components**. ABAQUS should be installed in the `C:\SIMULIA` directory. This should install Abaqus/CAE and Abaqus/Viewer in the process.
 
@@ -131,7 +131,7 @@ Please navigate to the `C:\Program Files\Dassault Systemes\SimulationServices\V6
 compile_fortran += ['/names:lowercase',]
 ```
 
-## Linking Intel oneMKL Library with ABAQUS
+## Linking Intel oneMKL Library with Abaqus
 
 This is an advanced and optional feature which is very rarely used. Intel oneMKL library includes efficient math subroutines (e.g., BLAS and LAPACK) which can be included in user subroutines to perform computation. However, from time to time, I found it useful to take advantage of existing libraries to write efficient subroutines.
 
