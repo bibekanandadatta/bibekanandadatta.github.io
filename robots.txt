@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://bibekanandadatta.github.io/sitemap.xml
+Sitemap: https://bibekanandadatta.com/sitemap.xml
