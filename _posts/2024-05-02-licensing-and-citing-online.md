@@ -2,9 +2,9 @@
 layout: post
 title: Licensing and citing contents from online repositories
 date: 2024-05-02 09:00:00-0400
-description: 
+description: Some common resources to understand licensing and citing of online contents or repositories
 tags: licensing open-source GitHub
-categories: opinion resources
+categories: resources
 giscus_comments: false
 related_posts: true
 # toc:
