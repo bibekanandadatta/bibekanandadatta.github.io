@@ -11,7 +11,7 @@ related_posts: true
 #   sidebar: left
 ---
 
-GitHub is phenomenal when it comes to hosting code repositories with the `Git` version control system. As of early 2024, almost everyone, ranging from commercial entities to academic researchers, is sharing their works on GitHub. This has benefited me greatly in terms of learning. However, recently I ran into a rather unconventional issue that I did not know much about previously. I published two different source codes with documentation as educational resources which I wanted to be available for free for learning purposes without violating academic integrity. The viable way to ensure this is to share the contents in a public repository with appropriate licensing and make it citable by others.
+GitHub is amazing when it comes to hosting code repositories with the `Git` version control system. As of early 2024, almost everyone, ranging from commercial entities to academic researchers, is sharing their works on GitHub. This has benefited me greatly in terms of learning. However, recently I ran into a rather unconventional issue that I did not know much about previously. I published two different source codes with documentation as educational resources which I wanted to be available for free for learning purposes without violating academic integrity. The viable way to ensure this is to share the contents in a public repository with appropriate licensing and make it citable by others.
 
 
 ## Licensing
