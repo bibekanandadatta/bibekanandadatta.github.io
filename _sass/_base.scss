@@ -725,7 +725,8 @@ footer.sticky-bottom {
   }
 }
 
-// collapsible blocks: copied from Distill blog post by Bibekananda Datta
+// liquid tage for collapsible blocks: 
+// copied from _distill.scss by Bibekananda Datta
 details {
   color: var(--global-text-color);
   background-color: var(--global-code-bg-color);

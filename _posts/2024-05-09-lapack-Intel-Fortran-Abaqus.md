@@ -3,7 +3,7 @@ layout: post
 title: Using LAPACK libraries with Intel Fortran and Abaqus user subroutine
 date: 2024-05-09 08:00:00-0400
 description: A simple tutorial to compile and link LAPACK libraries with Intel Fortran compiler 
-tags: Intel-oneAPI Abaqus user-subroutine Fortran programming Visual-Studio LAPACK
+tags: Intel-oneAPI Abaqus user-subroutine Fortran programming Visual-Studio LAPACK Finite-element
 categories: tutorial
 giscus_comments: false
 related_posts: true
@@ -46,14 +46,17 @@ end program main
 
 
 subroutine lapack_test()
+  
+  implicit none
 
-  use lapack95, only: gesv
+  integer, parameter :: wp = selected_real_kind(15,307)
+
   integer, parameter :: n = 3
-  double precision :: A(n,n), b(n), x(n)
+  real(wp) :: A(n,n), b(n), x(n)
 
   ! required for original lapack
   integer, parameter :: nrhs = 1
-  integer :: lda, ipiv, ldb, info   
+  integer :: lda, ipiv(n), ldb, info, i
 
   ! testing original lapack routine
   do i = 1, n
@@ -75,12 +78,18 @@ subroutine lapack_test()
 end subroutine lapack_test
 
 subroutine lapack95_test()
-
+  
   use lapack95, only: gesv
+
+  implicit none
+
+  integer, parameter :: wp = selected_real_kind(15,307)
+
   integer, parameter :: n = 3
-  double precision :: A(n,n), b(n), x(n)
+  real(wp) :: A(n,n), b(n), x(n), i
 
   ! testing lapack95 routines
+  ! rebuilding A and b since it was changed
   do i = 1, n
     A(i,1:i-1) = -1.0d0
     A(i,i+1:n) = -1.0d0
@@ -99,7 +108,7 @@ end subroutine lapack95_test
 {% enddetails %}
 
 
-If you are already familiar with Microsoft Visual Studio environment, you can create a project there, compile and link the code to Intel MKL libraries to create the executables. You can find other tutorials or blog to learn how to do that. Here we will use the command line option compile and link the code to generate the executable. Open the **Intel one API Command Prompt for Intel 64 for Visual Studio 2019** terminal from the Windows program menu. A simple Fortran program (without MKL library or external library) can be compiled and linked using:
+If you are already familiar with the Microsoft Visual Studio environment, you can create a project there and compile and link the code to Intel MKL libraries to create the executables. You can find other tutorials or blogs to learn how to do that. Here we will use the command line option to compile and link the code to generate the executable. Open the **Intel one API Command Prompt for Intel 64 for Visual Studio 2019** terminal from the Windows program menu. A simple Fortran program (without MKL library or external library) can be compiled and linked using:
 ``` bash
 ifort -o test test.f90
 ```
@@ -108,7 +117,7 @@ Now to compile and link a Fortran code that includes MKL components, we need to 
 ``` bash
 ifort /Qmkl -o mkl_test mkl_test.f90 mkl_lapack95_ilp64.lib
 ```
-`ifort` is the Intel Fortran compiler, `/Qmkl` option tells compiler to link standard `.lib` files related to MKL (it's a shortcut), and `-o` specifies object file. The last option `mkl_lapack95_ilp64.lib` is to link the LAPACK95 interface library to the object file (this is not a part of the core MKL).
+`ifort` is the Intel Fortran compiler, the `/Qmkl` option tells the compiler to link standard `.lib` files related to MKL (it's a shortcut), and `-o` specifies the object file. The last option `mkl_lapack95_ilp64.lib` is to link the LAPACK95 interface library to the object file (this is not a part of the core MKL).
 
 This will generate the `mkl_test.exe` executable and `mkl_test.obj` object file in the working directory. You can then run the code from any Windows terminal using:
 ``` bash
@@ -179,10 +188,10 @@ Now we will include the `lapack_test()` subroutine to the Abaqus `UEL` subroutin
      4 PREDEF(2,NPREDF,NNODE),LFLAGS(*),JPROPS(*)
 
 
-      ! user coding to define RHS, AMATRX, SVARS, ENERGY, and PNEWDT
+        ! user coding to define RHS, AMATRX, SVARS, ENERGY, and PNEWDT
       
-      call lapack_test()
-      call xit
+        call lapack_test()
+        call xit
 
 
       RETURN
@@ -190,14 +199,18 @@ Now we will include the `lapack_test()` subroutine to the Abaqus `UEL` subroutin
 
 
       subroutine lapack_test()
-        
-        integer, parameter :: n = 3
-        double precision :: A(n,n), b(n), x(n)
       
+        implicit none
+
+        integer, parameter :: wp = selected_real_kind(15,307)
+
+        integer, parameter :: n = 3
+        real(wp) :: A(n,n), b(n), x(n)
+
         ! required for original lapack
         integer, parameter :: nrhs = 1
-        integer :: lda, ipiv, ldb, info   
-      
+        integer :: lda, ipiv(n), ldb, info, i
+
         ! testing original lapack routine
         do i = 1, n
           A(i,1:i-1) = -1.0d0
@@ -205,14 +218,14 @@ Now we will include the `lapack_test()` subroutine to the Abaqus `UEL` subroutin
           A(i,i) = 5.0d0
           b(i)   = i
         end do
-      
+
         x = b
         lda = size(A,1)   ! row count of A
         ldb = size(b)     ! row count of b
-      
+
         ! A returns as LU factorization, x is the solution
         call dgesv(n, nrhs, A, lda, ipiv, x, ldb, info)
-        print *, 'results from lapack subroutine: '
+        print *, 'results from original lapack subroutine: '
         print *, x
 
       end subroutine lapack_test
@@ -222,7 +235,7 @@ Now we will include the `lapack_test()` subroutine to the Abaqus `UEL` subroutin
 
 ### Executing user subroutine with a dummy Abaqus model
 
-Since we chose to test the LAPACK subroutine inside the Abaqus UEL subroutine, we need to build an Abaqus model with a user element. Remember, our Abaqus subroutine does not do anything but perform a simple linear algebra calculation. So we do not need a real Abaqus model, rather we need something minimalistic that can help us to execute the subroutine. Following is a simple example of a user element, where I defined a single 4-node quadrilateral element with one property and static step. We did not apply any boundary or loading condition to this. Copy the following input file and save is as `test.inp` in the working directory.
+Since we chose to test the LAPACK subroutine inside the Abaqus UEL subroutine, we need to build an Abaqus model with a user element. Remember, our Abaqus subroutine does not do anything but perform a simple linear algebra calculation. So we do not need a real Abaqus model, rather we need something minimalistic that can help us to execute the subroutine. Following is a simple example of a user element, where I defined a single 4-node quadrilateral element with one property and static step. We did not apply any boundary or loading condition to this. Copy the following input file and save it as `test.inp` in the working directory.
 
 {% details Click here to see the Abaqus input file %}
 ```
@@ -254,7 +267,7 @@ This will compile and link the user subroutine to the Abaqus executable and run 
 
 ## LAPACK resources
 
-Using LAPACK is not as intuitive or straightforward as using MATLAB or NumPy. Look into the documentation carefully and you can use the following to find what LAPACK subroutines to use and how to use them for specific task.
+Using LAPACK is not as intuitive or straightforward as using MATLAB or NumPy. Look into the documentation carefully and you can use the following to find what LAPACK subroutines to use and how to use them for specific tasks.
 
 - [Intel oneAPI LAPACK Function Finding Advisor](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-function-finding-advisor.html#gs.8k31mo)
 - [LAPACK Examples by NAG library](https://github.com/numericalalgorithmsgroup/LAPACK_examples)
@@ -262,14 +275,14 @@ Using LAPACK is not as intuitive or straightforward as using MATLAB or NumPy. Lo
 
 ## Bonus item: Adding Intel oneAPI Command Prompt to PowerShell and Windows Terminal
 
-You can not run the Intel oneAPI command line from PowerShell terminal directly, but you can run it from the original Windows Command Prompt terminal. However, Command Prompt, even the default old PowerShell (PowerShell 5) does not have the latest features such as auto-completion. If you have not used the new PowerShell, it's highly recommended on Windows. Download and install the [latest version of PowerShell 7 from here](https://github.com/PowerShell/PowerShell). The new PowerShell executable is named as `pwsh.exe`.
+You can not run the Intel oneAPI command line from the PowerShell terminal directly, but you can run it from the original Windows Command Prompt terminal. However, Command Prompt, even the default old PowerShell (PowerShell 5) does not have the latest features such as auto-completion. If you have not used the new PowerShell, it's highly recommended on Windows. Download and install the [latest version of PowerShell 7 from here](https://github.com/PowerShell/PowerShell). The new PowerShell executable is named as `pwsh.exe`.
 
-[Windows Terminal App](https://learn.microsoft.com/en-us/windows/terminal/) is great managing different Shell profiles. Terminal does not have to be boring; you can customize your terminal experience a lot using this app. Download and install the [Windows Terminal app from here](https://github.com/microsoft/terminal). Once installed, you can manage different Shell profiles there (Cmd, PowerShell, pwsh, WSL, etc.). To add Intel oneAPI profile there,
+[Windows Terminal App](https://learn.microsoft.com/en-us/windows/terminal/) is great at managing different Shell profiles. Terminal does not have to be boring; you can customize your terminal experience a lot using this app. Download and install the [Windows Terminal app from here](https://github.com/microsoft/terminal). Once installed, you can manage different Shell profiles there (Cmd, PowerShell, pwsh, WSL, etc.). To add the Intel oneAPI profile there,
 
 - Open the app, and from the dropdown menu on the top bar, click on **Settings**.
 
-- Now scroll down along the left-side menu bar, click add a new profile, select the option **Empty New Profil**. Name the new profile as **Intel oneAPI** and add the following following to the **Command Line** option.
+- Now scroll down along the left-side menu bar, click **Add a new Profile**, and select the option **Empty New Profil**. Name the new profile as **Intel oneAPI** and add the following following to the **Command Line** option.
   ``` bash
   cmd.exe /k ""C:\Program Files (x86)\Intel\oneAPI\setvars.bat" intel64 vs2019" && pwsh
   ```
-  Other options to set the new profile are trivial. Now you can save the profile. When you start the profile from the Terminal app, this will execute Windows command prompt first, then it will set the environment variables for Intel oneAPI and Visual Studio, and then run the new PowerShell 7 (`pwsh.exe`). You can now compile and build program using Intel Fortran in a modern terminal environment.
+  Other options to set the new profile are trivial. Now you can save the profile. When you start the profile from the Terminal app, this will execute the Windows command prompt first, then it will set the environment variables for Intel oneAPI and Visual Studio, and then run the new PowerShell 7 (`pwsh.exe`). You can now compile and build programs using Intel Fortran in a modern terminal environment.
