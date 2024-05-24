@@ -14,7 +14,8 @@ related_posts: true
 
 ## What is Linear Algebra PACKage (LAPACK)
 
-Linear Algebra PACKage (LAPACK) is a Fortran-based efficient library for linear algebraic operations shared under a 3-Clause BSD License. Original LAPACK was written in FORTRAN 77 but later moved to Fortran 90. Many programming languages have interfaces or wrappers for the LAPACK library. The original LAPACK is hosted on [Netlib](https://www.netlib.org/lapack/), but many software companies have their own implementations of LAPACK such as Intel has its own version of LAPACK included in the Math Kernel Library (MKL) as a part of the Intel oneAPI package and Apple has its LAPACK library within the Accelerate framework. There are also simplified Fortran 95 interface libraries to the original LAPACK however it is not standardized and interfaces vary among different implementations. With LAPACK, you do not need to write standard linear algebraic procedures. See the [Netlib LAPACK documentation](https://www.netlib.org/lapack/explore-html/) to see what type of subroutines are available in LAPACK. The primary objective of this blog is to test the LAPACK library from Intel MKL with Abaqus user subroutines.
+Linear Algebra PACKage (LAPACK) is a Fortran-based efficient library for linear algebraic operations shared under a 3-Clause BSD License. Original LAPACK was written in FORTRAN 77 but later moved to Fortran 90. Many programming languages and their packages have interfaces or wrappers for the original LAPACK library. The original LAPACK is hosted on [Netlib](https://www.netlib.org/lapack/), but many software companies have their own implementations of LAPACK such as Intel has its own version of LAPACK included in the Math Kernel Library (MKL) as a part of the Intel oneAPI package and Apple has its LAPACK library within the Accelerate framework. There are also simplified Fortran 95 interface libraries to the original LAPACK however it is not standardized and interfaces vary among different implementations. With LAPACK, you do not need to write standard linear algebraic procedures. Check the [LAPACK documentation on Netlib](https://www.netlib.org/lapack/explore-html/) to see what type of subroutines are available in LAPACK. The primary objective of this blog is to test the LAPACK library from Intel MKL with Abaqus user subroutines.
+
 
 
 ## Installing Visual Studio and Intel oneAPI
@@ -22,11 +23,12 @@ Linear Algebra PACKage (LAPACK) is a Fortran-based efficient library for linear 
 To use LAPACK subroutines from the Intel MKL in your Fortran codes, first, you need to have Microsoft Visual Studio and Intel oneAPI Toolkits (Base and HPC) installed.
 
 The community edition of Microsoft Visual Studio is free and the Intel oneAPI has been free for the last few years.
-- Make sure to install compatible versions of Microsoft Visual Studio and Intel oneAPI packages. Use Google to find the compatible versions. Hyperlinks to the Intel website for the developers' guide never work.
+- Make sure to install compatible versions of Microsoft Visual Studio and Intel oneAPI packages. Use Google to find information about compatible versions. Hyperlinks to the Intel website for the developers' guide never work.
 - Install Visual Studio first. The installation procedure is simple, and stick to the default option, but make sure to select the **Desktop development with C++** option during installation.
 - Now proceed to Install oneAPI packages; first the Base Toolkit and then the HPC Toolkit. Stick to the default installation procedure. Intel oneAPI packages should be installed in the `C:\Program Files (x86)\Intel\oneAPI` directory.
 
 Once the installation is complete, you can access **Intel oneAPI Command Prompt** from the Program Menu on Windows.
+
 
 
 
@@ -46,23 +48,22 @@ end program main
 
 
 subroutine lapack_test()
-  
+! subroutine for testing original lapack routine
+
   implicit none
 
   integer, parameter :: wp = selected_real_kind(15,307)
-
-  integer, parameter :: n = 3
-  real(wp) :: A(n,n), b(n), x(n)
+  integer, parameter  :: n = 3
+  real(wp)            :: A(n,n), b(n), x(n)
 
   ! required for original lapack
-  integer, parameter :: nrhs = 1
-  integer :: lda, ipiv(n), ldb, info, i
+  integer, parameter  :: nrhs = 1
+  integer             :: lda, ipiv(n), ldb, info, i
 
-  ! testing original lapack routine
   do i = 1, n
-    A(i,1:i-1) = -1.0d0
-    A(i,i+1:n) = -1.0d0
-    A(i,i) = 5.0d0
+    A(i,1:i-1) = -1.0_wp
+    A(i,i+1:n) = -1.0_wp
+    A(i,i) = 5.0_wp
     b(i)   = i
   end do
 
@@ -70,7 +71,7 @@ subroutine lapack_test()
   lda = size(A,1)   ! row count of A
   ldb = size(b)     ! row count of b
 
-  ! A returns as LU factorization, x is the solution
+  ! A returns as A = P*L*U factorization, x is the solution
   call dgesv(n, nrhs, A, lda, ipiv, x, ldb, info)
   print *, 'results from original lapack subroutine: '
   print *, x
@@ -78,27 +79,27 @@ subroutine lapack_test()
 end subroutine lapack_test
 
 subroutine lapack95_test()
-  
+! subroutine to test lapack95 routine
+
   use lapack95, only: gesv
 
   implicit none
 
-  integer, parameter :: wp = selected_real_kind(15,307)
+  integer, parameter  :: wp = selected_real_kind(15,307)
+  integer, parameter  :: n = 3
+  real(wp)            :: A(n,n), b(n), x(n)
+  integer             :: i
 
-  integer, parameter :: n = 3
-  real(wp) :: A(n,n), b(n), x(n), i
-
-  ! testing lapack95 routines
   ! rebuilding A and b since it was changed
   do i = 1, n
-    A(i,1:i-1) = -1.0d0
-    A(i,i+1:n) = -1.0d0
-    A(i,i) = 5.0d0
+    A(i,1:i-1) = -1.0_wp
+    A(i,i+1:n) = -1.0_wp
+    A(i,i) = 5.0_wp
     b(i)   = i
   end do
 
   x = b
-  ! A returns as LU factorization, x is the solution
+  ! A returns as A=P*L*U factorization, x is the solution
   call gesv(A,x)    
   print *, 'results from lapack95 module: '
   print *,x
@@ -124,7 +125,8 @@ This will generate the `mkl_test.exe` executable and `mkl_test.obj` object file 
 ./mkl_test
 ```
 
-This will now execute and print out results from two different subroutines used in the code. Now LAPACK95 interfaces may appeal to you more than the original LAPACK subroutines because of the simplicity. But there is a caveat, LAPACK95 implementations are not as universal as the original LAPACK. LAPACK95 interfaces included in the Intel MKL and provided by Netlib are different. Your codes may have compatibility issues based on which library and compiler are being used. So it is probably best to use the original LAPACK subroutines and write your own wrappers.
+This will now execute and print out results from two different subroutines used in the code. Now LAPACK95 interfaces may appeal to you more than the original LAPACK subroutines because of the simplicity. But there is a caveat, LAPACK95 implementations are not as universal as the original LAPACK. LAPACK95 interfaces included in the Intel MKL and provided by Netlib are different. To avoid compatibility issues, it is probably better to use the keywords when calling a LAPACK95 subroutine.
+
 
 > ##### TIP
 >
@@ -141,7 +143,7 @@ If you are looking to use LAPACK with Abaqus user subroutines, I am assuming, yo
 > You need to have **admin** access to make changes described in that blog post. If you are working on a shared computer cluster, ask the **system administrator** to make changes for you.
 
 
-In case you do not have **admin** access or are unable to make changes for compatibility reasons, you can add a `abaqus_v6.env` file to your home directory or project's working directory with customized compiling options as shown below for Windows platform. Notice,
+In case you are unable to make changes to the environment file in the installation directory for compatibility reasons, you can add a `abaqus_v6.env` file to your home directory or the project's working directory with customized compiling options as shown below for Windows.
 
 ``` bash
 # job-specific abaqus_v6 environment file (Windows)
@@ -150,27 +152,19 @@ In case you do not have **admin** access or are unable to make changes for compa
 compile_fortran += ['/Qmkl:sequential']
 ```
 
-For Linux, you need to change the compiler option to `-mkl=sequential` like below.
-``` bash
-# job-specific abaqus_v6 environment file (Linux)
-# this should be located in the working directory
-
-compile_fortran += ['-mkl=sequential']
-```
-
-This command will extend the default compiler options provided by Abaqus.
+If you are using Abaqus with Intel Fortran compiler on Linux, the compiler option needs to be `-mkl=sequential`. This command will extend the default compiler options provided by Abaqus and let you compile user subroutines that uses functions and routines from the Intel oneMKL library.
 
 
 > ##### TIP
 >
-> If you write an Abaqus user subroutine that uses Intel MKL or other external libraries, it is perhaps better to share the `abaqus_v6.env` file with other users to execute your code.
+> It is possible to add `compile_fortran += ['/free']` (Windows) or `compile_fortran += ['-free']` (Linux) to the `abaqus_v6.env` file to execute free form Fortran codes as Abaqus subroutine. You will also need to change the Abaqus-provided fixed-form subroutine interface to a free-form one. Multiple compile options can be added to this way by seperating each option by a comma (,). If your subroutine requires additional compiling or linking options, it is perhaps better to share the customized `abaqus_v6.env` file with other users to execute the code.
 {: .block-tip }
 
 
 
 ### Writing and testing Abaqus user subroutine with LAPACK
 
-Now we will include the `lapack_test()` subroutine to the Abaqus `UEL` subroutine interface. For the simple (and dummy) model we built, Abaqus will call the `UEL` subroutine for that. Within the `UEL` subroutine, we call the `lapack_test()` followed by calling the `xit` function from Abaqus to terminate the program. Copy and save the following code as `uel_mkl.for` in your working directory.
+Now we will include the `lapack_test()` subroutine to the Abaqus `UEL` subroutine interface. For the simple (and dummy) model we built, Abaqus will call the `UEL` subroutine for that. Within the `UEL` subroutine, we call the `lapack_test()` followed by calling the `xit` function from Abaqus to terminate the program. Copy and save the following code as `uel_mkl.for` in your working directory. For simplicity, we will use the fixed-form UEL interface provided by Abaqus in its documentation.
 
 {% details Click here to see the Abaqus UEL subroutine code %}
 ``` fortran 
@@ -186,36 +180,30 @@ Now we will include the `lapack_test()` subroutine to the Abaqus `UEL` subroutin
      2 DU(MLVARX,*),V(NDOFEL),A(NDOFEL),TIME(2),PARAMS(*),
      3 JDLTYP(MDLOAD,*),ADLMAG(MDLOAD,*),DDLMAG(MDLOAD,*),
      4 PREDEF(2,NPREDF,NNODE),LFLAGS(*),JPROPS(*)
-
-
-        ! user coding to define RHS, AMATRX, SVARS, ENERGY, and PNEWDT
+     
       
         call lapack_test()
+
         call xit
 
-
-      RETURN
-      END
+      END SUBROUTINE UEL
 
 
       subroutine lapack_test()
       
         implicit none
 
-        integer, parameter :: wp = selected_real_kind(15,307)
+        integer, parameter  :: wp = selected_real_kind(15,307)
+        integer, parameter  :: n = 3
+        real(wp)            :: A(n,n), b(n), x(n)
 
-        integer, parameter :: n = 3
-        real(wp) :: A(n,n), b(n), x(n)
+        integer, parameter  :: nrhs = 1
+        integer             :: lda, ipiv(n), ldb, info, i
 
-        ! required for original lapack
-        integer, parameter :: nrhs = 1
-        integer :: lda, ipiv(n), ldb, info, i
-
-        ! testing original lapack routine
         do i = 1, n
-          A(i,1:i-1) = -1.0d0
-          A(i,i+1:n) = -1.0d0
-          A(i,i) = 5.0d0
+          A(i,1:i-1) = -1.0_wp
+          A(i,i+1:n) = -1.0_wp
+          A(i,i) = 5.0_wp
           b(i)   = i
         end do
 
@@ -231,6 +219,7 @@ Now we will include the `lapack_test()` subroutine to the Abaqus `UEL` subroutin
       end subroutine lapack_test
 ```
 {% enddetails %}
+
 
 
 ### Executing user subroutine with a dummy Abaqus model
@@ -265,12 +254,25 @@ abaqus interactive job=test user=uel_mkl.for
 
 This will compile and link the user subroutine to the Abaqus executable and run it from the command line. As we already discussed, this is not a real Abaqus model or user subroutine code, we are not hoping to get any real finite element result. Executing this subroutine will just print out the same output as before on the terminal before exiting Abaqus with an error (remember, we used `xit` function for termination).
 
-## LAPACK resources
+## Fortran and LAPACK resources
+
+Since Fortran has been revised multiple times to include new features, it may make you a bit confused when you look at the legacy code vs how Fortran codes are written today. It is good to know the features from the older Fortran standard and modern Fortran standard and follow a consistent style in developing subroutines. Some resources that may help in that regard are:
+
+- [Fortran users community website (fortran-lang.org)](https://fortran-lang.org)
+- [Fortran Wiki](https://fortranwiki.org/fortran/show/HomePage)
+- [Best practices from Fortran90.org](https://www.fortran90.org/src/best-practices.html)
+- [Modern Fortran materials by Anne Fouilloux](http://annefou.github.io/Fortran/)
+- [Best practices for writing Abaqus user subroutine](https://bristolcompositesinstitute.github.io/RSE-Guide/abaqus-user-subroutines/index.html)
+
 
 Using LAPACK is not as intuitive or straightforward as using MATLAB or NumPy. Look into the documentation carefully and you can use the following to find what LAPACK subroutines to use and how to use them for specific tasks.
 
-- [Intel oneAPI LAPACK Function Finding Advisor](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-function-finding-advisor.html#gs.8k31mo)
-- [LAPACK Examples by NAG library](https://github.com/numericalalgorithmsgroup/LAPACK_examples)
+- [LAPACK Function Finding Advisor for Intel oneMKL](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-function-finding-advisor.html)
+- [LAPACK examples by NAG library](https://github.com/numericalalgorithmsgroup/LAPACK_examples)
+- [LAPACK resources from Oregon State University](https://sites.science.oregonstate.edu/~landaur/nacphy/lapack/index.html)
+
+Intel also has LAPACK implementation examples from oneMKL avaiable online, but I am afraid to share the hyperlinks as they often change. It is better to search online when needed. Additionally, the same examples can be found in one of the Intel oneAPI  installation subdirectories.
+
 
 
 ## Bonus item: Adding Intel oneAPI Command Prompt to PowerShell and Windows Terminal
@@ -285,4 +287,4 @@ You can not run the Intel oneAPI command line from the PowerShell terminal direc
   ``` bash
   cmd.exe /k ""C:\Program Files (x86)\Intel\oneAPI\setvars.bat" intel64 vs2019" && pwsh
   ```
-  Other options to set the new profile are trivial. Now you can save the profile. When you start the profile from the Terminal app, this will execute the Windows command prompt first, then it will set the environment variables for Intel oneAPI and Visual Studio, and then run the new PowerShell 7 (`pwsh.exe`). You can now compile and build programs using Intel Fortran in a modern terminal environment.
+  Make sure you have the correct version of Visual Studio instead of `vs2019`. Other options to set the new profile are trivial. Now you can save the profile. When you start the profile from the Terminal app, this will execute the Windows command prompt first, then it will set the environment variables for Intel oneAPI and Visual Studio, and then run the new PowerShell 7 (`pwsh.exe`). You can now compile and build programs using Intel Fortran in a modern terminal environment.
