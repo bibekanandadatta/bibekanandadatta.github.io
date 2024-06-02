@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Using LAPACK libraries with Intel Fortran and Abaqus user subroutine
+title: Using LAPACK libraries with Intel Fortran and Abaqus user subroutines
 date: 2024-05-09 08:00:00-0400
 description: A simple tutorial to compile and link LAPACK libraries with Intel Fortran compiler 
-tags: Intel-oneAPI Abaqus user-subroutine Fortran programming Visual-Studio LAPACK Finite-element
+tags: Intel-MKL Intel-oneAPI Abaqus user-subroutines Fortran programming Visual-Studio LAPACK Finite-element
 categories: tutorial
 giscus_comments: false
 related_posts: true
@@ -52,7 +52,7 @@ subroutine lapack_test()
 
   implicit none
 
-  integer, parameter :: wp = selected_real_kind(15,307)
+  integer, parameter  :: wp = selected_real_kind(15,307)
   integer, parameter  :: n = 3
   real(wp)            :: A(n,n), b(n), x(n)
 
@@ -180,7 +180,7 @@ Now we will include the `lapack_test()` subroutine to the Abaqus `UEL` subroutin
      2 DU(MLVARX,*),V(NDOFEL),A(NDOFEL),TIME(2),PARAMS(*),
      3 JDLTYP(MDLOAD,*),ADLMAG(MDLOAD,*),DDLMAG(MDLOAD,*),
      4 PREDEF(2,NPREDF,NNODE),LFLAGS(*),JPROPS(*)
-     
+
       
         call lapack_test()
 
@@ -271,7 +271,7 @@ Using LAPACK is not as intuitive or straightforward as using MATLAB or NumPy. Lo
 - [LAPACK examples by NAG library](https://github.com/numericalalgorithmsgroup/LAPACK_examples)
 - [LAPACK resources from Oregon State University](https://sites.science.oregonstate.edu/~landaur/nacphy/lapack/index.html)
 
-Intel also has LAPACK implementation examples from oneMKL avaiable online, but I am afraid to share the hyperlinks as they often change. It is better to search online when needed. Additionally, the same examples can be found in one of the Intel oneAPI  installation subdirectories.
+Intel also has LAPACK implementation examples from oneMKL avaiable online, but I am afraid to share the hyperlinks as they often change. It is better to search online when needed. Additionally, the same examples can be found in one of the Intel oneAPI installation subdirectories.
 
 
 
