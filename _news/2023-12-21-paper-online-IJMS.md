@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Paper on the modeling of fiber-reinforced composite [in IJMS is now available online](https://www.sciencedirect.com/science/article/pii/S0022509624000346).
+Paper on the modeling of fiber-reinforced composite [in IJMS is now available online](https://doi.org/10.1016/j.ijmecsci.2023.108919).
