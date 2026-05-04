@@ -38,6 +38,7 @@ For the first time, I used ABAQUS 2020, Microsoft Visual Studio 2019, and Intel 
 Abaqus user-defined features are only available through its academic (research) or commercial license which you should obtain from your university or workplace. The Abaqus Installation process is trivial depending on how you obtain the executables. While you going through the installation process, make sure to install **Abaqus with CAA API components**. ABAQUS should be installed in the `C:\SIMULIA` directory. This should install Abaqus/CAE and Abaqus/Viewer in the process.
 
 
+
 ### Microsoft Visual Studio
 
 Intel oneAPI 2021 supports Visual Studio 2017 and Visual Studio 2019. I used the latest one, VS 2019, at that time. Community Edition of Visual Studio is available for free, so download that edition.
@@ -45,6 +46,7 @@ Intel oneAPI 2021 supports Visual Studio 2017 and Visual Studio 2019. I used the
 Once you downloaded the installer, click on it to start the installation process. On the installation page, please select `Desktop development with C++` and keep the rest of the default. It will take a few minutes to install.
 
 > If you are downloading a newer version of Microsoft Visual Studio, please make sure it is compatible with the Intel oneAPI version that you have.
+
 
 
 ### Intel oneAPI
@@ -77,10 +79,12 @@ While the installation of the software packages is a cakewalk, it gets complicat
 2. Navigate to the `C:\SIMULIA\Commands` directory and open the `abq2020.bat` (or the version you installed) file with any text editor. In the beginning of the file, add the following lines to the file and **save it as administrator**.
 
     ``` 
-    SET PATH=%PATH%; C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\windows\bin\intel64; call "C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\env\vars.bat" intel64
+    SET PATH=%PATH%; 
+    C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\windows\bin\intel64; 
+    call "C:\Program Files (x86)\Intel\oneAPI\compiler\2021.1.1\env\vars.bat" intel64
     ```
 
-As you can see, the `PATH` in the first line is the `PATH` for ifort compiler executables which was copied during installation. The second line is calling the batch file for the ifort compiler which sets the environment variables when ABAQUS is invoked.
+As you can see, the `PATH` in the second line is the `PATH` for ifort compiler executable. The third line is calling the batch file for the ifort compiler which sets the environment variables when ABAQUS is invoked.
 
 
 ### Method 2: GUI Approach
@@ -104,6 +108,7 @@ As you can see, the `PATH` in the first line is the `PATH` for ifort compiler ex
 
 
 
+
 ## Verify Linking and Installation
 
 Open Abaqus Command (you can also do it from cmd or Powershell terminal) from the Windows menu and type `abaqus info=system`. It should show system information as follows, including the new compiler and linker information.
@@ -121,15 +126,18 @@ To verify further, type `abaqus verify -user_std` and/ or `abaqus verify -user_e
 
 
 
+
 ### A bug fix for Abaqus 2019/2020
 
 If you still have issues compiling user subroutines, one of the possible bugs could be fixed by following the approach. I experienced this issue when I installed Abaqus 2019 and 2020, they are fixed now. However, at that time, SIMULIA suggested the following to make then-new Intel oneAPI Toolkits compatible with Abaqus. 
 
-Please navigate to the `C:\Program Files\Dassault Systemes\SimulationServices\V6R2020x\win_b64\SMA\site` directory and locate the `abaqus_v6.env` file. Open the file using a text editor, add the following line at the end of the file, and **save the file as administrator**.
+Please navigate to the `C:\SIMULIA\EstProducts\2020\win_b64\SMA\site` directory and locate the `abaqus_v6.env` file. Open the file using a text editor, add the following line at the end of the file, and **save the file as administrator**.
 
 ```
 compile_fortran += ['/names:lowercase',]
 ```
+
+
 
 ## Linking Intel oneMKL Library with Abaqus
 
