@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: PhD student, <a href="https://me.jhu.edu"> Mechanical Engineering, Johns Hopkins University, Baltimore, MD.</a>
+subtitle: Postdoctoral Research Associate, Los Alamos National Laboratory, Los Alamos, NM
 
 profile:
   align: right
