@@ -1,41 +1,13 @@
 {
   "basics": {
     "name": "Bibekananda Datta",
-    "label": "PhD student in Mechanical Engineering",
+    "label": "Postdoctoral Research Associate",
     "image": "",
     "email": "",
     "phone": "",
     "url": "https://bibekanandadatta.com",
-    "summary": "Mechanical engineer with interests in understanding material behaviors through computation and experiments.",
-    "location": {
-      "address": "Latrobe 229, 3400 N. Charles St.",
-      "postalCode": "MD 21218",
-      "city": "Baltimore",
-      "countryCode": "US",
-      "region": "Maryland"
-    },
-    "profiles": [
-      // {
-      //   "network": "Twitter",
-      //   "username": "AlbertEinstein",
-      //   "url": "https://twitter.com/AlbertEinstein"
-      // }
-    ]
+    "summary": "Mechanical engineer by training with interests in understanding material behaviors through theory, computation, and experiments."
   },
-
-  // "languages": [
-  //   {
-  //     "language": "English",
-  //     "fluency": "Professional/Native",
-  //     "icon": ""
-  //   },
-  //   {
-  //     "language": "Bangla",
-  //     "fluency": "Native/Professional",
-  //     "icon": ""
-  //   }
-  // ],
-
   "education": [
     {
       "institution": "Johns Hopkins University",
@@ -44,9 +16,7 @@
       "area": "Mechanical Engineering",
       "studyType": "PhD",
       "startDate": "2020-08-30",
-      "endDate": "Present"
-      // "score": "10",
-      // "courses": ["Theory of Relativity"]
+      "endDate": "2020-08-30"
     },
     {
       "institution": "Washingon State University",
@@ -56,8 +26,6 @@
       "studyType": "MS",
       "startDate": "2017-08-15",
       "endDate": "2019-08-30"
-      // "score": "10",
-      // "courses": ["Theory of Relativity"]
     },
     {
       "institution": "Bangladesh University of Engineering and Technology",
@@ -67,8 +35,6 @@
       "studyType": "BS",
       "startDate": "2012-05-07",
       "endDate": "2017-02-27"
-      // "score": "10",
-      // "courses": ["Theory of Relativity"]
     }
   ],
   
@@ -79,19 +45,12 @@
       "date": "2021-08",
       "awarder": "Society of Engineering Science (SES)",
       "url": "https://me.jhu.edu/news/graduate-students-win-poster-awards-at-2021-ses-conference/"
-      // "summary": "'"
     },
     {
-    "title": "Dean's Scholarship",
-    "date": "2012",
-    "awarder": "Bangladesh University of Engineering and Technology"
-  },
-  {
-    "title": "Technical Scholarship",
-    "startDate": "2012",
-    "endDate": "2017",
-    "awarder": "Bangladesh University of Engineering and Technology"
-  }
+      "title": "Dean's Scholarship",
+      "date": "2012",
+      "awarder": "Bangladesh University of Engineering and Technology"
+    }
   ],
 
   "interests": [
@@ -100,18 +59,19 @@
       "icon": "fa-solid fa-tag",
       "keywords": [
         "Continuum mechanics",
+        "Multiphysics theory",
         "Micromechanics",
-        "Computational mechanics"
+        "Computational methods"
       ]
     },
     {
       "name": "Materials",
       "icon": "fa-solid fa-tag",
       "keywords": [
-        "Active soft materials",
-        "Hydrogels",
-        "Biological tissues",
-        "Characterization"
+        "Polymers",
+        "Active hydrogels",
+        "Porous materials",
+        "Additively manufactured materials"
       ]
     }
   ],
@@ -122,9 +82,9 @@
       "level": "",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "C",
         "Fortran",
         "MATLAB",
+        "C",
         "Python"
       ]
     },
@@ -138,28 +98,27 @@
         "LS-DYNA",
         "FEniCSx"
       ]
-    },
-    {
-      "name": "Characterization",
-      "level": "",
-      "icon": "fa-solid fa-hashtag",
-      "keywords": [
-       "Universal testing (UTM)",
-       "Dynamic mechanical analyzer (DMA)",
-       "Differential scanning calorimetry (DSC)"
-      ]
     }
   ],
 
   "work": [
     {
+      "name": "Los Alamos National Laboratory",
+      "position": "Postdoctoral Research Associate",
+      "url": "",
+      "startDate": "2025-10",
+      "endDate": "Present",
+      "summary": "Theoretical and computational modeling of polymers in extreme environments."
+      // "highlights": ["Polymers", "Computational methods", "Applied mechanics"]
+    },
+    {
       "name": "Johns Hopkins University",
       "position": "Graduate Research Assistant",
       "url": "https://nguyenlab.wse.jhu.edu",
       "startDate": "2020-08",
-      "endDate": "Present",
-      "summary": "Conducting research on understanding the multiphysics behaviors of soft hydrogel materials for soft sensing/ robotics, energy and water harvesting applications.",
-      "highlights": ["Soft material", "Computational methods", "Applied mechanics"]
+      "endDate": "2025-08",
+      "summary": "Performed research on understanding the multiphysics behaviors of soft hydrogel materials for soft sensing/ robotics, energy and water harvesting applications."
+      // "highlights": ["Soft material", "Computational methods", "Applied mechanics"]
     },
     {
       "name": "Washington State University",
@@ -168,7 +127,6 @@
       "startDate": "2019-08",
       "endDate": "2020-07",
       "summary": "Developed continuum dislocation plasticity model for additively manufactured metals and taught classes on numerical method-based engineering analysis."
-      // "highlights": []
     },
     {
       "name": "Washington State University",
@@ -181,65 +139,25 @@
     }
   ],
 
-  // "certificates": [
-  //   {
-  //     "name": "Machine Learning",
-  //     "date": "2018-01-01",
-  //     "issuer": "Stanford University",
-  //     "url": "https://example.com",
-  //     "icon": "fa-solid fa-location-dot"
-  //   },
-  //   {
-  //     "name": "Quantum Computing",
-  //     "date": "2018-01-01",
-  //     "issuer": "Stanford University",
-  //     "url": "https://example.com",
-  //     "icon": "fa-solid fa-tag"
-  //   },
-  //   {
-  //     "name": "Quantum Information",
-  //     "date": "2018-01-01",
-  //     "issuer": "Stanford University",
-  //     "url": "https://example.com",
-  //     "icon": "fa-solid fa-envelope"
-  //   },
-  //   {
-  //     "name": "Quantum Cryptography",
-  //     "date": "2018-01-01",
-  //     "issuer": "Stanford University",
-  //     "url": "https://example.com",
-  //     "icon": "fa-solid fa-hashtag"
-  //   },
-  //   {
-  //     "name": "Quantum Communication",
-  //     "date": "2018-01-01",
-  //     "issuer": "Stanford University",
-  //     "url": "https://example.com",
-  //     "icon": "fa-solid fa-calendar"
-  //   },
-  //   {
-  //     "name": "Quantum Teleportation",
-  //     "date": "2018-01-01",
-  //     "issuer": "Stanford University",
-  //     "url": "https://example.com",
-  //     "icon": "fa-solid fa-clipboard-check"
-  //   }
-  // ],
 
   "publications": [
+    {
+      "name": "A finite viscoelastic constitutive model for low to high strain rate response of elastomers with application of strain rate-induced glass transition",
+      "publisher": "Journal of the Mechanics and Physics of Solids",
+      "releaseDate": "2026-08",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0022509626001882"
+    },
     {
       "name": "A Reactive Electrochemomechanical Theory for Growth and Remodeling of Polyelectrolyte Hydrogels and Application to Dynamic Polymerization of DNA Hydrogels",
       "publisher": "Journal of the Mechanics and Physics of Solids",
       "releaseDate": "2024-05",
       "url": "https://www.sciencedirect.com/science/article/abs/pii/S0022509624000346"
-      // summary: {}
     },
     {
       "name": "Untethered Unidirectionally Crawling Gels Driven by Asymmetry in Contact Forces",
       "publisher": "Science Robotics",
       "releaseDate": "2022-12",
       "url": "https://www.science.org/doi/10.1126/scirobotics.add2903"
-      // summary: {}
     }
   ],
 
@@ -247,44 +165,15 @@
     {
       "organization": "MechE, Johns Hopkins University",
       "position": "Organizer, Mechanics and Materials Seminar",
-      // "url": "https://example.com",
       "startDate": "2023-08-30",
       "endDate": "2024-04-29",
       "summary": "Organized student-run seminar classes, managed communication, presentation schedule, speaker invitations, and food distribution."
-      // "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
     },
     {
       "organization": "Bandhan, Bangladesh Univ. Engg. and Tech.",
       "position": "Blood Donor",
-      // "url": "https://example.com",
       "startDate": "2012-05",
       "endDate": "2016-12"
-      // "summary": "Organized student-run seminar classes, managed communication, presentation schedule, speaker invitations, and food distribution."
-      // "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
-    }
-  ],
-
-  // "references": [
-  //   {
-  //     "name": "Professor John Doe",
-  //     "icon": "fa-solid fa-laptop",
-  //     "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-  //   },
-  //   {
-  //     "name": "Professor John Doe",
-  //     "icon": "fa-solid fa-thumbtack",
-  //     "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-  //   }
-  // ],
-
-  "projects": [
-    {
-      "name": "Modeling Stimuli-responsive Behaviors of Hydrogels",
-      "summary": "Developing multiphysics framework, constitutive models, and numerical implementation to study stimuli-responsive behaviors of hydrogels for soft robotics and water harvesting applications",
-      "highlights": ["Continuum mechanics", "Finite element"],
-      "startDate": "2020-08",
-      "endDate": "Present"
-      // "url": "https://example.com"
     }
   ]
 }
